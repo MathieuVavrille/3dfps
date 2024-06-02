@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://dbkgi1f66s332"]
+
+[ext_resource type="Texture2D" uid="uid://0fu4rt4xnaen" path="res://assets/fabric_pattern_07_4k.blend/textures/fabric_pattern_07_col_1_4k.png" id="1_7wsg5"]
+[ext_resource type="Script" path="res://player.gd" id="1_ohd6e"]
+[ext_resource type="PackedScene" uid="uid://ck7ryislam6oq" path="res://bars/bar.tscn" id="3_f828f"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_w4277"]
+radius = 0.25
+height = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1xie6"]
+albedo_texture = ExtResource("1_7wsg5")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_e0bx1"]
+radius = 0.05
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t2ihc"]
+size = Vector3(0.125, 0.01, 0.125)
+
+[sub_resource type="Environment" id="Environment_j1jnp"]
+fog_sky_affect = 0.0
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mje8m"]
+radius = 0.05
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_e0lgv"]
+radius = 0.05
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_ohd6e")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.05, 0)
+mesh = SubResource("SphereMesh_w4277")
+surface_material_override/0 = SubResource("StandardMaterial3D_1xie6")
+
+[node name="BodyCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+shape = SubResource("SphereShape3D_e0bx1")
+
+[node name="FeetCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.02, 0)
+shape = SubResource("BoxShape3D_t2ihc")
+
+[node name="RotationHelper" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+
+[node name="Camera" type="Camera3D" parent="RotationHelper"]
+environment = SubResource("Environment_j1jnp")
+near = 0.01
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Bar" parent="CanvasLayer" instance=ExtResource("3_f828f")]
+position = Vector2(84, 81)
+scale = Vector2(0.1, 0.1)
+
+[node name="Areas" type="Node3D" parent="."]
+
+[node name="HidingScan" type="Area3D" parent="Areas"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/HidingScan"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+shape = SubResource("SphereShape3D_mje8m")
+
+[node name="HealScan" type="Area3D" parent="Areas"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/HealScan"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+shape = SubResource("SphereShape3D_e0lgv")
+
+[connection signal="area_entered" from="Areas/HidingScan" to="." method="_on_hiding_scan_area_entered"]
+[connection signal="area_entered" from="Areas/HealScan" to="." method="_on_heal_scan_area_entered"]

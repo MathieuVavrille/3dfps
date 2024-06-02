@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c04vjtmaaglvj"]
+
+[ext_resource type="ArrayMesh" uid="uid://cld0jn0cqfcq4" path="res://assets/Ultimate House Interior Pack - June 2020/OBJ/Light_Ceiling2.obj" id="1_xpeoa"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_k72pm"]
+radius = 0.181337
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_xygpe"]
+height = 0.66852
+radius = 0.0145108
+
+[node name="StaticBody3D" type="StaticBody3D"]
+
+[node name="LightCeiling2" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_xpeoa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.829603, 0)
+shape = SubResource("SphereShape3D_k72pm")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.346663, 0)
+shape = SubResource("CylinderShape3D_xygpe")

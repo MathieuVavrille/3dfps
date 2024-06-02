@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsrtuk08q0hwe"]
+
+[ext_resource type="Script" path="res://fog/fog_area.gd" id="1_l727t"]
+
+[sub_resource type="FogMaterial" id="FogMaterial_pl5mh"]
+density = 5.0
+emission = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0gwmm"]
+
+[node name="HidingFog" type="FogVolume"]
+material = SubResource("FogMaterial_pl5mh")
+script = ExtResource("1_l727t")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_0gwmm")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]

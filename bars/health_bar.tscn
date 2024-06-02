@@ -1,0 +1,29 @@
+[gd_scene load_steps=8 format=3 uid="uid://rb54hpqwdo7p"]
+
+[ext_resource type="PackedScene" uid="uid://ck7ryislam6oq" path="res://bars/bar.tscn" id="1_f1eif"]
+[ext_resource type="Texture2D" uid="uid://b883agd361uhe" path="res://bars/sprites/red/meter_bar_holder_center-repeating_red.png" id="2_vfw2p"]
+[ext_resource type="Texture2D" uid="uid://b65rha7k4k0su" path="res://bars/sprites/red/meter_bar_holder_right_edge_red.png" id="3_tjm81"]
+[ext_resource type="Texture2D" uid="uid://dt2gyrfx7dylw" path="res://bars/sprites/red/meter_bar_center-repeating_red.png" id="4_auulg"]
+[ext_resource type="Texture2D" uid="uid://c1ikq4voutl3v" path="res://bars/sprites/red/meter_bar_right_edge_red.png" id="5_l10bi"]
+[ext_resource type="Texture2D" uid="uid://bsjhbgrt2efpp" path="res://bars/sprites/red/meter_icon_holder_red.png" id="6_rbd4h"]
+[ext_resource type="Texture2D" uid="uid://cjt2kagaw14ir" path="res://bars/sprites/icons/health.png" id="7_1d2qy"]
+
+[node name="Bar" instance=ExtResource("1_f1eif")]
+
+[node name="BackgroundRepeat" parent="Background" index="0"]
+texture = ExtResource("2_vfw2p")
+
+[node name="BackgroundEnd" parent="Background" index="1"]
+texture = ExtResource("3_tjm81")
+
+[node name="Repeat" parent="Value" index="0"]
+texture = ExtResource("4_auulg")
+
+[node name="End" parent="Value" index="1"]
+texture = ExtResource("5_l10bi")
+
+[node name="Holder" parent="Icon" index="0"]
+texture = ExtResource("6_rbd4h")
+
+[node name="Power" parent="Icon" index="1"]
+texture = ExtResource("7_1d2qy")
