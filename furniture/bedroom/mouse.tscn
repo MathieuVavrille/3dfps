@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhum02su38sui"]
+
+[ext_resource type="PackedScene" uid="uid://d22em34ymf03x" path="res://assets/furnitures/gaming/mouse.blend" id="1_yumjx"]
+
+[node name="mouse" instance=ExtResource("1_yumjx")]
+
+[node name="Camera" parent="." index="1"]
+visible = false
+
+[node name="Area" parent="." index="2"]
+visible = false

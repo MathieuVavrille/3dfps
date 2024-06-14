@@ -1,0 +1,96 @@
+[gd_scene load_steps=9 format=3 uid="uid://bi4psk7p5k2dj"]
+
+[ext_resource type="PackedScene" uid="uid://ya4cctufkhsl" path="res://assets/furnitures/slidable_door/Slidable 4 Panel.blend" id="1_nvmgg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j44u2"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f40vc"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7jeje"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pxipf"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_inlgj"]
+size = Vector3(0.115509, 3, 1.01245)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7hd6g"]
+size = Vector3(0.001, 2.8, 0.9)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_76owm"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.0627451)
+
+[node name="SlidableDoorClosed" instance=ExtResource("1_nvmgg")]
+
+[node name="Door 1" parent="Bottom Frame" index="0"]
+transform = Transform3D(1, 0, -1.78814e-07, 0, 1, 0, 1.78814e-07, 0, 1, 0.0250015, 0.0259999, -2)
+surface_material_override/1 = SubResource("StandardMaterial3D_j44u2")
+
+[node name="Door 2" parent="Bottom Frame/Door 1/Empty_002" index="0"]
+transform = Transform3D(1, 0, -1.78814e-07, 0, 1, 0, 1.78814e-07, 0, 1, 0, 0, 0)
+surface_material_override/1 = SubResource("StandardMaterial3D_f40vc")
+
+[node name="Door 3" parent="Bottom Frame/Door 1/Empty_002/Door 2/Empty_001" index="0"]
+transform = Transform3D(1, 0, 1.3411e-07, 0, 1, 0, -1.3411e-07, 0, 1, 0, 0, 0)
+surface_material_override/1 = SubResource("StandardMaterial3D_7jeje")
+
+[node name="Door 4" parent="Bottom Frame/Door 1/Empty_002/Door 2/Empty_001/Door 3/Empty" index="0"]
+transform = Transform3D(1, 0, 4.47035e-07, 0, 1, 0, -4.47035e-07, 0, 1, 0, 0, 0)
+surface_material_override/1 = SubResource("StandardMaterial3D_pxipf")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bottom Frame/Door 1/Empty_002/Door 2/Empty_001/Door 3/Empty/Door 4" index="0"]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bottom Frame/Door 1/Empty_002/Door 2/Empty_001/Door 3/Empty/Door 4/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 0.0253751, 1.46984, 0.494022)
+shape = SubResource("BoxShape3D_inlgj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bottom Frame/Door 1/Empty_002/Door 2/Empty_001/Door 3/Empty/Door 4" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.027801, 1.47375, 0.504379)
+mesh = SubResource("BoxMesh_7hd6g")
+surface_material_override/0 = SubResource("StandardMaterial3D_76owm")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bottom Frame/Door 1/Empty_002/Door 2/Empty_001/Door 3" index="1"]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bottom Frame/Door 1/Empty_002/Door 2/Empty_001/Door 3/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 5.68434e-14, 0, 1, 0, -5.68434e-14, 0, 1, -0.0292135, 1.46984, 0.49402)
+shape = SubResource("BoxShape3D_inlgj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bottom Frame/Door 1/Empty_002/Door 2/Empty_001/Door 3" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0243463, 1.47375, 0.504379)
+mesh = SubResource("BoxMesh_7hd6g")
+surface_material_override/0 = SubResource("StandardMaterial3D_76owm")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bottom Frame/Door 1/Empty_002/Door 2" index="1"]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bottom Frame/Door 1/Empty_002/Door 2/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0253747, 1.46984, 0.503019)
+shape = SubResource("BoxShape3D_inlgj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bottom Frame/Door 1/Empty_002/Door 2" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.027801, 1.47375, 0.504379)
+mesh = SubResource("BoxMesh_7hd6g")
+surface_material_override/0 = SubResource("StandardMaterial3D_76owm")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bottom Frame/Door 1" index="1"]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bottom Frame/Door 1/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0138023, 1.46984, 0.509879)
+shape = SubResource("BoxShape3D_inlgj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bottom Frame/Door 1" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0232634, 1.47375, 0.504379)
+mesh = SubResource("BoxMesh_7hd6g")
+surface_material_override/0 = SubResource("StandardMaterial3D_76owm")

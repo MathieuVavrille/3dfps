@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm2kce2wsuh4r"]
+
+[ext_resource type="PackedScene" uid="uid://dqjum2rqdd6i2" path="res://furniture/bowls/bowl.tscn" id="1_lq314"]
+[ext_resource type="Texture2D" uid="uid://bc620mx2d0vfw" path="res://furniture/bowls/water.png" id="2_s2glu"]
+
+[node name="WaterBowl" instance=ExtResource("1_lq314")]
+
+[node name="Water" type="Sprite3D" parent="." index="1"]
+transform = Transform3D(0.035, 0, 0, 0, -1.5299e-09, -0.035, 0, 0.035, -1.5299e-09, 0, 0.0447411, 0)
+texture = ExtResource("2_s2glu")
+
+[node name="Area3D" parent="." index="2"]
+collision_layer = 16
+collision_mask = 0

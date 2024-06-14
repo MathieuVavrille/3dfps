@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsudrdqgpil1x"]
+
+[ext_resource type="PackedScene" uid="uid://dtmws7j6ltebg" path="res://assets/furnitures/gaming/pc_case.blend" id="1_iadfg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pny3y"]
+albedo_color = Color(0, 0, 0, 1)
+metallic = 0.5
+roughness = 0.5
+
+[node name="pc_case" instance=ExtResource("1_iadfg")]
+
+[node name="case" parent="." index="0"]
+transform = Transform3D(0.125, 0, 0, 0, 0.258, 0, 0, 0, 0.402, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_pny3y")
+
+[node name="Light" parent="." index="1"]
+visible = false
+
+[node name="Camera" parent="." index="2"]
+visible = false
+
+[node name="slider" parent="." index="3"]
+transform = Transform3D(0.125, 0, 0, 0, 0.259, 0, 0, 0, 0.402, 0, 0, 0)
+
+[node name="Cube" parent="." index="4"]
+transform = Transform3D(-5.46392e-09, 0, -0.125, 0, 0.16, 0, 0.125, 0, -5.46392e-09, 0.0335041, 0.0586497, -0.189998)

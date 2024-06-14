@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8rvav1hmsqfo"]
+
+[ext_resource type="Script" path="res://key_text.gd" id="1_km2fd"]
+
+[node name="KeyText" type="Node2D"]
+modulate = Color(1, 1, 1, 0)
+script = ExtResource("1_km2fd")
+
+[node name="Text" type="Label" parent="."]
+offset_left = -28.0
+offset_top = -12.0
+offset_right = 56.0
+offset_bottom = 11.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = ": Use Litter"
+metadata/_edit_use_anchors_ = true
+
+[node name="Key" type="Label" parent="."]
+offset_left = -46.0
+offset_top = -12.0
+offset_right = -35.0
+offset_bottom = 11.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.501961, 0.501961, 0.501961, 1)
+text = "B"
+metadata/_edit_use_anchors_ = true

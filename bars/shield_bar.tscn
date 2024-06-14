@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c7ws8mwg2rled" path="res://bars/sprites/purple/meter_icon_holder_purple.png" id="6_wxa0x"]
 [ext_resource type="Texture2D" uid="uid://cbbmidrsoniam" path="res://bars/sprites/icons/sheild.png" id="7_ateno"]
 
-[node name="Bar" instance=ExtResource("1_5ssvk")]
+[node name="ShieldBar" instance=ExtResource("1_5ssvk")]
 
 [node name="BackgroundRepeat" parent="Background" index="0"]
 texture = ExtResource("2_vkxe8")

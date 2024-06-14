@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgbf458a0b0s5"]
+
+[ext_resource type="PackedScene" uid="uid://m805uoldipv0" path="res://assets/furnitures/televison.blend" id="1_hbmgh"]
+
+[node name="televison" instance=ExtResource("1_hbmgh")]
+
+[node name="tv" parent="." index="0"]
+transform = Transform3D(2.94569, 0, 0, 0, 1.57722, 0, 0, 0, 0.0501446, 0, 4.1, 0)
+
+[node name="table" parent="." index="1"]
+transform = Transform3D(3.78496, 0, 0, 0, 1.12431, 0, 0, 0, 1.12431, 0.016, 1.11, 0)
+
+[node name="tvstand" parent="." index="2"]
+transform = Transform3D(0.0681737, 0, 0, 0, 0.361158, 0, 0, 0, 0.0681737, 0.088, 2.53, 0.089)
+
+[node name="Cube" parent="." index="3"]
+transform = Transform3D(0.790529, 0, 0, 0, 0.179783, 0, 0, 0, 0.583136, -0.001, 1.472, 0.066)

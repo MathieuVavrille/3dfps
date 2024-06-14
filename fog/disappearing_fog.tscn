@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c804amcx2bewf"]
+
+[ext_resource type="Script" path="res://fog/disappearing_fog.gd" id="1_m1gfd"]
+
+[node name="DisappearingFog" type="FogVolume"]
+script = ExtResource("1_m1gfd")
+
+[node name="EnterArea" type="Area3D" parent="."]
+collision_layer = 0
+
+[connection signal="area_entered" from="EnterArea" to="." method="_on_enter_area_area_entered"]

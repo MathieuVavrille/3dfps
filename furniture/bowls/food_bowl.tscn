@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://or140pqhfhqx"]
+
+[ext_resource type="PackedScene" uid="uid://dqjum2rqdd6i2" path="res://furniture/bowls/bowl.tscn" id="1_fo6vx"]
+[ext_resource type="Texture2D" uid="uid://epil2gxr4p4u" path="res://furniture/bowls/croquettes_circle.png" id="2_tfe0n"]
+
+[node name="FoodBowl" instance=ExtResource("1_fo6vx")]
+
+[node name="Biscuits" type="Sprite3D" parent="." index="1"]
+transform = Transform3D(0.02, 0, 0, 0, -8.74228e-10, 0.02, 0, -0.02, -8.74228e-10, 0, 0.0424511, 0)
+texture = ExtResource("2_tfe0n")
+
+[node name="Area3D" parent="." index="2"]
+collision_layer = 8
+collision_mask = 0

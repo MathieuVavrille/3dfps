@@ -1,0 +1,194 @@
+[gd_scene load_steps=32 format=3 uid="uid://c0803m1e2qqd6"]
+
+[ext_resource type="Texture2D" uid="uid://dxbxb6760unfn" path="res://assets/square.png" id="1_4i57g"]
+[ext_resource type="Material" uid="uid://dgmttdsgaem6p" path="res://assets/marble_01_4k.blend/marble.tres" id="2_uoi30"]
+[ext_resource type="Texture2D" uid="uid://cljit0y64aggn" path="res://assets/marble_01_4k.blend/marble_01_diff_4k.jpg" id="3_rbksm"]
+[ext_resource type="Texture2D" uid="uid://diutg7fwt34e3" path="res://assets/marble_01_4k.blend/marble_01_nor_gl_4k.png" id="4_4wf8q"]
+[ext_resource type="PackedScene" uid="uid://c0ng7elbtvvvc" path="res://furniture/bathroom/bathroom_bathtub.tscn" id="5_ocdht"]
+[ext_resource type="PackedScene" uid="uid://8bbu52h68alv" path="res://furniture/door.tscn" id="6_7h1lf"]
+[ext_resource type="PackedScene" uid="uid://det7lss0qexnl" path="res://furniture/bathroom/bathroom_washing_machine.tscn" id="7_3500n"]
+[ext_resource type="PackedScene" uid="uid://cfvo7txxlcir" path="res://furniture/bathroom/bathroom_toilet.tscn" id="8_ib7ld"]
+[ext_resource type="PackedScene" uid="uid://hpyuragu4m7f" path="res://furniture/bathroom/bathroom_sink.tscn" id="9_rla6c"]
+[ext_resource type="PackedScene" uid="uid://d1346y32v011i" path="res://furniture/bathroom/curtains_double.tscn" id="10_njc30"]
+[ext_resource type="PackedScene" uid="uid://bg3cmetbr477k" path="res://furniture/bathroom/bathroom_towel.tscn" id="11_do7t8"]
+[ext_resource type="PackedScene" uid="uid://d3puti4uqpq5y" path="res://furniture/shelf_small.tscn" id="12_2h4ox"]
+[ext_resource type="PackedScene" uid="uid://cm7sjv0bmr5e3" path="res://furniture/long_shelf.tscn" id="13_3iop2"]
+[ext_resource type="PackedScene" uid="uid://dbkgi1f66s332" path="res://player.tscn" id="14_ayksy"]
+[ext_resource type="PackedScene" uid="uid://c804amcx2bewf" path="res://fog/disappearing_fog.tscn" id="15_55kxh"]
+[ext_resource type="PackedScene" uid="uid://c6th8b18tbwof" path="res://furniture/light/light_ceiling_1.tscn" id="16_w0ryi"]
+[ext_resource type="PackedScene" uid="uid://chluf6qlrle6s" path="res://furniture/light/light_ceiling_bathroom.tscn" id="17_2ncd5"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_c0wjx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kl3g5"]
+albedo_texture = ExtResource("1_4i57g")
+uv1_scale = Vector3(4, 2, 2)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tuy36"]
+size = Vector2(4, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ixllq"]
+size = Vector3(4, 0.01, 2)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0me76"]
+size = Vector2(2, 2.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ckp85"]
+size = Vector3(0.01, 2.5, 2)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_c5q4h"]
+size = Vector2(4, 2.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_juu7e"]
+albedo_texture = ExtResource("3_rbksm")
+normal_enabled = true
+normal_texture = ExtResource("4_4wf8q")
+uv1_scale = Vector3(2, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pp0gn"]
+size = Vector3(4, 2.5, 0.01)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7n764"]
+size = Vector2(2, 2.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_but76"]
+albedo_texture = ExtResource("3_rbksm")
+normal_enabled = true
+normal_texture = ExtResource("4_4wf8q")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y0ydi"]
+size = Vector3(2, 2.5, 0.01)
+
+[sub_resource type="FogMaterial" id="FogMaterial_j4ver"]
+density = 5.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jrf2t"]
+size = Vector3(0.0550537, 2.5, 0.313477)
+
+[node name="Bathroom" type="Node3D"]
+
+[node name="Structure" type="Node3D" parent="."]
+
+[node name="Ground" type="StaticBody3D" parent="Structure"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/Ground"]
+shape = SubResource("WorldBoundaryShape3D_c0wjx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/Ground"]
+material_override = SubResource("StandardMaterial3D_kl3g5")
+mesh = SubResource("PlaneMesh_tuy36")
+
+[node name="Ceiling" type="StaticBody3D" parent="Structure"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/Ceiling"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.505, 0)
+shape = SubResource("BoxShape3D_ixllq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/Ceiling"]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 0, 2.5, 0)
+material_override = SubResource("StandardMaterial3D_kl3g5")
+mesh = SubResource("PlaneMesh_tuy36")
+
+[node name="BathWall" type="StaticBody3D" parent="Structure"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/BathWall"]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 2, 1.25, 0)
+mesh = SubResource("PlaneMesh_0me76")
+surface_material_override/0 = ExtResource("2_uoi30")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/BathWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.005, 1.25, 0)
+shape = SubResource("BoxShape3D_ckp85")
+
+[node name="OppositeWall" type="StaticBody3D" parent="Structure"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/OppositeWall"]
+transform = Transform3D(-1, -3.82137e-15, 8.74228e-08, -8.74228e-08, 4.37114e-08, -1, 0, -1, -4.37114e-08, 0, 1.25, 1)
+mesh = SubResource("PlaneMesh_c5q4h")
+surface_material_override/0 = SubResource("StandardMaterial3D_juu7e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/OppositeWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 1.005)
+shape = SubResource("BoxShape3D_pp0gn")
+
+[node name="AdjacentWall" type="StaticBody3D" parent="Structure"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/AdjacentWall"]
+transform = Transform3D(4.37114e-08, 1, 4.37114e-08, -8.74228e-08, 4.37114e-08, -1, -1, 4.37114e-08, 8.74228e-08, -2, 1.25, 0)
+mesh = SubResource("PlaneMesh_7n764")
+surface_material_override/0 = SubResource("StandardMaterial3D_but76")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/AdjacentWall"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.005, 1.25, 0)
+shape = SubResource("BoxShape3D_y0ydi")
+
+[node name="DoorWall" type="StaticBody3D" parent="Structure"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/DoorWall"]
+transform = Transform3D(1, -8.74228e-08, -8.74228e-08, -8.74228e-08, 4.37114e-08, -1, 8.74228e-08, 1, 4.37114e-08, 0, 1.25, -1)
+mesh = SubResource("PlaneMesh_c5q4h")
+surface_material_override/0 = SubResource("StandardMaterial3D_juu7e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structure/DoorWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, -1.005)
+shape = SubResource("BoxShape3D_pp0gn")
+
+[node name="Furnitures" type="Node3D" parent="."]
+
+[node name="Bathroom_Bathtub" parent="Furnitures" instance=ExtResource("5_ocdht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5173, 0, 0)
+
+[node name="Door" parent="Furnitures" instance=ExtResource("6_7h1lf")]
+transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, -0.5, 0, 0.866025, -1.89545, 0, -1)
+
+[node name="Bathroom_WashingMachine" parent="Furnitures" instance=ExtResource("7_3500n")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.61381, 0, 0.638131)
+
+[node name="Bathroom_Toilet" parent="Furnitures" instance=ExtResource("8_ib7ld")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.5, 0, 1)
+
+[node name="Bathroom_Sink" parent="Furnitures" instance=ExtResource("9_rla6c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33171, 0, -1)
+
+[node name="Curtains_Double" parent="Furnitures" instance=ExtResource("10_njc30")]
+transform = Transform3D(-5.24537e-08, 0, -1, 0, 1, 0, 1.2, 0, -4.37114e-08, 1, 0.172735, -0.0212437)
+
+[node name="Bathroom_Towel_Lower" parent="Furnitures" instance=ExtResource("11_do7t8")]
+transform = Transform3D(-1, 0, 1.88745e-07, 0, 1, 0, -1.50996e-07, 0, -1.25, 0.430873, 1.02319, 1)
+
+[node name="Bathroom_TowelUpper" parent="Furnitures" instance=ExtResource("11_do7t8")]
+transform = Transform3D(-0.75, 0, 7.54979e-08, 0, 2, 0, -1.13247e-07, 0, -0.5, 0.38, 1.35881, 1)
+
+[node name="Shelf_Small" parent="Furnitures" instance=ExtResource("12_2h4ox")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -2, 1.8, 0)
+
+[node name="Shelf_Small2" parent="Furnitures" instance=ExtResource("12_2h4ox")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.563919, 1.23929, -1)
+
+[node name="Long_Shelf" parent="Furnitures" instance=ExtResource("13_3iop2")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.06068, 1.56972, 1)
+
+[node name="Player" parent="." instance=ExtResource("14_ayksy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="DisappearingFog" parent="." instance=ExtResource("15_55kxh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.525, 1.25, 0)
+size = Vector3(0.95, 2.5, 2)
+material = SubResource("FogMaterial_j4ver")
+
+[node name="EnterArea" parent="DisappearingFog" index="0"]
+collision_layer = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DisappearingFog/EnterArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.375, 0, -0.018)
+shape = SubResource("BoxShape3D_jrf2t")
+
+[node name="Light" type="Node3D" parent="."]
+
+[node name="Light_Ceiling1" parent="Light" instance=ExtResource("16_w0ryi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.385471, 2.5, 0)
+
+[node name="Light_Ceiling_Bathroom" parent="Light" instance=ExtResource("17_2ncd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2.5, 0)
+
+[editable path="DisappearingFog"]

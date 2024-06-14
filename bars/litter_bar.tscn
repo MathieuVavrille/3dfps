@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://btq6dglxbiodt"]
+
+[ext_resource type="PackedScene" uid="uid://bb6xwbokqi5co" path="res://bars/stamina_bar.tscn" id="1_8bjgo"]
+[ext_resource type="Texture2D" uid="uid://r4ncdpeau3pt" path="res://bars/sprites/icons/poop.png" id="2_0d6uq"]
+
+[node name="LitterBar" instance=ExtResource("1_8bjgo")]
+initial_value = 0
+
+[node name="Power" parent="Icon" index="1"]
+position = Vector2(0, -20)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_0d6uq")

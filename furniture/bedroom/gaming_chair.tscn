@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://deyp7jg8qxkxg"]
+
+[ext_resource type="PackedScene" uid="uid://cs0abov8rn3vd" path="res://assets/furnitures/gaming/gaming_chair.blend" id="1_73ui2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4qa5x"]
+size = Vector3(0.55, 0.14543, 0.622)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pbinn"]
+size = Vector3(0.55, 0.882, 0.177555)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nupi3"]
+size = Vector3(0.101379, 0.301941, 0.266479)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_m1x41"]
+height = 0.15
+radius = 0.339791
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_t31pm"]
+height = 0.227953
+radius = 0.0966623
+
+[node name="gaming_chair" instance=ExtResource("1_73ui2")]
+
+[node name="Gaming Chair" parent="." index="0"]
+transform = Transform3D(0.199779, 0, 0.199779, 0, 0.28253, 0, -0.199779, 0, 0.199779, 0.106905, 0, -0.00783563)
+
+[node name="Sit" parent="Gaming Chair" index="18"]
+transform = Transform3D(0.680826, 0, -0.732445, 0, 1, 0, 0.732445, 0, 0.680826, -0.167778, 2.2144, -0.0723511)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="Seat" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0530934, 0.461787, 0.0653076)
+shape = SubResource("BoxShape3D_4qa5x")
+
+[node name="Back" type="CollisionShape3D" parent="StaticBody3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.977294, 0.211888, 0, -0.211888, 0.977294, 0.053, 0.890636, -0.231453)
+shape = SubResource("BoxShape3D_pbinn")
+
+[node name="Right" type="CollisionShape3D" parent="StaticBody3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.276215, 0.519928, 0.120728)
+shape = SubResource("BoxShape3D_nupi3")
+
+[node name="Left" type="CollisionShape3D" parent="StaticBody3D" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.383636, 0.523119, 0.133093)
+shape = SubResource("BoxShape3D_nupi3")
+
+[node name="Feet" type="CollisionShape3D" parent="StaticBody3D" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.052, 0.078, -0.027)
+shape = SubResource("CylinderShape3D_m1x41")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0584691, 0.259271, 0.0153913)
+shape = SubResource("CylinderShape3D_t31pm")

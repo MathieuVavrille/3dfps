@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnwgabrk1x5tv"]
+
+[ext_resource type="PackedScene" uid="uid://ck7ryislam6oq" path="res://bars/bar.tscn" id="1_ikp74"]
+[ext_resource type="Texture2D" uid="uid://dyakn1cbvme0" path="res://bars/sprites/water.png" id="2_3jd1t"]
+
+[node name="WaterBar" instance=ExtResource("1_ikp74")]
+DEPLETION_TIME = 60
+
+[node name="Power" parent="Icon" index="1"]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("2_3jd1t")

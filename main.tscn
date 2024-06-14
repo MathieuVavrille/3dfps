@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dk65qxesfry0w"]
+[gd_scene load_steps=20 format=3 uid="uid://dk65qxesfry0w"]
 
 [ext_resource type="Texture2D" uid="uid://cljit0y64aggn" path="res://assets/marble_01_4k.blend/marble_01_diff_4k.jpg" id="1_2dhox"]
 [ext_resource type="Texture2D" uid="uid://djgrwi7y56b1y" path="res://assets/textures/wood_floor_diff_4k.jpg" id="1_h614d"]
@@ -8,6 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://c04vjtmaaglvj" path="res://furniture/ceiling_light.tscn" id="6_uh65o"]
 [ext_resource type="PackedScene" uid="uid://bsrtuk08q0hwe" path="res://fog/hiding_fog.tscn" id="7_xvvg1"]
 [ext_resource type="PackedScene" uid="uid://bgyppj8rxg8ca" path="res://fog/healing_fog.tscn" id="8_hyata"]
+[ext_resource type="PackedScene" uid="uid://cm2kce2wsuh4r" path="res://furniture/bowls/water_bowl.tscn" id="9_eidep"]
+[ext_resource type="PackedScene" uid="uid://or140pqhfhqx" path="res://furniture/bowls/food_bowl.tscn" id="10_6xydg"]
+[ext_resource type="PackedScene" uid="uid://bag375i4ndrle" path="res://furniture/litter_tray.tscn" id="11_0lgus"]
+[ext_resource type="PackedScene" uid="uid://tt8nwuseyq7q" path="res://assets/furnitures/doors/Door_6.blend" id="12_81rya"]
+[ext_resource type="PackedScene" uid="uid://blbd1u0idejhw" path="res://furniture/couch_l.tscn" id="13_cwee4"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_bwxxg"]
 size = Vector2(10, 10)
@@ -27,15 +32,6 @@ albedo_texture = ExtResource("1_h614d")
 uv1_scale = Vector3(100, 100, 100)
 
 [sub_resource type="BoxMesh" id="BoxMesh_resjp"]
-
-[sub_resource type="FogMaterial" id="FogMaterial_qpwbq"]
-density = 6.8
-albedo = Color(0, 1, 1, 1)
-emission = Color(0.858824, 0.101961, 0.866667, 1)
-edge_fade = 0.003125
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_0aw81"]
-size = Vector3(1.18526, 0.218781, 0.898285)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_mtojk")
@@ -117,7 +113,7 @@ material_override = SubResource("StandardMaterial3D_vq1ik")
 mesh = SubResource("BoxMesh_resjp")
 
 [node name="Player" parent="." instance=ExtResource("3_8dqyc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.147194, 0.251012, 2.23355)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.147194, 0.251012, 2.23355)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.0118156, 0.99993, 0, -0.99993, 0.0118156, -0.301534, 2.68092, -0.269737)
@@ -141,29 +137,29 @@ shadow_enabled = true
 [node name="Couch_Small12" parent="." instance=ExtResource("6_dxyf0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0784757, 0, -0.0488009)
 
-[node name="FogVolume" type="FogVolume" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.038829, 0.101995, -0.0802374)
-size = Vector3(1.21278, 0.186707, 0.900676)
-material = SubResource("FogMaterial_qpwbq")
-
-[node name="Hide" type="Area3D" parent="."]
-collision_layer = 2
-collision_mask = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hide"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0375443, 0.111252, -0.0859833)
-shape = SubResource("BoxShape3D_0aw81")
-
 [node name="Heal" type="Area3D" parent="."]
 collision_layer = 4
 collision_mask = 0
 
-[node name="FogArea" parent="." instance=ExtResource("7_xvvg1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.18821, 0, 0.492516)
-size = Vector3(0.495285, 2, 2)
+[node name="HidingFog" parent="." instance=ExtResource("7_xvvg1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0830928, 0.11421, -0.105346)
+size = Vector3(1.04855, 0.201997, 1.07002)
 
 [node name="HealingFog" parent="." instance=ExtResource("8_hyata")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.54022, 0, 0.429531)
 size = Vector3(2.33592, 2, 0.448022)
 
-[connection signal="area_entered" from="Hide" to="." method="_on_area_3d_area_entered"]
+[node name="WaterBowl" parent="." instance=ExtResource("9_eidep")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.26238, 0, 3.12265)
+
+[node name="FoodBowl" parent="." instance=ExtResource("10_6xydg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.31989, 0, 2.13976)
+
+[node name="LitterTray" parent="." instance=ExtResource("11_0lgus")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -2.455, 0, 5.386)
+
+[node name="Door_62" parent="." instance=ExtResource("12_81rya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86575, 0, 11.3885)
+
+[node name="Couch_L2" parent="." instance=ExtResource("13_cwee4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, 0.222166, 0.3342, 4.10501)

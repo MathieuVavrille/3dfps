@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp24n32xna8es"]
+
+[ext_resource type="PackedScene" uid="uid://dbjh56l8b7or0" path="res://assets/furnitures/kitchen/Kitchen_Fridge.blend" id="1_td82i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8nccn"]
+size = Vector3(0.655334, 1.65869, 0.656311)
+
+[node name="Fridge" instance=ExtResource("1_td82i")]
+
+[node name="Kitchen_Fridge" parent="." index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0.30056)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0015564, 0.829346, 0.332123)
+shape = SubResource("BoxShape3D_8nccn")

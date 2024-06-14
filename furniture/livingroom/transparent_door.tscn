@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://cots7foqhu7nn"]
+
+[ext_resource type="PackedScene" uid="uid://dscx1kvj31nni" path="res://assets/furnitures/doors/doors.blend" id="1_wd21u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qdt6i"]
+size = Vector3(0.103806, 2.01425, 1.00201)
+
+[node name="doors" instance=ExtResource("1_wd21u")]
+
+[node name="door_001" parent="." index="0"]
+transform = Transform3D(0.0199999, 0, -0.0011003, 0, 0.945, 0, 5.5015e-05, 0, 0.399999, -0.00974399, 0.956235, 0.0850783)
+
+[node name="frame_001" parent="." index="1"]
+transform = Transform3D(0.0298039, 0, 0, 0, 1, 0, 0, 0, 0.5, -0.000619948, 1, 0.479239)
+
+[node name="door" parent="." index="2"]
+transform = Transform3D(0.02, 0, -0.000397131, 0, 0.945, 0, 1.98565e-05, 0, 0.4, -0.00900045, 0.956235, 0.0663325)
+visible = false
+
+[node name="frame" parent="." index="3"]
+transform = Transform3D(0.0298039, 0, 0, 0, 1, 0, 0, 0, 0.5, 0.00012359, 1, 0.474323)
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000694275, 0.996811, 0.473724)
+shape = SubResource("BoxShape3D_qdt6i")

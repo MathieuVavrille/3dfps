@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmpsalu1qwldk"]
+
+[ext_resource type="PackedScene" uid="uid://c754lfw1pbxib" path="res://assets/furnitures/living_room/Table_RoundSmall.blend" id="1_o3osx"]
+
+[node name="Table_RoundSmall" instance=ExtResource("1_o3osx")]
+
+[node name="Table_RoundSmall" parent="." index="0"]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)

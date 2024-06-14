@@ -8,7 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dxcr6f6rf7yjt" path="res://bars/sprites/brown/meter_icon_holder_brown.png" id="6_xhkni"]
 [ext_resource type="Texture2D" uid="uid://b5yd4ln6fp01r" path="res://bars/sprites/icons/stamina.png" id="7_anyul"]
 
-[node name="Bar" instance=ExtResource("1_elyea")]
+[node name="StaminaBar" instance=ExtResource("1_elyea")]
+DEPLETION_TIME = 60
 
 [node name="BackgroundRepeat" parent="Background" index="0"]
 texture = ExtResource("2_52yf6")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://ck7ryislam6oq"]
 
-[ext_resource type="Script" path="res://bars/bar.gd" id="1_hmtp5"]
+[ext_resource type="Script" path="res://bars/bar.gd" id="1_jokq0"]
 [ext_resource type="Texture2D" uid="uid://bmxdsuc7lk05b" path="res://bars/sprites/blue/meter_bar_holder_center-repeating_blue.png" id="2_u3c8q"]
 [ext_resource type="Texture2D" uid="uid://cmnnjr3s303mb" path="res://bars/sprites/blue/meter_bar_holder_right_edge_blue.png" id="3_bys6o"]
 [ext_resource type="Texture2D" uid="uid://bar745o3qprsg" path="res://bars/sprites/blue/meter_bar_center-repeating_blue.png" id="4_lhgkq"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c7yvdkkwrggw3" path="res://bars/sprites/icons/power.png" id="7_34blf"]
 
 [node name="Bar" type="Node2D"]
-script = ExtResource("1_hmtp5")
+script = ExtResource("1_jokq0")
 
 [node name="Background" type="Node2D" parent="."]
 
