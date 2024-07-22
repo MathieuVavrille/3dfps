@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdkm5w6tyjct"]
+
+[ext_resource type="PackedScene" uid="uid://mhuh8r8xf6h3" path="res://assets/furnitures/light/Light_Ceiling4.blend" id="1_kb4b8"]
+
+[node name="LightMultiple" instance=ExtResource("1_kb4b8")]
+
+[node name="Light_Ceiling4" parent="." index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Light1" type="OmniLight3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.622412, 0.140649)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 2.0
+
+[node name="Light2" type="OmniLight3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.142744, -0.554794, 0)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 2.0
+
+[node name="Light3" type="OmniLight3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.449899, -0.141)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 2.0
+
+[node name="Light4" type="OmniLight3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.143, -0.335841, 0)
+light_energy = 0.25
+shadow_enabled = true
+shadow_blur = 2.0

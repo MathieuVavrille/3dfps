@@ -32,6 +32,7 @@ transform = Transform3D(-0.695089, 0, 0.718923, 0, 1, 0, 0.718923, 0, 0.695089, 
 surface_material_override/3 = SubResource("StandardMaterial3D_bl61y")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Frame/Door" index="0"]
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Frame/Door/StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.426331, 0.899536, 0.0178836)
@@ -43,6 +44,7 @@ mesh = SubResource("BoxMesh_lsck4")
 surface_material_override/0 = SubResource("StandardMaterial3D_juqil")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Frame" index="1"]
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Frame/StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.884217, 1.06514, 0.0519722)

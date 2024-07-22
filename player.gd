@@ -1,15 +1,17 @@
 extends CharacterBody3D
 
-const MAX_SPEED = 1
+signal start_eating
+signal start_drinking
+signal start_litter
+
+const MAX_SPEED = 5
 const ACCEL = 4
 const DEACCEL= 10
 
 var dir = Vector3()
 
-const SPEED = 5.0
-
-var jump_height = 0.6
-var jump_time_to_peak = 0.6
+@export var jump_height = 0.6
+@export var jump_time_to_peak = 0.6
 @onready var JUMP_VELOCITY : float = ((2.0 * jump_height) / jump_time_to_peak)
 @onready var gravity : float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak))
 
@@ -22,46 +24,44 @@ func copy_collision(goal, to_change):
 
 func _ready():
 	$MeshInstance3D.visible=false
-	copy_collision($BodyCollision, $Areas/HidingScan/CollisionShape3D)
-	copy_collision($BodyCollision, $Areas/HealScan/CollisionShape3D)
-	copy_collision($BodyCollision, $Areas/LitterScan/CollisionShape3D)
+	copy_collision($BodyCollision, $Scans/SleepScan/CollisionShape3D)
+	copy_collision($BodyCollision, $Scans/LitterScan/CollisionShape3D)
 	copy_collision($RotationHelper/WaterBowlScan/CollisionShape3D, $RotationHelper/FoodScan/CollisionShape3D)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-
-func _process(delta):
-	process_bars(delta)
+func _process(_delta):
+	process_interaction()
 	freeze_cursor()
-
-
-var DRINK_TIME_TO_FULL = 5
-var EAT_TIME_TO_FULL = 5
-var HEALING_TIME = 10
-func process_bars(delta):
+	
+func process_interaction():
 	if can_eat and Input.is_action_pressed("interact"):
-		$Bars/StaminaBar.value += delta * 100 / EAT_TIME_TO_FULL
+		if Input.is_action_just_pressed("interact"):
+			start_eating.emit()
 		if not $Sound/Eating.playing:
 			$Sound/Eating.play()
 	else:
 		$Sound/Eating.stop()
 	if can_drink and Input.is_action_pressed("interact"):
-		$Bars/WaterBar.value += delta * 100 / DRINK_TIME_TO_FULL
+		get_tree().quit()
+		if Input.is_action_just_pressed("interact"):
+			start_drinking.emit()
 		if not $Sound/Drinking.playing:
 			$Sound/Drinking.play()
 	else:
 		$Sound/Drinking.stop()
-	if is_hiding:
-		$Bars/HealthBar.value += delta * 100 / HEALING_TIME
+	if can_sleep and Input.is_action_just_pressed("interact"):
+		start_litter.emit()
+	if can_sleep and Input.is_action_just_pressed("interact"):
+		get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 
 func freeze_cursor():
 	# Capturing/Freeing the cursor
 	if Input.is_action_just_pressed("ui_cancel"):
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			#camera.environment.volumetric_fog_enabled=false
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			#camera.environment.volumetric_fog_enabled=true
+
 
 
 func _physics_process(delta):
@@ -87,9 +87,10 @@ func process_input(_delta):
 	dir += -cam_xform.basis.z * input_movement_vector.y
 	dir += cam_xform.basis.x * input_movement_vector.x
 	# Jumping
-	if is_on_floor():
-		if Input.is_action_just_pressed("jump"):
-			velocity.y = JUMP_VELOCITY
+	if is_on_floor() and Input.is_action_just_pressed("jump"):
+		velocity.y = JUMP_VELOCITY
+	if Input.is_action_just_released("jump") and velocity.y > 0:
+		velocity.y /= 2
 
 
 func process_movement(delta):
@@ -117,20 +118,9 @@ func _input(event):
 		rotation_helper.rotation_degrees = camera_rot
 
 
-var is_hiding=false
-func _on_hiding_scan_area_entered(_area):
-	is_hiding=true
-func _on_hiding_scan_area_exited(_area):
-	is_hiding=false
-
-var is_healing=false
-func _on_heal_scan_area_entered(_area):
-	is_healing = true
-func _on_heal_scan_area_exited_(_area):
-	is_healing = false
-	
 var can_eat = false
 func _on_food_scan_area_entered(_area):
+	print("food")
 	can_eat = true
 	$KeyText.show_text("Eat")
 func _on_food_scan_area_exited(_area):
@@ -139,6 +129,7 @@ func _on_food_scan_area_exited(_area):
 
 var can_drink = false
 func _on_water_bowl_scan_area_entered(_area):
+	print("water")
 	can_drink = true
 	$KeyText.show_text("Drink")
 func _on_water_bowl_scan_area_exited(_area):
@@ -152,3 +143,14 @@ func _on_litter_scan_area_entered(_area):
 func _on_litter_scan_area_exited(_area):
 	can_litter = false
 	$KeyText.fade_out()
+
+var is_sleep_allowed = false
+var can_sleep = false
+func _on_sleep_scan_area_entered(_area):
+	if is_sleep_allowed:
+		can_sleep = true
+		$KeyText.show_text("Sleep")
+func _on_sleep_scan_area_exited(_area):
+	if is_sleep_allowed:
+		can_sleep = false
+		$KeyText.fade_out()

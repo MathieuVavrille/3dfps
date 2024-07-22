@@ -1,29 +1,17 @@
-[gd_scene load_steps=16 format=3 uid="uid://dbkgi1f66s332"]
+[gd_scene load_steps=10 format=3 uid="uid://dbkgi1f66s332"]
 
-[ext_resource type="Texture2D" uid="uid://0fu4rt4xnaen" path="res://assets/fabric_pattern_07_4k.blend/textures/fabric_pattern_07_col_1_4k.png" id="1_7wsg5"]
 [ext_resource type="Script" path="res://player.gd" id="1_ohd6e"]
-[ext_resource type="PackedScene" uid="uid://bb6xwbokqi5co" path="res://bars/stamina_bar.tscn" id="4_7n7vi"]
-[ext_resource type="PackedScene" uid="uid://rb54hpqwdo7p" path="res://bars/health_bar.tscn" id="4_q88wt"]
-[ext_resource type="PackedScene" uid="uid://dnwgabrk1x5tv" path="res://bars/water_bar.tscn" id="6_4ogdq"]
+[ext_resource type="Material" uid="uid://c3p7nx8rii4m4" path="res://assets/textures/brick_texture/brick.tres" id="2_ywke2"]
 [ext_resource type="AudioStream" uid="uid://qxmy4q514eh0" path="res://sounds/eating.mp3" id="6_obm2q"]
-[ext_resource type="PackedScene" uid="uid://btq6dglxbiodt" path="res://bars/litter_bar.tscn" id="7_xlxkk"]
 [ext_resource type="PackedScene" uid="uid://b8rvav1hmsqfo" path="res://key_text.tscn" id="8_ryhoy"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_w4277"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1xie6"]
-albedo_texture = ExtResource("1_7wsg5")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_e0bx1"]
 radius = 0.1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t2ihc"]
 size = Vector3(0.125, 0.01, 0.125)
-
-[sub_resource type="Environment" id="Environment_j1jnp"]
-fog_sky_affect = 0.0
-volumetric_fog_enabled = true
-volumetric_fog_density = 0.0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ifkod"]
 height = 0.2
@@ -37,8 +25,8 @@ script = ExtResource("1_ohd6e")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.1, 0)
+material_override = ExtResource("2_ywke2")
 mesh = SubResource("SphereMesh_w4277")
-surface_material_override/0 = SubResource("StandardMaterial3D_1xie6")
 
 [node name="BodyCollision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
@@ -53,7 +41,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 
 [node name="Camera" type="Camera3D" parent="RotationHelper"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
-environment = SubResource("Environment_j1jnp")
 near = 0.01
 
 [node name="WaterBowlScan" type="Area3D" parent="RotationHelper"]
@@ -70,45 +57,19 @@ collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RotationHelper/FoodScan"]
 
-[node name="Bars" type="CanvasLayer" parent="."]
+[node name="Scans" type="Node3D" parent="."]
 
-[node name="HealthBar" parent="Bars" instance=ExtResource("4_q88wt")]
-position = Vector2(1102, 50)
-scale = Vector2(-0.1, 0.1)
-
-[node name="StaminaBar" parent="Bars" instance=ExtResource("4_7n7vi")]
-position = Vector2(50, 50)
-scale = Vector2(0.1, 0.1)
-
-[node name="WaterBar" parent="Bars" instance=ExtResource("6_4ogdq")]
-position = Vector2(50, 125)
-scale = Vector2(0.1, 0.1)
-
-[node name="LitterBar" parent="Bars" instance=ExtResource("7_xlxkk")]
-position = Vector2(1102, 125)
-rotation = 3.14159
-scale = Vector2(0.1, -0.1)
-
-[node name="Areas" type="Node3D" parent="."]
-
-[node name="HidingScan" type="Area3D" parent="Areas"]
+[node name="SleepScan" type="Area3D" parent="Scans"]
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/HidingScan"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scans/SleepScan"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 
-[node name="HealScan" type="Area3D" parent="Areas"]
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/HealScan"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
-
-[node name="LitterScan" type="Area3D" parent="Areas"]
+[node name="LitterScan" type="Area3D" parent="Scans"]
 collision_layer = 0
 collision_mask = 32
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/LitterScan"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scans/LitterScan"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 
 [node name="Sound" type="Node" parent="."]
@@ -127,9 +88,7 @@ scale = Vector2(2, 2)
 [connection signal="area_exited" from="RotationHelper/WaterBowlScan" to="." method="_on_water_bowl_scan_area_exited"]
 [connection signal="area_entered" from="RotationHelper/FoodScan" to="." method="_on_food_scan_area_entered"]
 [connection signal="area_exited" from="RotationHelper/FoodScan" to="." method="_on_food_scan_area_exited"]
-[connection signal="area_entered" from="Areas/HidingScan" to="." method="_on_hiding_scan_area_entered"]
-[connection signal="area_exited" from="Areas/HidingScan" to="." method="_on_hiding_scan_area_exited"]
-[connection signal="area_entered" from="Areas/HealScan" to="." method="_on_heal_scan_area_entered"]
-[connection signal="area_exited" from="Areas/HealScan" to="." method="_on_heal_scan_area_exited"]
-[connection signal="area_entered" from="Areas/LitterScan" to="." method="_on_litter_scan_area_entered"]
-[connection signal="area_exited" from="Areas/LitterScan" to="." method="_on_litter_scan_area_exited"]
+[connection signal="area_entered" from="Scans/SleepScan" to="." method="_on_hiding_scan_area_entered"]
+[connection signal="area_exited" from="Scans/SleepScan" to="." method="_on_hiding_scan_area_exited"]
+[connection signal="area_entered" from="Scans/LitterScan" to="." method="_on_litter_scan_area_entered"]
+[connection signal="area_exited" from="Scans/LitterScan" to="." method="_on_litter_scan_area_exited"]

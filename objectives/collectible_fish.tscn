@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cr8b11mde2o2t"]
+
+[ext_resource type="Script" path="res://objectives/collectible_fish.gd" id="1_lxlgv"]
+[ext_resource type="PackedScene" uid="uid://duhu5ioymv3b5" path="res://objectives/fish.tscn" id="1_yodff"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_iwie5"]
+radius = 0.153559
+
+[node name="CollectibleFish" type="Area3D"]
+collision_layer = 0
+script = ExtResource("1_lxlgv")
+
+[node name="Fish" parent="." instance=ExtResource("1_yodff")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+visible = false
+shape = SubResource("SphereShape3D_iwie5")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

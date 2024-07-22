@@ -28,6 +28,7 @@ transform = Transform3D(0.199779, 0, 0.199779, 0, 0.28253, 0, -0.199779, 0, 0.19
 transform = Transform3D(0.680826, 0, -0.732445, 0, 1, 0, 0.732445, 0, 0.680826, -0.167778, 2.2144, -0.0723511)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+visible = false
 
 [node name="Seat" type="CollisionShape3D" parent="StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0530934, 0.461787, 0.0653076)

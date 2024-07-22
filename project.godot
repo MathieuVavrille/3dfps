@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="3 Dfps"
-run/main_scene="res://house.tscn"
+run/main_scene="res://chapters/template/house.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
@@ -60,8 +60,7 @@ fog={
 [layer_names]
 
 3d_physics/layer_1="Collisions"
-3d_physics/layer_2="Hide"
-3d_physics/layer_3="Heal"
+3d_physics/layer_2="Sleep"
 3d_physics/layer_4="Biscuits"
 3d_physics/layer_5="WaterBowl"
 3d_physics/layer_6="Litter"

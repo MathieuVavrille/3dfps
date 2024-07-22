@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cye4idx4wghvo"]
+
+[ext_resource type="Script" path="res://objectives/single_objective_numbered.gd" id="1_wadhr"]
+[ext_resource type="Texture2D" uid="uid://by7tuk2vnyh45" path="res://assets/tick_box/empty.png" id="2_b2rnv"]
+[ext_resource type="Texture2D" uid="uid://cwldr3dl7sgjt" path="res://assets/tick_box/tick_alone.png" id="3_ppu06"]
+
+[node name="SingleObjectiveNumbered" type="Label"]
+offset_top = -41.0
+offset_right = 602.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 60
+text = "Example of objective"
+script = ExtResource("1_wadhr")
+
+[node name="TickBox" type="Node2D" parent="."]
+position = Vector2(-60, 40)
+
+[node name="Box" type="Sprite2D" parent="TickBox"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_b2rnv")
+
+[node name="Tick" type="Sprite2D" parent="TickBox"]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_ppu06")

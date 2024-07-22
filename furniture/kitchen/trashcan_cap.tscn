@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4iciv7q3m4yd"]
+
+[ext_resource type="PackedScene" uid="uid://dil0ybpue2b2k" path="res://assets/furnitures/kitchen/Trashcan_Large.blend" id="1_a03he"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_1coxb"]
+height = 1.8
+radius = 0.580059
+
+[node name="Trashcan_Large2" instance=ExtResource("1_a03he")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Trashcan_Large" index="0"]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trashcan_Large/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CylinderShape3D_1coxb")

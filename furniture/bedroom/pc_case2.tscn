@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ejs7dytlylvf"]
+
+[ext_resource type="PackedScene" uid="uid://dtmws7j6ltebg" path="res://assets/furnitures/gaming/pc_case.blend" id="1_3alom"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_65u74"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="pc_case" instance=ExtResource("1_3alom")]
+
+[node name="case" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_65u74")

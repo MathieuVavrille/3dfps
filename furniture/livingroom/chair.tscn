@@ -11,6 +11,7 @@ data = PackedVector3Array(0.3243, 1.3414, -0.391, 0.264, 1.678, -0.4566, 0.2748,
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Chair_3" index="0"]
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Chair_3/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_enlab")

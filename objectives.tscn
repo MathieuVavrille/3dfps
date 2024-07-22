@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc0g8cro6lxpk"]
+
+[ext_resource type="Script" path="res://objectives.gd" id="1_dyvvx"]
+[ext_resource type="PackedScene" uid="uid://caqby83wxla6h" path="res://objectives/single_objective.tscn" id="2_be5oy"]
+
+[node name="ObjectivesChapter1" type="Node2D"]
+script = ExtResource("1_dyvvx")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -206.0
+offset_bottom = 239.0
+grow_horizontal = 0
+color = Color(0, 0, 0, 0.501961)
+
+[node name="Title" type="Label" parent="CanvasLayer"]
+offset_left = 949.0
+offset_top = 2.0
+offset_right = 1149.0
+offset_bottom = 57.0
+theme_override_font_sizes/font_size = 40
+text = "Objectives
+"
+
+[node name="Objectives" type="Node2D" parent="CanvasLayer"]
+
+[node name="DrinkObjective" parent="CanvasLayer/Objectives" instance=ExtResource("2_be5oy")]
+offset_left = 987.0
+offset_top = 67.0
+offset_right = 1589.0
+offset_bottom = 150.0
+scale = Vector2(0.25, 0.25)
+text = "    Drink"
+
+[node name="EatObjective" parent="CanvasLayer/Objectives" instance=ExtResource("2_be5oy")]
+offset_left = 987.0
+offset_top = 109.0
+offset_right = 1589.0
+offset_bottom = 192.0
+scale = Vector2(0.25, 0.25)
+text = "    Eat"
+
+[node name="ExploreObjective" parent="CanvasLayer/Objectives" instance=ExtResource("2_be5oy")]
+offset_left = 986.0
+offset_top = 152.0
+offset_right = 1588.0
+offset_bottom = 235.0
+scale = Vector2(0.25, 0.25)
+text = "    Explore"
+
+[node name="SleepObjective" parent="CanvasLayer/Objectives" instance=ExtResource("2_be5oy")]
+offset_left = 986.0
+offset_top = 194.0
+offset_right = 1588.0
+offset_bottom = 277.0
+scale = Vector2(0.25, 0.25)
+text = "    Sleep"
