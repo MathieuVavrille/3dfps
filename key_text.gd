@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 var FADING_TIME = 0.5
 var make_hidden = true

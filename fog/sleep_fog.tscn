@@ -4,15 +4,16 @@
 
 [sub_resource type="FogMaterial" id="FogMaterial_pl5mh"]
 density = 5.0
-emission = Color(1, 0, 0, 1)
+emission = Color(0, 0.501961, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0gwmm"]
 
-[node name="HidingFog" type="FogVolume"]
+[node name="SleepFog" type="FogVolume"]
 material = SubResource("FogMaterial_pl5mh")
 script = ExtResource("1_l727t")
 
 [node name="Area3D" type="Area3D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 0
 

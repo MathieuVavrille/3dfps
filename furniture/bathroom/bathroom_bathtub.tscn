@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0ng7elbtvvvc"]
+[gd_scene load_steps=5 format=3 uid="uid://c0ng7elbtvvvc"]
 
 [ext_resource type="PackedScene" uid="uid://cpahxlxyo6txy" path="res://assets/furnitures/bathroom/Bathroom_Bathtub.blend" id="1_ughws"]
+[ext_resource type="Material" uid="uid://4kkmav6gg0tv" path="res://assets/textures/ceramic.tres" id="2_7nwkf"]
 [ext_resource type="Texture2D" uid="uid://ctxjy0m2pvwln" path="res://assets/textures/water.jpg" id="2_j7jhx"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fyjfi"]
@@ -10,6 +11,7 @@ data = PackedVector3Array(0.589, 0.1367, 1.7757, -0.589, 1.0647, 1.7757, 0.589, 
 
 [node name="Bathroom_Bathtub" parent="." index="0"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0.0817679)
+material_override = ExtResource("2_7nwkf")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Bathroom_Bathtub" index="0"]
 visible = false

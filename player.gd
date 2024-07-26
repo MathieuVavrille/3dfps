@@ -1,14 +1,12 @@
 extends CharacterBody3D
 
-signal start_eating
-signal start_drinking
-signal start_litter
-
 const MAX_SPEED = 5
 const ACCEL = 4
 const DEACCEL= 10
 
 var dir = Vector3()
+
+@export var objectives: Node2D
 
 @export var jump_height = 0.6
 @export var jump_time_to_peak = 0.6
@@ -36,23 +34,22 @@ func _process(_delta):
 func process_interaction():
 	if can_eat and Input.is_action_pressed("interact"):
 		if Input.is_action_just_pressed("interact"):
-			start_eating.emit()
+			objectives.objective_got("eat")
 		if not $Sound/Eating.playing:
 			$Sound/Eating.play()
 	else:
 		$Sound/Eating.stop()
 	if can_drink and Input.is_action_pressed("interact"):
-		get_tree().quit()
 		if Input.is_action_just_pressed("interact"):
-			start_drinking.emit()
+			objectives.objective_got("drink")
 		if not $Sound/Drinking.playing:
 			$Sound/Drinking.play()
 	else:
 		$Sound/Drinking.stop()
+	if can_litter and Input.is_action_just_pressed("interact"):
+		objectives.objective_got("litter")
 	if can_sleep and Input.is_action_just_pressed("interact"):
-		start_litter.emit()
-	if can_sleep and Input.is_action_just_pressed("interact"):
-		get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
+		objectives.objective_got("sleep")
 
 func freeze_cursor():
 	# Capturing/Freeing the cursor
@@ -61,7 +58,6 @@ func freeze_cursor():
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-
 
 
 func _physics_process(delta):
@@ -120,7 +116,6 @@ func _input(event):
 
 var can_eat = false
 func _on_food_scan_area_entered(_area):
-	print("food")
 	can_eat = true
 	$KeyText.show_text("Eat")
 func _on_food_scan_area_exited(_area):
@@ -129,7 +124,6 @@ func _on_food_scan_area_exited(_area):
 
 var can_drink = false
 func _on_water_bowl_scan_area_entered(_area):
-	print("water")
 	can_drink = true
 	$KeyText.show_text("Drink")
 func _on_water_bowl_scan_area_exited(_area):
@@ -144,7 +138,7 @@ func _on_litter_scan_area_exited(_area):
 	can_litter = false
 	$KeyText.fade_out()
 
-var is_sleep_allowed = false
+var is_sleep_allowed = true
 var can_sleep = false
 func _on_sleep_scan_area_entered(_area):
 	if is_sleep_allowed:

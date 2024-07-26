@@ -11,6 +11,6 @@ func _ready():
 func _process(delta):
 	$Fish.rotate_y(delta / ROTATION_SPEED * 2 * PI)
 
-func _on_area_entered(area):
+func _on_area_entered(_area):
 	collected.emit()
 	queue_free()

@@ -2,11 +2,14 @@
 
 [ext_resource type="Script" path="res://key_text.gd" id="1_km2fd"]
 
-[node name="KeyText" type="Node2D"]
+[node name="KeyText" type="Control"]
 modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_km2fd")
 
 [node name="Text" type="Label" parent="."]
+layout_mode = 0
 offset_left = -28.0
 offset_top = -12.0
 offset_right = 56.0
@@ -16,6 +19,7 @@ text = ": Use Litter"
 metadata/_edit_use_anchors_ = true
 
 [node name="Key" type="Label" parent="."]
+layout_mode = 0
 offset_left = -46.0
 offset_top = -12.0
 offset_right = -35.0

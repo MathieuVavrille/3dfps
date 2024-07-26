@@ -30,10 +30,12 @@ mesh = SubResource("SphereMesh_w4277")
 
 [node name="BodyCollision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+visible = false
 shape = SubResource("SphereShape3D_e0bx1")
 
 [node name="FeetCollision" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.02, 0)
+visible = false
 shape = SubResource("BoxShape3D_t2ihc")
 
 [node name="RotationHelper" type="Node3D" parent="."]
@@ -44,6 +46,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 near = 0.01
 
 [node name="WaterBowlScan" type="Area3D" parent="RotationHelper"]
+visible = false
 collision_layer = 0
 collision_mask = 16
 
@@ -52,12 +55,14 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 
 shape = SubResource("CylinderShape3D_ifkod")
 
 [node name="FoodScan" type="Area3D" parent="RotationHelper"]
+visible = false
 collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RotationHelper/FoodScan"]
 
 [node name="Scans" type="Node3D" parent="."]
+visible = false
 
 [node name="SleepScan" type="Area3D" parent="Scans"]
 collision_mask = 2
@@ -81,14 +86,22 @@ stream = ExtResource("6_obm2q")
 stream = SubResource("AudioStreamMP3_el21f")
 
 [node name="KeyText" parent="." instance=ExtResource("8_ryhoy")]
-position = Vector2(576, 600)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -48.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
 scale = Vector2(2, 2)
 
 [connection signal="area_entered" from="RotationHelper/WaterBowlScan" to="." method="_on_water_bowl_scan_area_entered"]
 [connection signal="area_exited" from="RotationHelper/WaterBowlScan" to="." method="_on_water_bowl_scan_area_exited"]
 [connection signal="area_entered" from="RotationHelper/FoodScan" to="." method="_on_food_scan_area_entered"]
 [connection signal="area_exited" from="RotationHelper/FoodScan" to="." method="_on_food_scan_area_exited"]
-[connection signal="area_entered" from="Scans/SleepScan" to="." method="_on_hiding_scan_area_entered"]
-[connection signal="area_exited" from="Scans/SleepScan" to="." method="_on_hiding_scan_area_exited"]
+[connection signal="area_entered" from="Scans/SleepScan" to="." method="_on_sleep_scan_area_entered"]
+[connection signal="area_exited" from="Scans/SleepScan" to="." method="_on_sleep_scan_area_exited"]
 [connection signal="area_entered" from="Scans/LitterScan" to="." method="_on_litter_scan_area_entered"]
 [connection signal="area_exited" from="Scans/LitterScan" to="." method="_on_litter_scan_area_exited"]

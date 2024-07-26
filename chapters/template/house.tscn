@@ -1,4 +1,4 @@
-[gd_scene load_steps=147 format=3 uid="uid://c3tioidawyfdo"]
+[gd_scene load_steps=149 format=3 uid="uid://c3tioidawyfdo"]
 
 [ext_resource type="Script" path="res://chapters/template/house_template.gd" id="1_8j6ml"]
 [ext_resource type="Texture2D" uid="uid://dagfyclbj445g" path="res://assets/textures/wood_floor/wood_floor_diff_4k.png" id="1_p3gbs"]
@@ -10,11 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://cdkm5w6tyjct" path="res://furniture/light/light_multiple.tscn" id="3_2t1e0"]
 [ext_resource type="Texture2D" uid="uid://dkxtykvstjrs2" path="res://assets/textures/wood_floor/wood_floor_nor_gl_4k.png" id="3_nf7nk"]
 [ext_resource type="Texture2D" uid="uid://b4uuq1vt7qtvg" path="res://assets/textures/wood_floor/wood_floor_rough_4k.png" id="4_5mlcc"]
+[ext_resource type="PackedScene" uid="uid://bsrtuk08q0hwe" path="res://fog/sleep_fog.tscn" id="4_8xhj5"]
 [ext_resource type="Texture2D" uid="uid://c8uo0o3buv2id" path="res://assets/textures/brick_texture/plaster_brick_pattern_diff_4k.png" id="4_77n3g"]
 [ext_resource type="PackedScene" uid="uid://dguakr8ewu1hv" path="res://furniture/livingroom/slidable_door_open.tscn" id="4_gb6tq"]
 [ext_resource type="Material" uid="uid://c678tsbu4s4ql" path="res://assets/textures/beige_wall/beige_wall.tres" id="5_abq7u"]
 [ext_resource type="Texture2D" uid="uid://scjolnckkgi4" path="res://assets/textures/brick_texture/plaster_brick_pattern_ao_4k.png" id="5_nydrs"]
-[ext_resource type="PackedScene" uid="uid://blbd1u0idejhw" path="res://furniture/couch_l.tscn" id="5_sldpi"]
+[ext_resource type="PackedScene" uid="uid://blbd1u0idejhw" path="res://furniture/livingroom/couch_l.tscn" id="5_sldpi"]
 [ext_resource type="PackedScene" uid="uid://dgbf458a0b0s5" path="res://furniture/televison.tscn" id="6_hjc4k"]
 [ext_resource type="Texture2D" uid="uid://ckwqb8ldod2lj" path="res://assets/textures/brick_texture/plaster_brick_pattern_nor_gl_4k.png" id="6_oltf8"]
 [ext_resource type="PackedScene" uid="uid://dmpsalu1qwldk" path="res://furniture/livingroom/table_round_small.tscn" id="7_3h2u1"]
@@ -24,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://d4fskmhe7jts1" path="res://assets/textures/beige_wall/beige_wall_001_diff_4k.png" id="8_x0pjl"]
 [ext_resource type="PackedScene" uid="uid://do3ac25v7j5kx" path="res://furniture/livingroom/entrance_door.tscn" id="9_05v6t"]
 [ext_resource type="Texture2D" uid="uid://bhpt147ex6ytf" path="res://assets/textures/beige_wall/beige_wall_001_ao_4k.png" id="9_y7lqt"]
+[ext_resource type="Material" uid="uid://bo468il8fg6ka" path="res://assets/textures/wood_floor/wood_floor.tres" id="10_0pual"]
 [ext_resource type="PackedScene" uid="uid://cdoyiyd45swpv" path="res://furniture/bedroom/bed_king.tscn" id="10_1y70a"]
 [ext_resource type="Texture2D" uid="uid://bdexh2hqdaxve" path="res://assets/textures/beige_wall/beige_wall_001_nor_gl_4k.png" id="10_445ep"]
 [ext_resource type="PackedScene" uid="uid://crxx3s24mkaqs" path="res://furniture/bedroom/shelf_large.tscn" id="11_djnlc"]
@@ -59,25 +61,16 @@
 [ext_resource type="PackedScene" uid="uid://d1346y32v011i" path="res://furniture/bathroom/curtains_double.tscn" id="49_iqkuy"]
 [ext_resource type="Material" uid="uid://4y6wheetuors" path="res://assets/textures/forest_ground/forest_ground.tres" id="49_ntfu5"]
 [ext_resource type="PackedScene" uid="uid://bg3cmetbr477k" path="res://furniture/bathroom/bathroom_towel.tscn" id="50_o3j5p"]
-[ext_resource type="PackedScene" uid="uid://d3puti4uqpq5y" path="res://furniture/shelf_small.tscn" id="51_6hj7i"]
+[ext_resource type="PackedScene" uid="uid://d3puti4uqpq5y" path="res://furniture/bathroom/shelf_small.tscn" id="51_6hj7i"]
 [ext_resource type="PackedScene" uid="uid://cjmfire6co3gr" path="res://furniture/kitchen/kitchen_cabinet_big.tscn" id="51_xpoqc"]
-[ext_resource type="PackedScene" uid="uid://cm7sjv0bmr5e3" path="res://furniture/long_shelf.tscn" id="52_052f1"]
+[ext_resource type="PackedScene" uid="uid://cm7sjv0bmr5e3" path="res://furniture/bathroom/long_shelf.tscn" id="52_052f1"]
 [ext_resource type="PackedScene" uid="uid://csltelhrr3e4v" path="res://furniture/kitchen/kitchen_cabinet_small.tscn" id="52_c0ia7"]
 [ext_resource type="PackedScene" uid="uid://b40tlrhjq14w" path="res://furniture/livingroom/chair.tscn" id="53_e4hs7"]
 [ext_resource type="PackedScene" uid="uid://c4iciv7q3m4yd" path="res://furniture/kitchen/trashcan_cap.tscn" id="56_0jau3"]
 [ext_resource type="PackedScene" uid="uid://cvh7bxghas122" path="res://furniture/light/light_icosahedrons.tscn" id="61_qff45"]
 [ext_resource type="PackedScene" uid="uid://cr8b11mde2o2t" path="res://objectives/collectible_fish.tscn" id="62_l0mkk"]
 [ext_resource type="Texture2D" uid="uid://bhcmonmvuo8ih" path="res://assets/textures/net.png" id="67_r4461"]
-[ext_resource type="PackedScene" uid="uid://c4x2r1ub8w831" path="res://furniture/cat_tree.tscn" id="68_la6tf"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_225hf"]
-albedo_texture = ExtResource("1_p3gbs")
-roughness_texture = ExtResource("4_5mlcc")
-normal_enabled = true
-normal_texture = ExtResource("3_nf7nk")
-ao_enabled = true
-ao_texture = ExtResource("2_ve5kb")
-uv1_scale = Vector3(3, 4, 1)
+[ext_resource type="PackedScene" uid="uid://c4x2r1ub8w831" path="res://furniture/outside/cat_tree.tscn" id="68_la6tf"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_kstjd"]
 size = Vector2(6, 8)
@@ -399,13 +392,48 @@ uv1_scale = Vector3(5, 2, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_kfbgl"]
 size = Vector2(8, 2)
 
+[sub_resource type="Environment" id="Environment_056lr"]
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+
 [node name="House" type="Node3D"]
 script = ExtResource("1_8j6ml")
 
 [node name="ObjectivesTemplate" parent="." instance=ExtResource("1_wax6d")]
 
-[node name="Player" parent="." instance=ExtResource("2_agg1q")]
-transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 2, 0, -4)
+[node name="Player" parent="." node_paths=PackedStringArray("objectives") instance=ExtResource("2_agg1q")]
+transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 3, 0, -3.748)
+objectives = NodePath("../ObjectivesTemplate")
+
+[node name="Fogs" type="Node3D" parent="."]
+
+[node name="Couch1" parent="Fogs" instance=ExtResource("4_8xhj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.66685, 0.509425, -2.9556)
+size = Vector3(0.864204, 0.245934, 1.63436)
+
+[node name="Couch2" parent="Fogs" instance=ExtResource("4_8xhj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.92921, 0.500327, -2.39847)
+size = Vector3(1.62697, 0.245934, 0.636779)
+
+[node name="TV" parent="Fogs" instance=ExtResource("4_8xhj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.82264, 0.0407247, -5.61148)
+size = Vector3(2.13645, 0.294082, 0.636779)
+
+[node name="Bed" parent="Fogs" instance=ExtResource("4_8xhj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.349728, 2)
+size = Vector3(1.41428, 0.284746, 1.88472)
+
+[node name="Desk1" parent="Fogs" instance=ExtResource("4_8xhj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.32711, 0.0539579, 0.329264)
+size = Vector3(1.22566, 0.21689, 0.542742)
+
+[node name="Chair" parent="Fogs" instance=ExtResource("4_8xhj5")]
+transform = Transform3D(0.734453, 0, 0.67866, 0, 1, 0, -0.67866, 0, 0.734453, -4.53721, 0.567705, 1.74442)
+size = Vector3(0.420743, 0.12809, 0.437133)
+
+[node name="Machine" parent="Fogs" instance=ExtResource("4_8xhj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.370779, 0.784255, 1.69262)
+size = Vector3(0.637664, 0.22618, 0.56211)
 
 [node name="Fish" type="Node3D" parent="."]
 
@@ -473,7 +501,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.608464, 2.5, -6.53005)
 
 [node name="LivingRoomGround" type="MeshInstance3D" parent="Structure"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -4)
-material_override = SubResource("StandardMaterial3D_225hf")
+material_override = ExtResource("10_0pual")
 mesh = SubResource("PlaneMesh_kstjd")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Structure/LivingRoomGround"]
@@ -664,6 +692,7 @@ shape = SubResource("ConcavePolygonShape3D_yeayi")
 
 [node name="BathroomDoor" parent="Structure/MultipleDoors" instance=ExtResource("18_f6c5w")]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0.236233, 0, 0)
+is_open = true
 
 [node name="AboveBathroom" type="MeshInstance3D" parent="Structure/MultipleDoors"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.715, 2.25, 0)
@@ -817,7 +846,10 @@ visible = false
 shape = SubResource("ConcavePolygonShape3D_574c5")
 
 [node name="glass_door" parent="Structure" instance=ExtResource("26_jit7n")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.05222, 0, 0)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -3.05222, 0, 0)
+is_open = true
+opened_rotation = -65.0
+closed_rotation = 180.0
 
 [node name="OutsideBackgrounds" type="Node3D" parent="Structure"]
 
@@ -857,7 +889,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.718531, 0, -2.53062)
 
 [node name="LitterTray" parent="LivingRoom" instance=ExtResource("8_8n33y")]
 transform = Transform3D(0.3, 0, -5.24537e-08, 0, 0.3, 0, 5.24537e-08, 0, 0.3, 0.965335, 0, -5.62024)
-visible = false
 
 [node name="entrance_door" parent="LivingRoom" instance=ExtResource("9_05v6t")]
 transform = Transform3D(-7.86805e-09, 0, 0.18, 0, 0.18, 0, -0.18, 0, -7.86805e-09, 4, 0, -1.055)
@@ -924,6 +955,7 @@ transform = Transform3D(-0.00643549, 0, 0.00765405, 0, 0.01, 0, -0.00765405, 0, 
 
 [node name="doors2" parent="Bedroom" instance=ExtResource("19_hg1px")]
 transform = Transform3D(1, 0, -3.13916e-07, 0, 1, 0, 3.13916e-07, 0, 1, -1, 0, -2.75)
+is_open = true
 
 [node name="Kitchen" type="Node3D" parent="."]
 
@@ -1023,3 +1055,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.59074, 1.23929, 0)
 
 [node name="Long_Shelf" parent="Bathroom" instance=ExtResource("52_052f1")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.939, 1.57, 1.95)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_056lr")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[connection signal="can_sleep" from="ObjectivesTemplate" to="." method="_on_objectives_template_can_sleep"]
+[connection signal="objectives_finished" from="ObjectivesTemplate" to="." method="end_chapter"]
