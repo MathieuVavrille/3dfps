@@ -31,7 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://crxx3s24mkaqs" path="res://furniture/bedroom/shelf_large.tscn" id="11_djnlc"]
 [ext_resource type="Texture2D" uid="uid://bvo4rm4blicli" path="res://assets/textures/beige_wall/beige_wall_001_rough_4k.png" id="11_kqlqc"]
 [ext_resource type="PackedScene" uid="uid://bh8nnj3nr38nd" path="res://furniture/bedroom/night_stand.tscn" id="12_fep68"]
-[ext_resource type="PackedScene" uid="uid://b1phc67bqoy3f" path="res://furniture/bedroom/monitor.tscn" id="13_pbvje"]
+[ext_resource type="PackedScene" uid="uid://dgnyyj35x6q22" path="res://furniture/bedroom/monitor.tscn" id="13_pbvje"]
 [ext_resource type="PackedScene" uid="uid://bha7xn7iyshdu" path="res://furniture/bedroom/keyboard.tscn" id="14_a7vu3"]
 [ext_resource type="PackedScene" uid="uid://deyp7jg8qxkxg" path="res://furniture/bedroom/gaming_chair.tscn" id="16_aaa6k"]
 [ext_resource type="Material" uid="uid://c3p7nx8rii4m4" path="res://assets/textures/brick_texture/brick.tres" id="16_fdhc8"]
@@ -402,7 +402,8 @@ script = ExtResource("1_8j6ml")
 [node name="ObjectivesTemplate" parent="." instance=ExtResource("1_wax6d")]
 
 [node name="Player" parent="." node_paths=PackedStringArray("objectives") instance=ExtResource("2_agg1q")]
-transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 3, 0, -3.748)
+transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -4, 0, 1.252)
+can_fall = false
 objectives = NodePath("../ObjectivesTemplate")
 
 [node name="Fogs" type="Node3D" parent="."]
@@ -938,11 +939,8 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.95, 
 [node name="NightStand2" parent="Bedroom" instance=ExtResource("12_fep68")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.95, 0, 0)
 
-[node name="Monitor" parent="Bedroom" instance=ExtResource("13_pbvje")]
-transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -0.6, 0.712, 2.6)
-
 [node name="keyboard" parent="Bedroom" instance=ExtResource("14_a7vu3")]
-transform = Transform3D(-0.721591, 0, 0.69232, 0, 1, 0, -0.69232, 0, -0.721591, -0.215212, 0.712733, 2.43645)
+transform = Transform3D(-0.721591, 0, 0.69232, 0, 1, 0, -0.69232, 0, -0.721591, -0.321032, 0.712733, 2.43645)
 
 [node name="gaming_chair" parent="Bedroom" instance=ExtResource("16_aaa6k")]
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0.860669, 0, 1.57442)
@@ -951,7 +949,7 @@ transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.95, 0, 1)
 
 [node name="mouse" parent="Bedroom" instance=ExtResource("35_n4eo2")]
-transform = Transform3D(-0.00643549, 0, 0.00765405, 0, 0.01, 0, -0.00765405, 0, -0.00643549, -0.417381, 0.705166, 2.19194)
+transform = Transform3D(-0.00641916, -2.30291e-05, 0.00766772, -3.26969e-05, 0.00999995, 2.66078e-06, -0.00766768, -2.3363e-05, -0.0064192, -0.56871, 0.705166, 2.19194)
 
 [node name="doors2" parent="Bedroom" instance=ExtResource("19_hg1px")]
 transform = Transform3D(1, 0, -3.13916e-07, 0, 1, 0, 3.13916e-07, 0, 1, -1, 0, -2.75)
@@ -1068,6 +1066,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
+
+[node name="Node3D" parent="." instance=ExtResource("13_pbvje")]
+transform = Transform3D(0.703382, 0, 0.710812, 0, 1, 0, -0.710812, 0, 0.703382, -5.67641, 0.710851, 0.315155)
 
 [connection signal="can_sleep" from="ObjectivesTemplate" to="." method="_on_objectives_template_can_sleep"]
 [connection signal="objectives_finished" from="ObjectivesTemplate" to="." method="end_chapter"]

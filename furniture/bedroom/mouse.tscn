@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhum02su38sui"]
+[gd_scene load_steps=3 format=3 uid="uid://bhum02su38sui"]
 
 [ext_resource type="PackedScene" uid="uid://d22em34ymf03x" path="res://assets/furnitures/gaming/mouse.blend" id="1_yumjx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l1b3p"]
+size = Vector3(9.99609, 7.81995, 15.9083)
 
 [node name="mouse" instance=ExtResource("1_yumjx")]
 
@@ -9,3 +12,11 @@ visible = false
 
 [node name="Area" parent="." index="2"]
 visible = false
+
+[node name="Area3D" type="Area3D" parent="." index="3"]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09375, 3.40997, 1.07486)
+shape = SubResource("BoxShape3D_l1b3p")

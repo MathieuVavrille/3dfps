@@ -9,7 +9,7 @@ func _ready():
 		fog.disable(true)
 	for child in $Fish.get_children():
 		child.collected.connect(fish_collected)
-
+ 
 
 var FADEOUT_TIME = 2
 func _process(delta):

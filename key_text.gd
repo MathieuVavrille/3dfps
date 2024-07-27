@@ -6,9 +6,9 @@ var make_hidden = true
 
 func _process(delta):
 	if make_hidden:
-		modulate.a = max(0, modulate.a - delta / FADING_TIME)
+		modulate.a = move_toward(modulate.a, 0, delta / FADING_TIME)
 	else:
-		modulate.a = min(1, modulate.a + delta / FADING_TIME)
+		modulate.a = move_toward(modulate.a, 1, delta / FADING_TIME)
 
 func fade_out():
 	make_hidden = true

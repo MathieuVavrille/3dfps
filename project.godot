@@ -61,6 +61,8 @@ fog={
 
 3d_physics/layer_1="Collisions"
 3d_physics/layer_2="Sleep"
+3d_physics/layer_3="Fall"
 3d_physics/layer_4="Biscuits"
 3d_physics/layer_5="WaterBowl"
 3d_physics/layer_6="Litter"
+3d_physics/layer_7="Hack"

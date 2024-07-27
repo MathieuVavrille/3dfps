@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbkgi1f66s332"]
+[gd_scene load_steps=11 format=3 uid="uid://dbkgi1f66s332"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_ohd6e"]
 [ext_resource type="Material" uid="uid://c3p7nx8rii4m4" path="res://assets/textures/brick_texture/brick.tres" id="2_ywke2"]
+[ext_resource type="Texture2D" uid="uid://bxephjk87lye7" path="res://assets/fade/black_fade.png" id="5_0j8nc"]
 [ext_resource type="AudioStream" uid="uid://qxmy4q514eh0" path="res://sounds/eating.mp3" id="6_obm2q"]
 [ext_resource type="PackedScene" uid="uid://b8rvav1hmsqfo" path="res://key_text.tscn" id="8_ryhoy"]
 
@@ -42,7 +43,7 @@ shape = SubResource("BoxShape3D_t2ihc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 
 [node name="Camera" type="Camera3D" parent="RotationHelper"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 near = 0.01
 
 [node name="WaterBowlScan" type="Area3D" parent="RotationHelper"]
@@ -61,6 +62,13 @@ collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RotationHelper/FoodScan"]
 
+[node name="HackScan" type="Area3D" parent="RotationHelper"]
+visible = false
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RotationHelper/HackScan"]
+
 [node name="Scans" type="Node3D" parent="."]
 visible = false
 
@@ -75,6 +83,13 @@ collision_layer = 0
 collision_mask = 32
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Scans/LitterScan"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+
+[node name="FallScan" type="Area3D" parent="Scans"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scans/FallScan"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 
 [node name="Sound" type="Node" parent="."]
@@ -97,11 +112,25 @@ grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(2, 2)
 
+[node name="FallFade" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -216.0
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_0j8nc")
+
 [connection signal="area_entered" from="RotationHelper/WaterBowlScan" to="." method="_on_water_bowl_scan_area_entered"]
 [connection signal="area_exited" from="RotationHelper/WaterBowlScan" to="." method="_on_water_bowl_scan_area_exited"]
 [connection signal="area_entered" from="RotationHelper/FoodScan" to="." method="_on_food_scan_area_entered"]
 [connection signal="area_exited" from="RotationHelper/FoodScan" to="." method="_on_food_scan_area_exited"]
+[connection signal="area_entered" from="RotationHelper/HackScan" to="." method="_on_hack_scan_area_entered"]
+[connection signal="area_exited" from="RotationHelper/HackScan" to="." method="_on_hack_scan_area_exited"]
 [connection signal="area_entered" from="Scans/SleepScan" to="." method="_on_sleep_scan_area_entered"]
 [connection signal="area_exited" from="Scans/SleepScan" to="." method="_on_sleep_scan_area_exited"]
 [connection signal="area_entered" from="Scans/LitterScan" to="." method="_on_litter_scan_area_entered"]
 [connection signal="area_exited" from="Scans/LitterScan" to="." method="_on_litter_scan_area_exited"]
+[connection signal="area_exited" from="Scans/FallScan" to="." method="_on_fall_scan_area_exited"]

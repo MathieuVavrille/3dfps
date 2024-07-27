@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://or140pqhfhqx"]
+[gd_scene load_steps=4 format=3 uid="uid://or140pqhfhqx"]
 
 [ext_resource type="PackedScene" uid="uid://dqjum2rqdd6i2" path="res://furniture/bowls/bowl.tscn" id="1_fo6vx"]
 [ext_resource type="Texture2D" uid="uid://epil2gxr4p4u" path="res://furniture/bowls/croquettes_circle.png" id="2_tfe0n"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_s8hfu"]
+radius = 0.266394
 
 [node name="FoodBowl" instance=ExtResource("1_fo6vx")]
 
@@ -15,3 +18,11 @@ collision_mask = 0
 
 [node name="CollisionShape3D" parent="Area3D" index="0"]
 visible = false
+
+[node name="Fall" type="Area3D" parent="." index="3"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fall" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.945124, 0)
+shape = SubResource("CylinderShape3D_s8hfu")
