@@ -401,10 +401,11 @@ script = ExtResource("1_8j6ml")
 
 [node name="ObjectivesTemplate" parent="." instance=ExtResource("1_wax6d")]
 
-[node name="Player" parent="." node_paths=PackedStringArray("objectives") instance=ExtResource("2_agg1q")]
+[node name="Player" parent="." node_paths=PackedStringArray("objectives", "monitor") instance=ExtResource("2_agg1q")]
 transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -4, 0, 1.252)
 can_fall = false
 objectives = NodePath("../ObjectivesTemplate")
+monitor = NodePath("../Bedroom/Monitor")
 
 [node name="Fogs" type="Node3D" parent="."]
 
@@ -955,6 +956,9 @@ transform = Transform3D(-0.00641916, -2.30291e-05, 0.00766772, -3.26969e-05, 0.0
 transform = Transform3D(1, 0, -3.13916e-07, 0, 1, 0, 3.13916e-07, 0, 1, -1, 0, -2.75)
 is_open = true
 
+[node name="Monitor" parent="Bedroom" instance=ExtResource("13_pbvje")]
+transform = Transform3D(-0.710812, 0, 0.703382, 0, 1, 0, -0.703382, 0, -0.710812, -0.684845, 0.710851, 2.67641)
+
 [node name="Kitchen" type="Node3D" parent="."]
 
 [node name="Oven" parent="Kitchen" instance=ExtResource("20_oj25u")]
@@ -1066,9 +1070,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
-
-[node name="Node3D" parent="." instance=ExtResource("13_pbvje")]
-transform = Transform3D(0.703382, 0, 0.710812, 0, 1, 0, -0.710812, 0, 0.703382, -5.67641, 0.710851, 0.315155)
 
 [connection signal="can_sleep" from="ObjectivesTemplate" to="." method="_on_objectives_template_can_sleep"]
 [connection signal="objectives_finished" from="ObjectivesTemplate" to="." method="end_chapter"]

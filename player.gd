@@ -9,6 +9,7 @@ var dir = Vector3()
 @export var can_fall = true
 
 @export var objectives: Node2D
+@export var monitor: Node3D
 
 @export var jump_height = 0.6
 @export var jump_time_to_peak = 0.6
@@ -56,6 +57,8 @@ func process_interaction():
 		objectives.objective_got("litter")
 	if can_hack and Input.is_action_just_pressed("interact"):
 		objectives.objective_got("hack")
+		$Sound/Hack.play()
+		monitor.bug()
 	if can_sleep and Input.is_action_just_pressed("interact"):
 		objectives.objective_got("sleep")
 
@@ -193,6 +196,7 @@ func _on_hack_scan_area_entered(_area):
 	can_hack = true
 	$KeyText.show_text("Hack Computer")
 func _on_hack_scan_area_exited(_area):
+	can_hack = false
 	$KeyText.fade_out()
 
 var is_sleep_allowed = true

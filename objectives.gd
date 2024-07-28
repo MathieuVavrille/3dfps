@@ -7,6 +7,7 @@ signal objectives_finished
 @onready var eat_objective = $CanvasLayer/Objectives/EatObjective
 @onready var fish_objective = $CanvasLayer/Objectives/FishObjective
 @onready var litter_objective = $CanvasLayer/Objectives/LitterObjective
+@onready var hack_objective = $CanvasLayer/Objectives/HackObjective
 @onready var sleep_objective = $CanvasLayer/Objectives/SleepObjective
 
 func _ready():
@@ -29,6 +30,8 @@ func objective_got(obj_name):
 		fish_objective.achieved()
 	elif obj_name == "litter":
 		litter_objective.achieved()
+	elif obj_name == "hack":
+		hack_objective.achieved()
 	elif obj_name == "sleep":
 		sleep_objective.achieved()
 		objectives_finished.emit()

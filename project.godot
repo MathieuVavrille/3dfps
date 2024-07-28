@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="3 Dfps"
+config/name="Life of S"
+config/description="A hommage game to my late cat"
 run/main_scene="res://chapters/template/house.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://icon/icon.png"
 
 [filesystem]
 

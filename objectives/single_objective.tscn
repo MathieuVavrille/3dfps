@@ -6,10 +6,10 @@
 
 [node name="SingleObjective" type="Label"]
 offset_top = -41.0
-offset_right = 602.0
+offset_right = 247.0
 offset_bottom = 42.0
 theme_override_font_sizes/font_size = 60
-text = "Example of objective"
+text = "Example"
 script = ExtResource("1_q2jl6")
 
 [node name="TickBox" type="Node2D" parent="."]

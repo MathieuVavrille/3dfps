@@ -14,7 +14,7 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -206.0
-offset_bottom = 261.0
+offset_bottom = 301.0
 grow_horizontal = 0
 color = Color(0, 0, 0, 0.501961)
 
@@ -74,8 +74,22 @@ offset_right = 439.0
 offset_bottom = 230.0
 grow_horizontal = 0
 scale = Vector2(0.25, 0.25)
-text = "  Collect Fish"
+text = " Collect Fish"
 total = 5
+
+[node name="HackObjective" parent="CanvasLayer/Objectives" instance=ExtResource("3_sie8x")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -163.0
+offset_top = 227.0
+offset_right = 977.0
+offset_bottom = 310.0
+grow_horizontal = 0
+scale = Vector2(0.25, 0.25)
+text = " Hack Computer"
+total = 3
 
 [node name="LitterObjective" parent="CanvasLayer/Objectives" instance=ExtResource("2_snh5a")]
 layout_mode = 1
@@ -96,9 +110,9 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -163.0
-offset_top = 227.0
+offset_top = 267.0
 offset_right = 439.0
-offset_bottom = 310.0
+offset_bottom = 350.0
 grow_horizontal = 0
 scale = Vector2(0.25, 0.25)
 text = "  Sleep"

@@ -1,18 +1,38 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgnyyj35x6q22"]
+[gd_scene load_steps=8 format=3 uid="uid://dgnyyj35x6q22"]
 
+[ext_resource type="Script" path="res://furniture/bedroom/monitor.gd" id="1_tkhll"]
 [ext_resource type="ArrayMesh" uid="uid://8rnto8vn4gro" path="res://assets/furnitures/gaming/Monitor.obj" id="1_wsohr"]
 [ext_resource type="Texture2D" uid="uid://brthb7rwid0y1" path="res://assets/furnitures/gaming/wallpaper.jpg" id="2_5x8xv"]
+[ext_resource type="Texture2D" uid="uid://c8h2hndmcqyha" path="res://furniture/bedroom/bug1.png" id="4_ieyap"]
+[ext_resource type="Texture2D" uid="uid://bg71meiomdrbc" path="res://furniture/bedroom/bug2.jpg" id="5_ocv5m"]
+[ext_resource type="Texture2D" uid="uid://3lvhbbyfxqnq" path="res://furniture/bedroom/bug3.png" id="6_rfney"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bu7yb"]
 albedo_color = Color(0, 0, 0, 1)
 
-[node name="Node3D" type="Node3D"]
+[node name="Monitor" type="Node3D"]
+script = ExtResource("1_tkhll")
 
 [node name="Monitor" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.00445563, 0.19817, 0.09338)
 mesh = ExtResource("1_wsohr")
 surface_material_override/0 = SubResource("StandardMaterial3D_bu7yb")
 
-[node name="Sprite3D" type="Sprite3D" parent="Monitor"]
+[node name="Wall" type="Sprite3D" parent="Monitor"]
 transform = Transform3D(0.34, 0, 0, 0, 0.34, 0, 0, 0, 0.34, -0.00445563, 0.250958, 0.185156)
 texture = ExtResource("2_5x8xv")
+
+[node name="Bug1" type="Sprite3D" parent="Monitor"]
+transform = Transform3D(0.45, 0, 0, 0, 0.6, 0, 0, 0, 0.5, -0.00445563, 0.250958, 0.185156)
+visible = false
+texture = ExtResource("4_ieyap")
+
+[node name="Bug2" type="Sprite3D" parent="Monitor"]
+transform = Transform3D(0.22, 0, 0, 0, 0.24, 0, 0, 0, 0.24, -0.00445563, 0.250958, 0.185156)
+visible = false
+texture = ExtResource("5_ocv5m")
+
+[node name="Bug3" type="Sprite3D" parent="Monitor"]
+transform = Transform3D(0.365, 0, 0, 0, 0.34, 0, 0, 0, 0.35, -0.00445563, 0.250958, 0.185156)
+visible = false
+texture = ExtResource("6_rfney")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dbkgi1f66s332"]
+[gd_scene load_steps=12 format=3 uid="uid://dbkgi1f66s332"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_ohd6e"]
 [ext_resource type="Material" uid="uid://c3p7nx8rii4m4" path="res://assets/textures/brick_texture/brick.tres" id="2_ywke2"]
+[ext_resource type="AudioStream" uid="uid://cfe6ninvyi8q4" path="res://sounds/windows_bug.mp3" id="4_h63nr"]
 [ext_resource type="Texture2D" uid="uid://bxephjk87lye7" path="res://assets/fade/black_fade.png" id="5_0j8nc"]
 [ext_resource type="AudioStream" uid="uid://qxmy4q514eh0" path="res://sounds/eating.mp3" id="6_obm2q"]
 [ext_resource type="PackedScene" uid="uid://b8rvav1hmsqfo" path="res://key_text.tscn" id="8_ryhoy"]
@@ -99,6 +100,9 @@ stream = ExtResource("6_obm2q")
 
 [node name="Drinking" type="AudioStreamPlayer" parent="Sound"]
 stream = SubResource("AudioStreamMP3_el21f")
+
+[node name="Hack" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource("4_h63nr")
 
 [node name="KeyText" parent="." instance=ExtResource("8_ryhoy")]
 anchors_preset = 7
