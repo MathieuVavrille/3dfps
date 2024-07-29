@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cr8b11mde2o2t"]
+[gd_scene load_steps=5 format=3 uid="uid://cr8b11mde2o2t"]
 
 [ext_resource type="Script" path="res://objectives/collectible_fish.gd" id="1_lxlgv"]
 [ext_resource type="PackedScene" uid="uid://duhu5ioymv3b5" path="res://objectives/fish.tscn" id="1_yodff"]
+[ext_resource type="AudioStream" uid="uid://buec4160pxuey" path="res://sounds/bubble.mp3" id="3_vk1rr"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_iwie5"]
 radius = 0.153559
@@ -17,4 +18,8 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 visible = false
 shape = SubResource("SphereShape3D_iwie5")
 
+[node name="FishSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_vk1rr")
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="finished" from="FishSound" to="." method="_on_fish_sound_finished"]

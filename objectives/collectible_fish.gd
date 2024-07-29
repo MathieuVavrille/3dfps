@@ -13,4 +13,10 @@ func _process(delta):
 
 func _on_area_entered(_area):
 	collected.emit()
+	$FishSound.play()
+	$Fish.visible = false
+
+
+
+func _on_fish_sound_finished():
 	queue_free()
