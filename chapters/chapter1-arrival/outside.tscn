@@ -1,0 +1,750 @@
+[gd_scene load_steps=86 format=3 uid="uid://binb6v0n6anb4"]
+
+[ext_resource type="Script" path="res://chapters/chapter1-arrival/chapter1.gd" id="1_auond"]
+[ext_resource type="Texture2D" uid="uid://bk2lliim22v8y" path="res://assets/Zombie Apocalypse Kit - March 2024/Zombie_Atlas.png" id="1_upqp5"]
+[ext_resource type="ArrayMesh" uid="uid://bw3jwctxop0i1" path="res://assets/Zombie Apocalypse Kit - March 2024/Environment/OBJ/Street_Straight.obj" id="2_0wdse"]
+[ext_resource type="ArrayMesh" uid="uid://bq3yi1nc48qyf" path="res://assets/Zombie Apocalypse Kit - March 2024/Environment/OBJ/Street_Turn.obj" id="3_u3ylq"]
+[ext_resource type="Texture2D" uid="uid://ci8gw0ynpf8my" path="res://assets/houses/Textured Models/Textures/Texture_DarkBlue.png" id="4_tv713"]
+[ext_resource type="ArrayMesh" uid="uid://dpa2b8qhvah2d" path="res://assets/houses/Textured Models/Finished Textured Buildings/OBJ/2Story_Wide_2Doors.obj" id="5_t8jjj"]
+[ext_resource type="Texture2D" uid="uid://dhjdram0bq6g7" path="res://assets/houses/Textured Models/Textures/Texture_Green.png" id="6_uiygi"]
+[ext_resource type="ArrayMesh" uid="uid://p47cacvptg5f" path="res://assets/houses/Textured Models/Finished Textured Buildings/OBJ/2Story_Wide.obj" id="7_l3c7d"]
+[ext_resource type="ArrayMesh" uid="uid://cu1ggkbvmh0a3" path="res://assets/Zombie Apocalypse Kit - March 2024/Environment/OBJ/Street_T.obj" id="8_of4rp"]
+[ext_resource type="Texture2D" uid="uid://blos2gw7si8um" path="res://assets/houses/Textured Models/Textures/Texture_Dark.png" id="9_f6axh"]
+[ext_resource type="ArrayMesh" uid="uid://cg3k0x40x0grr" path="res://assets/houses/Textured Models/Finished Textured Buildings/OBJ/2Story_Stairs.obj" id="10_crjkp"]
+[ext_resource type="Texture2D" uid="uid://du1n21ti87qaa" path="res://assets/houses/Textured Models/Textures/Texture_Blue.png" id="11_wxc1h"]
+[ext_resource type="ArrayMesh" uid="uid://b4db5ifk7dc7m" path="res://assets/houses/Textured Models/Finished Textured Buildings/OBJ/2Story_Slim.obj" id="12_kvj0r"]
+[ext_resource type="Texture2D" uid="uid://chij4f3tqewrj" path="res://assets/houses/Textured Models/Textures/Texture_Light2.png" id="13_pnkow"]
+[ext_resource type="ArrayMesh" uid="uid://x3dfnsbfeada" path="res://assets/houses/Textured Models/Finished Textured Buildings/OBJ/4Story_Wide_2Doors.obj" id="14_ynrwr"]
+[ext_resource type="Texture2D" uid="uid://cbh1w0wvl8ul4" path="res://assets/houses/Textured Models/Textures/Texture_Red.png" id="15_i1iqw"]
+[ext_resource type="ArrayMesh" uid="uid://tjnknwwn35du" path="res://assets/houses/Textured Models/Finished Textured Buildings/OBJ/4Story_Wide_2Doors_Roof.obj" id="16_civgu"]
+[ext_resource type="Texture2D" uid="uid://cvxdn2gy6k2ge" path="res://assets/houses/Textured Models/Textures/Texture_Yellow.png" id="17_8nojk"]
+[ext_resource type="ArrayMesh" uid="uid://btr2xjuvkcj8b" path="res://assets/houses/Textured Models/Finished Textured Buildings/OBJ/2Story.obj" id="18_4radv"]
+[ext_resource type="ArrayMesh" uid="uid://dh6ex1i2ccghg" path="res://assets/houses/Textured Models/Finished Textured Buildings/OBJ/6Story_Stack.obj" id="19_oe206"]
+[ext_resource type="Texture2D" uid="uid://b1t3fuf5w73ev" path="res://assets/houses/Textured Models/Textures/Texture_Casino.png" id="20_pup65"]
+[ext_resource type="Texture2D" uid="uid://cyck46dda8w1l" path="res://assets/houses/Textured Models/Textures/Texture_DarkPurple.png" id="21_pk28e"]
+[ext_resource type="Texture2D" uid="uid://hcfinv42o6l" path="res://assets/houses/Textured Models/Textures/Texture_Signs.png" id="22_27qrs"]
+[ext_resource type="ArrayMesh" uid="uid://c7yjs8jb1st15" path="res://assets/houses/Textured Models/Finished Textured Buildings/OBJ/3Story_Balcony.obj" id="23_7ydec"]
+[ext_resource type="ArrayMesh" uid="uid://cm04ga1tsvngi" path="res://assets/houses/Textured Models/Finished Textured Buildings/OBJ/4Story.obj" id="24_ailxs"]
+[ext_resource type="Texture2D" uid="uid://blq3gacvik6wm" path="res://assets/houses/Textured Models/Textures/Texture_Light.png" id="25_crr1q"]
+[ext_resource type="ArrayMesh" uid="uid://do25o6lphd1l" path="res://assets/houses/Textured Models/Finished Textured Buildings/OBJ/2Story_Sidehouse.obj" id="26_pnetv"]
+[ext_resource type="Texture2D" uid="uid://cxickn032daj1" path="res://assets/houses/Textured Models/Textures/Texture_Grey.png" id="27_w3sn1"]
+[ext_resource type="ArrayMesh" uid="uid://b2twcokxe14ql" path="res://assets/houses/Textured Models/Finished Textured Buildings/OBJ/2Story_Sign.obj" id="28_xjekg"]
+[ext_resource type="PackedScene" uid="uid://t4tykwl16m1x" path="res://assets/transport_cage/transport_box.tscn" id="29_5bef6"]
+[ext_resource type="Script" path="res://chapters/chapter1-arrival/Movable.gd" id="29_jgr65"]
+[ext_resource type="ArrayMesh" uid="uid://se4pkfkab275" path="res://assets/houses/Textured Models/Finished Textured Buildings/OBJ/1Story_GableRoof.obj" id="29_kgv76"]
+[ext_resource type="PackedScene" uid="uid://dbkgi1f66s332" path="res://player.tscn" id="30_626l2"]
+[ext_resource type="AudioStream" uid="uid://ss5d7c2bmoc6" path="res://sounds/pas.mp3" id="31_kyds0"]
+[ext_resource type="AudioStream" uid="uid://kfflnm8r113y" path="res://sounds/rue.mp3" id="32_c8xjv"]
+[ext_resource type="ArrayMesh" uid="uid://dbd36wwg056t8" path="res://assets/Zombie Apocalypse Kit - March 2024/Vehicles/OBJ/Vehicle_Sports.obj" id="34_pchpc"]
+[ext_resource type="ArrayMesh" uid="uid://dh8sm27y1l4yn" path="res://assets/Zombie Apocalypse Kit - March 2024/Vehicles/OBJ/Vehicle_Truck.obj" id="35_ii77k"]
+[ext_resource type="Texture2D" uid="uid://c5b13gaaj6drd" path="res://assets/Zombie Apocalypse Kit - March 2024/Preview_AllModels.jpg" id="36_s68i0"]
+[ext_resource type="ArrayMesh" uid="uid://cl0y6bcls4ao1" path="res://assets/Zombie Apocalypse Kit - March 2024/Vehicles/OBJ/Vehicle_Pickup.obj" id="37_tmugw"]
+[ext_resource type="ArrayMesh" uid="uid://bobuxyv2kemx6" path="res://assets/houses/Textured Models/Finished Textured Buildings/OBJ/3Story_Small.obj" id="39_4g8cg"]
+[ext_resource type="PackedScene" uid="uid://bvrnypbhb5xsn" path="res://world_environment.tscn" id="40_5mil0"]
+[ext_resource type="Script" path="res://fade.gd" id="41_ewclu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ht04c"]
+albedo_texture = ExtResource("1_upqp5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hqiny"]
+albedo_texture = ExtResource("1_upqp5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mioah"]
+albedo_texture = ExtResource("1_upqp5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fbws0"]
+albedo_texture = ExtResource("1_upqp5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bb76a"]
+albedo_texture = ExtResource("1_upqp5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q270o"]
+albedo_texture = ExtResource("1_upqp5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1n4g"]
+albedo_texture = ExtResource("4_tv713")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yk1dh"]
+albedo_texture = ExtResource("6_uiygi")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wbst8"]
+albedo_texture = ExtResource("1_upqp5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aygjw"]
+albedo_texture = ExtResource("9_f6axh")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3yi47"]
+albedo_texture = ExtResource("11_wxc1h")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1vrgn"]
+albedo_texture = ExtResource("13_pnkow")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ebw7v"]
+albedo_texture = ExtResource("15_i1iqw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0hbo2"]
+albedo_texture = ExtResource("17_8nojk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_viomk"]
+albedo_texture = ExtResource("11_wxc1h")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8o22l"]
+albedo_texture = ExtResource("20_pup65")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qs1ed"]
+albedo_texture = ExtResource("21_pk28e")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kc4d4"]
+albedo_texture = ExtResource("9_f6axh")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qb8f6"]
+albedo_texture = ExtResource("22_27qrs")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iyp0s"]
+albedo_texture = ExtResource("15_i1iqw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q0lrn"]
+albedo_texture = ExtResource("25_crr1q")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f7cwj"]
+albedo_texture = ExtResource("11_wxc1h")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1s13"]
+albedo_texture = ExtResource("6_uiygi")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ex4v"]
+albedo_texture = ExtResource("27_w3sn1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4jgo6"]
+albedo_texture = ExtResource("25_crr1q")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h1hq0"]
+albedo_texture = ExtResource("22_27qrs")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j55hd"]
+albedo_texture = ExtResource("15_i1iqw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dhs44"]
+albedo_texture = ExtResource("11_wxc1h")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tvrsa"]
+albedo_texture = ExtResource("20_pup65")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1olkq"]
+albedo_texture = ExtResource("13_pnkow")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bm2so"]
+albedo_texture = ExtResource("6_uiygi")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i5t4k"]
+albedo_texture = ExtResource("20_pup65")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_66ydh"]
+albedo_texture = ExtResource("6_uiygi")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nyuox"]
+albedo_texture = ExtResource("4_tv713")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_md6tb"]
+albedo_texture = ExtResource("13_pnkow")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ee1rr"]
+albedo_texture = ExtResource("17_8nojk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q87wj"]
+albedo_texture = ExtResource("6_uiygi")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3upil"]
+albedo_texture = ExtResource("4_tv713")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4hgss"]
+albedo_texture = ExtResource("17_8nojk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_it4dq"]
+albedo_texture = ExtResource("1_upqp5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xgntt"]
+albedo_texture = ExtResource("1_upqp5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_66u6c"]
+albedo_texture = ExtResource("36_s68i0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mef1c"]
+albedo_texture = ExtResource("1_upqp5")
+
+[node name="Chapter1" type="Node3D"]
+script = ExtResource("1_auond")
+
+[node name="Structure" type="Node3D" parent="."]
+
+[node name="StreetStraight" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
+material_override = SubResource("StandardMaterial3D_ht04c")
+mesh = ExtResource("2_0wdse")
+
+[node name="StreetStraight2" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 1, 0, 2, 0, -8.74228e-08, -18, 0, 69)
+material_override = SubResource("StandardMaterial3D_hqiny")
+mesh = ExtResource("2_0wdse")
+
+[node name="StreetStraight3" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -25)
+material_override = SubResource("StandardMaterial3D_mioah")
+mesh = ExtResource("2_0wdse")
+
+[node name="StreetStraight4" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+material_override = SubResource("StandardMaterial3D_ht04c")
+mesh = ExtResource("2_0wdse")
+skeleton = NodePath("../..")
+
+[node name="StreetStraight5" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 4, -52, 0, -5)
+material_override = SubResource("StandardMaterial3D_fbws0")
+mesh = ExtResource("2_0wdse")
+skeleton = NodePath("../..")
+
+[node name="StreetStraight6" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 12, 0, 38)
+material_override = SubResource("StandardMaterial3D_bb76a")
+mesh = ExtResource("2_0wdse")
+skeleton = NodePath("../..")
+
+[node name="StreetStraight7" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 15)
+material_override = SubResource("StandardMaterial3D_ht04c")
+mesh = ExtResource("2_0wdse")
+
+[node name="StreetStraight8" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -24, 0, 7)
+material_override = SubResource("StandardMaterial3D_hqiny")
+mesh = ExtResource("2_0wdse")
+
+[node name="StreetStraight9" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, 0, 7)
+material_override = SubResource("StandardMaterial3D_mioah")
+mesh = ExtResource("2_0wdse")
+
+[node name="StreetStraight10" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 4, 44, 0, -29)
+material_override = SubResource("StandardMaterial3D_ht04c")
+mesh = ExtResource("2_0wdse")
+skeleton = NodePath("../..")
+
+[node name="StreetStraight11" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-2.18557e-07, 0, -5, 0, 1, 0, 5, 0, -2.18557e-07, -24, 0, 31)
+material_override = SubResource("StandardMaterial3D_fbws0")
+mesh = ExtResource("2_0wdse")
+skeleton = NodePath("../..")
+
+[node name="StreetStraight12" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, 0, 15)
+material_override = SubResource("StandardMaterial3D_bb76a")
+mesh = ExtResource("2_0wdse")
+skeleton = NodePath("../..")
+
+[node name="StreetStraight13" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 4, 36, 0, 10)
+material_override = SubResource("StandardMaterial3D_fbws0")
+mesh = ExtResource("2_0wdse")
+skeleton = NodePath("../..")
+
+[node name="StreetStraight14" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16, 0, -17)
+material_override = SubResource("StandardMaterial3D_ht04c")
+mesh = ExtResource("2_0wdse")
+
+[node name="StreetStraight15" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -24, 0, -17)
+material_override = SubResource("StandardMaterial3D_hqiny")
+mesh = ExtResource("2_0wdse")
+
+[node name="StreetStraight16" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8, 0, -17)
+material_override = SubResource("StandardMaterial3D_mioah")
+mesh = ExtResource("2_0wdse")
+
+[node name="StreetStraight17" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, -17)
+material_override = SubResource("StandardMaterial3D_ht04c")
+mesh = ExtResource("2_0wdse")
+skeleton = NodePath("../..")
+
+[node name="StreetStraight18" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, -17)
+material_override = SubResource("StandardMaterial3D_fbws0")
+mesh = ExtResource("2_0wdse")
+skeleton = NodePath("../..")
+
+[node name="StreetStraight19" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(0.00191982, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.00191982, 16, 0, 15)
+material_override = SubResource("StandardMaterial3D_bb76a")
+mesh = ExtResource("2_0wdse")
+skeleton = NodePath("../..")
+
+[node name="StreetStraight20" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16, 0, -9)
+material_override = SubResource("StandardMaterial3D_ht04c")
+mesh = ExtResource("2_0wdse")
+
+[node name="StreetStraight21" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -33)
+material_override = SubResource("StandardMaterial3D_hqiny")
+mesh = ExtResource("2_0wdse")
+
+[node name="StreetStraight22" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-4.37114e-07, 0, -10, 0, 1, 0, 10, 0, -4.37114e-07, -20, 0, -61)
+material_override = SubResource("StandardMaterial3D_mioah")
+mesh = ExtResource("2_0wdse")
+
+[node name="StreetStraight23" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, -9)
+material_override = SubResource("StandardMaterial3D_ht04c")
+mesh = ExtResource("2_0wdse")
+skeleton = NodePath("../..")
+
+[node name="StreetStraight24" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 1, 0, 2, 0, -8.74228e-08, 28, 0, -5)
+material_override = SubResource("StandardMaterial3D_fbws0")
+mesh = ExtResource("2_0wdse")
+skeleton = NodePath("../..")
+
+[node name="StreetStraight25" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, -1)
+material_override = SubResource("StandardMaterial3D_bb76a")
+mesh = ExtResource("2_0wdse")
+skeleton = NodePath("../..")
+
+[node name="StreetTurn2" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 16, 0, 7)
+material_override = SubResource("StandardMaterial3D_q270o")
+mesh = ExtResource("3_u3ylq")
+
+[node name="StreetTurn3" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 24, 0, -17)
+material_override = SubResource("StandardMaterial3D_q270o")
+mesh = ExtResource("3_u3ylq")
+
+[node name="StreetTurn4" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, -17)
+material_override = SubResource("StandardMaterial3D_q270o")
+mesh = ExtResource("3_u3ylq")
+
+[node name="StreetTurn5" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -32, 0, 7)
+material_override = SubResource("StandardMaterial3D_q270o")
+mesh = ExtResource("3_u3ylq")
+
+[node name="StreetStraight26" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(1.50996e-07, 0, 2, 0, 1, 0, -2, 0, 1.50996e-07, -20, 0, -5)
+material_override = SubResource("StandardMaterial3D_hqiny")
+mesh = ExtResource("2_0wdse")
+
+[node name="2StoryWide2Doors" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-2.5, 0, -3.77489e-07, 0, 2.5, 0, 3.77489e-07, 0, -2.5, 4, 0, 14)
+material_override = SubResource("StandardMaterial3D_u1n4g")
+mesh = ExtResource("5_t8jjj")
+skeleton = NodePath("../..")
+
+[node name="2StoryWide" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-1.09278e-07, 0, -2.5, 0, 2.5, 0, 2.5, 0, -1.09278e-07, 7, 0, -2)
+material_override = SubResource("StandardMaterial3D_yk1dh")
+mesh = ExtResource("7_l3c7d")
+skeleton = NodePath("../..")
+
+[node name="StreetT" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -17)
+material_override = SubResource("StandardMaterial3D_wbst8")
+mesh = ExtResource("8_of4rp")
+skeleton = NodePath("../..")
+
+[node name="2StoryStairs" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-2.5, 0, -3.77489e-07, 0, 2.5, 0, 3.77489e-07, 0, -2.5, 15.2677, 0, 14)
+material_override = SubResource("StandardMaterial3D_aygjw")
+mesh = ExtResource("10_crjkp")
+skeleton = NodePath("../..")
+
+[node name="2StorySlim" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 19.1193, 0, 14)
+material_override = SubResource("StandardMaterial3D_3yi47")
+mesh = ExtResource("12_kvj0r")
+skeleton = NodePath("../..")
+
+[node name="4StoryWide2Doors" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-1.09278e-07, 0, -2.5, 0, 2.5, 0, 2.5, 0, -1.09278e-07, 23, 0, 3.78018)
+material_override = SubResource("StandardMaterial3D_1vrgn")
+mesh = ExtResource("14_ynrwr")
+skeleton = NodePath("../..")
+
+[node name="4StoryWide2DoorsRoof" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-2.5, 0, -2.18556e-07, 0, 2.5, 0, 2.18556e-07, 0, -2.5, -12.907, 0, 14)
+material_override = SubResource("StandardMaterial3D_ebw7v")
+mesh = ExtResource("16_civgu")
+skeleton = NodePath("../..")
+
+[node name="2Story" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 9, 0, -10)
+material_override = SubResource("StandardMaterial3D_0hbo2")
+mesh = ExtResource("18_4radv")
+skeleton = NodePath("../..")
+
+[node name="6StoryStack" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 17, 0, -24)
+material_override = SubResource("StandardMaterial3D_viomk")
+mesh = ExtResource("19_oe206")
+skeleton = NodePath("../..")
+
+[node name="4StoryWide2Doors2" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-1.09278e-07, 0, -2.5, 0, 2.5, 0, 2.5, 0, -1.09278e-07, 31, 0, -21.2027)
+material_override = SubResource("StandardMaterial3D_8o22l")
+mesh = ExtResource("14_ynrwr")
+skeleton = NodePath("../..")
+
+[node name="2StoryWide2" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-2.5, 0, 2.18557e-07, 0, 2.5, 0, -2.18557e-07, 0, -2.5, 17, 0, -10)
+material_override = SubResource("StandardMaterial3D_qs1ed")
+mesh = ExtResource("7_l3c7d")
+skeleton = NodePath("../..")
+
+[node name="2StoryWide2Doors2" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(2.5, 0, 2.38419e-07, 0, 2.5, 0, -2.38419e-07, 0, 2.5, 5.77902, 0, -24)
+material_override = SubResource("StandardMaterial3D_kc4d4")
+mesh = ExtResource("5_t8jjj")
+skeleton = NodePath("../..")
+
+[node name="3StoryBalcony" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-2.5, 0, 3.77489e-07, 0, 2.5, 0, -3.77489e-07, 0, -2.5, 24.4958, 0, -10)
+material_override = SubResource("StandardMaterial3D_qb8f6")
+mesh = ExtResource("23_7ydec")
+skeleton = NodePath("../..")
+
+[node name="4Story" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 30, 0, -10)
+material_override = SubResource("StandardMaterial3D_iyp0s")
+mesh = ExtResource("24_ailxs")
+skeleton = NodePath("../..")
+
+[node name="4Story2" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-2.5, 0, -2.18557e-07, 0, 2.5, 0, 2.18557e-07, 0, -2.5, -7, 0, -9.89853)
+material_override = SubResource("StandardMaterial3D_q0lrn")
+mesh = ExtResource("24_ailxs")
+skeleton = NodePath("../..")
+
+[node name="2StorySlim2" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-2.5, 0, 2.18556e-07, 0, 2.5, 0, -2.18556e-07, 0, -2.5, 11, 0, 0)
+material_override = SubResource("StandardMaterial3D_f7cwj")
+mesh = ExtResource("12_kvj0r")
+skeleton = NodePath("../..")
+
+[node name="2StorySidehouse" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -15.9945, 0, -24)
+material_override = SubResource("StandardMaterial3D_u1s13")
+mesh = ExtResource("26_pnetv")
+skeleton = NodePath("../..")
+
+[node name="4StoryWide2DoorsRoof2" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-2.5, 0, 2.18557e-07, 0, 2.5, 0, -2.18557e-07, 0, -2.5, -18.6936, 0, -10)
+material_override = SubResource("StandardMaterial3D_4ex4v")
+mesh = ExtResource("16_civgu")
+skeleton = NodePath("../..")
+
+[node name="2StoryStairs2" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -5.45278, 0, -25)
+material_override = SubResource("StandardMaterial3D_4jgo6")
+mesh = ExtResource("10_crjkp")
+skeleton = NodePath("../..")
+
+[node name="2StorySign" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -10.6628, 0, -25)
+material_override = SubResource("StandardMaterial3D_h1hq0")
+mesh = ExtResource("28_xjekg")
+skeleton = NodePath("../..")
+
+[node name="2StoryWide3" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -26.7095, 0, -25)
+material_override = SubResource("StandardMaterial3D_j55hd")
+mesh = ExtResource("7_l3c7d")
+skeleton = NodePath("../..")
+
+[node name="4Story3" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -35, 0, -25)
+material_override = SubResource("StandardMaterial3D_dhs44")
+mesh = ExtResource("24_ailxs")
+skeleton = NodePath("../..")
+
+[node name="4StoryWide2Doors3" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-1.09278e-07, 0, 2.5, 0, 2.5, 0, -2.5, 0, -1.09278e-07, -39, 0, -14)
+material_override = SubResource("StandardMaterial3D_tvrsa")
+mesh = ExtResource("14_ynrwr")
+skeleton = NodePath("../..")
+
+[node name="2StoryWide2Doors3" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-1.09278e-07, 0, 2.5, 0, 2.5, 0, -2.5, 0, -1.09278e-07, -39, 0, 3)
+material_override = SubResource("StandardMaterial3D_1olkq")
+mesh = ExtResource("5_t8jjj")
+skeleton = NodePath("../..")
+
+[node name="StreetT2" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 7)
+material_override = SubResource("StandardMaterial3D_wbst8")
+mesh = ExtResource("8_of4rp")
+skeleton = NodePath("../..")
+
+[node name="StreetStraight27" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, 0, 7)
+material_override = SubResource("StandardMaterial3D_hqiny")
+mesh = ExtResource("2_0wdse")
+
+[node name="StreetStraight28" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, 0, 7)
+material_override = SubResource("StandardMaterial3D_hqiny")
+mesh = ExtResource("2_0wdse")
+
+[node name="StreetStraight29" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -24, 0, 7)
+material_override = SubResource("StandardMaterial3D_hqiny")
+mesh = ExtResource("2_0wdse")
+
+[node name="StreetStraight30" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(1.50996e-07, 0, 2, 0, 1, 0, -2, 0, 1.50996e-07, -12, 0, -5)
+material_override = SubResource("StandardMaterial3D_hqiny")
+mesh = ExtResource("2_0wdse")
+
+[node name="StreetStraight31" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(2, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 2, -20, 0, -5)
+material_override = SubResource("StandardMaterial3D_hqiny")
+mesh = ExtResource("2_0wdse")
+
+[node name="StreetStraight32" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(2, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 2, -12, 0, -5)
+material_override = SubResource("StandardMaterial3D_hqiny")
+mesh = ExtResource("2_0wdse")
+
+[node name="StreetTurn6" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, -1)
+material_override = SubResource("StandardMaterial3D_q270o")
+mesh = ExtResource("3_u3ylq")
+
+[node name="StreetTurn7" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 8, 0, -9)
+material_override = SubResource("StandardMaterial3D_q270o")
+mesh = ExtResource("3_u3ylq")
+
+[node name="StreetStraight33" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -1)
+material_override = SubResource("StandardMaterial3D_ht04c")
+mesh = ExtResource("2_0wdse")
+
+[node name="StreetT3" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -32, 0, -17)
+material_override = SubResource("StandardMaterial3D_wbst8")
+mesh = ExtResource("8_of4rp")
+skeleton = NodePath("../..")
+
+[node name="6StoryStack2" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -7, 0, -1)
+material_override = SubResource("StandardMaterial3D_viomk")
+mesh = ExtResource("19_oe206")
+skeleton = NodePath("../..")
+
+[node name="6StoryStack3" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(3.27835e-07, 0, 2.5, 0, 2.5, 0, -2.5, 0, 3.27835e-07, -44, 0, 12)
+material_override = SubResource("StandardMaterial3D_bm2so")
+mesh = ExtResource("19_oe206")
+skeleton = NodePath("../..")
+
+[node name="2StorySlim3" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(2.5, 0, -4.37114e-07, 0, 2.5, 0, 4.37114e-07, 0, 2.5, -25.949, 0, -1.59811)
+material_override = SubResource("StandardMaterial3D_i5t4k")
+mesh = ExtResource("12_kvj0r")
+
+[node name="2StorySlim4" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-4.7247e-07, 0, -2.9, 0, 2.9, 0, 2.9, 0, -4.7247e-07, -24.2343, 0, -5.82188)
+material_override = SubResource("StandardMaterial3D_66ydh")
+mesh = ExtResource("12_kvj0r")
+
+[node name="2StorySlim5" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(4.45856e-07, 0, 3.4, 0, 3.4, 0, -3.4, 0, 4.45856e-07, -7.80352, 0, -5.49365)
+material_override = SubResource("StandardMaterial3D_nyuox")
+mesh = ExtResource("12_kvj0r")
+skeleton = NodePath("../..")
+
+[node name="2StoryWide4" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -14.4423, 0, 0)
+material_override = SubResource("StandardMaterial3D_md6tb")
+mesh = ExtResource("7_l3c7d")
+skeleton = NodePath("../..")
+
+[node name="1StoryGableRoof" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -22, 0, 0)
+material_override = SubResource("StandardMaterial3D_ee1rr")
+mesh = ExtResource("29_kgv76")
+skeleton = NodePath("../..")
+
+[node name="3StoryBalcony2" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-2.5, 0, -2.18557e-07, 0, 2.5, 0, 2.18557e-07, 0, -2.5, -24, 0, 14)
+material_override = SubResource("StandardMaterial3D_q87wj")
+mesh = ExtResource("23_7ydec")
+skeleton = NodePath("../..")
+
+[node name="3StorySmall" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-2.5, 0, 2.18557e-07, 0, 2.5, 0, -2.18557e-07, 0, -2.5, -28.9371, 0, 14)
+material_override = SubResource("StandardMaterial3D_3upil")
+mesh = ExtResource("39_4g8cg")
+skeleton = NodePath("../..")
+
+[node name="2StoryWide5" type="MeshInstance3D" parent="Structure"]
+transform = Transform3D(-2.5, 0, -3.77489e-07, 0, 2.5, 0, 3.77489e-07, 0, -2.5, -36, 0, 16)
+material_override = SubResource("StandardMaterial3D_4hgss")
+mesh = ExtResource("7_l3c7d")
+skeleton = NodePath("../..")
+
+[node name="Movable" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -28.5, 1, 3.5)
+script = ExtResource("29_jgr65")
+
+[node name="pat_carrier" parent="Movable" instance=ExtResource("29_5bef6")]
+is_moving = true
+
+[node name="Player" parent="Movable/pat_carrier" instance=ExtResource("30_626l2")]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -0.0168018, -0.274616, 0)
+capture_mouse = false
+
+[node name="Steps" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("31_kyds0")
+
+[node name="Street" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("32_c8xjv")
+
+[node name="Cars" type="Node3D" parent="."]
+
+[node name="VehicleSports" type="MeshInstance3D" parent="Cars"]
+transform = Transform3D(-3.93403e-08, 0, -0.9, 0, 0.9, 0, 0.9, 0, -3.93403e-08, 1.5928, 0, -18.6177)
+material_override = SubResource("StandardMaterial3D_it4dq")
+mesh = ExtResource("34_pchpc")
+skeleton = NodePath("../..")
+script = ExtResource("29_jgr65")
+positions = [Vector2(1.5, -18.6), Vector2(-33.4, -18.6), Vector2(-33.4, 8.4), Vector2(1.5, 8.4), Vector2(1.5, -18.6)]
+pos_time = [0.0, 8.0, 12.0, 20.0, 24.0]
+rotations = [-90.0, -91.0, 0.0, 1.0, 90.0, 91.0, 180.0, 181.0, 270.0]
+rot_time = [0.0, 7.5, 8.5, 11.5, 12.5, 19.5, 20.5, 23.0, 24.0]
+current_time = 2.0
+
+[node name="VehicleTruck" type="MeshInstance3D" parent="Cars"]
+transform = Transform3D(-9.6556e-08, 0, 0.9, 0, 0.9, 0, -0.9, 0, -9.6556e-08, -30.3797, 0, -15.6)
+material_override = SubResource("StandardMaterial3D_xgntt")
+mesh = ExtResource("35_ii77k")
+skeleton = NodePath("../..")
+script = ExtResource("29_jgr65")
+positions = [Vector2(-30.4, -15.6), Vector2(-1.4, -15.6), Vector2(-1.4, 5.4), Vector2(-30.4, 5.4), Vector2(-30.4, -15.6)]
+pos_time = [0.0, 12.0, 18.0, 30.0, 36.0]
+rotations = [91.0, 90.0, 1.0, 0.0, -90.0, -91.0, -180.0, -181.0, -270.0]
+rot_time = [0.0, 11.5, 12.5, 17.5, 18.5, 29.5, 30.5, 35.0, 36.0]
+
+[node name="VehicleSports2" type="MeshInstance3D" parent="Cars"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12, 0, -20)
+material_override = SubResource("StandardMaterial3D_66u6c")
+mesh = ExtResource("34_pchpc")
+skeleton = NodePath("../..")
+
+[node name="VehiclePickup" type="MeshInstance3D" parent="Cars"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10, 0, 10)
+material_override = SubResource("StandardMaterial3D_mef1c")
+mesh = ExtResource("37_tmugw")
+skeleton = NodePath("../..")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.0147545, 0.97283, -0.231048, 0.19506, 0.229434, 0.953578, 0.98068, -0.0309987, -0.193145, 0, 10, 7)
+shadow_enabled = true
+shadow_opacity = 0.9
+shadow_blur = 2.0
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("40_5mil0")]
+
+[node name="TitleScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("41_ewclu")
+
+[node name="ColorRect" type="ColorRect" parent="TitleScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("41_ewclu")
+
+[node name="Controls" type="Label" parent="TitleScreen"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.5
+offset_top = -38.0
+offset_right = 180.5
+offset_bottom = 238.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "Controls:
+
+Move:                     ZQSD or Arrow Keys
+Move Camera:     Mouse
+Jump:                     SpaceBar
+Interact:                A
+
+You can sleep on the foggy areas
+ when the objectives are finished"
+script = ExtResource("41_ewclu")
+
+[node name="PlayButton" type="Button" parent="TitleScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.5
+offset_top = -145.5
+offset_right = 64.5
+offset_bottom = -54.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+text = "Play"
+script = ExtResource("41_ewclu")
+
+[node name="Chapter" type="Label" parent="TitleScreen"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -24.5
+offset_right = 42.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+text = "Chapter 1:
+The Arrival"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("41_ewclu")
+
+[connection signal="faded_in" from="TitleScreen/ColorRect" to="." method="_on_color_rect_faded_in"]
+[connection signal="faded_out" from="TitleScreen/PlayButton" to="." method="_on_play_button_faded_out"]
+[connection signal="pressed" from="TitleScreen/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="faded_in" from="TitleScreen/Chapter" to="." method="_on_chapter_faded_in"]

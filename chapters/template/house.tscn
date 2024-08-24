@@ -1,4 +1,4 @@
-[gd_scene load_steps=173 format=3 uid="uid://c3tioidawyfdo"]
+[gd_scene load_steps=184 format=3 uid="uid://c3tioidawyfdo"]
 
 [ext_resource type="Script" path="res://chapters/template/house_template.gd" id="1_8j6ml"]
 [ext_resource type="Texture2D" uid="uid://dagfyclbj445g" path="res://assets/textures/wood_floor/wood_floor_diff_4k.png" id="1_p3gbs"]
@@ -77,12 +77,21 @@
 [ext_resource type="PackedScene" uid="uid://c4x2r1ub8w831" path="res://furniture/outside/cat_tree.tscn" id="68_la6tf"]
 [ext_resource type="Texture2D" uid="uid://b1t3fuf5w73ev" path="res://assets/houses/Textured Models/Textures/Texture_Casino.png" id="76_rsejl"]
 [ext_resource type="ArrayMesh" uid="uid://bmk045uv7lfx5" path="res://assets/houses/Textured Models/Finished Textured Buildings/OBJ/4Story_Center.obj" id="77_n34hk"]
+[ext_resource type="Texture2D" uid="uid://cxickn032daj1" path="res://assets/houses/Textured Models/Textures/Texture_Grey.png" id="78_2f3y8"]
 [ext_resource type="Texture2D" uid="uid://du1n21ti87qaa" path="res://assets/houses/Textured Models/Textures/Texture_Blue.png" id="78_2n4xo"]
 [ext_resource type="ArrayMesh" uid="uid://dh6ex1i2ccghg" path="res://assets/houses/Textured Models/Finished Textured Buildings/OBJ/6Story_Stack.obj" id="79_7ih50"]
 [ext_resource type="Texture2D" uid="uid://dhjdram0bq6g7" path="res://assets/houses/Textured Models/Textures/Texture_Green.png" id="80_lkpcg"]
 [ext_resource type="ArrayMesh" uid="uid://tjnknwwn35du" path="res://assets/houses/Textured Models/Finished Textured Buildings/OBJ/4Story_Wide_2Doors_Roof.obj" id="81_1dgmv"]
 [ext_resource type="Texture2D" uid="uid://cvxdn2gy6k2ge" path="res://assets/houses/Textured Models/Textures/Texture_Yellow.png" id="82_36iyd"]
 [ext_resource type="ArrayMesh" uid="uid://cm04ga1tsvngi" path="res://assets/houses/Textured Models/Finished Textured Buildings/OBJ/4Story.obj" id="83_4dmco"]
+[ext_resource type="PackedScene" uid="uid://bvylsknh5xvl4" path="res://chapters/credits.tscn" id="84_o6mjj"]
+[ext_resource type="PackedScene" uid="uid://cnc4gsnq6lgwa" path="res://furniture/outside/chair.tscn" id="85_x4wsq"]
+[ext_resource type="ArrayMesh" uid="uid://x3dfnsbfeada" path="res://assets/houses/Textured Models/Finished Textured Buildings/OBJ/4Story_Wide_2Doors.obj" id="86_x0dod"]
+[ext_resource type="ArrayMesh" uid="uid://p47cacvptg5f" path="res://assets/houses/Textured Models/Finished Textured Buildings/OBJ/2Story_Wide.obj" id="87_r4c1l"]
+[ext_resource type="Texture2D" uid="uid://cyck46dda8w1l" path="res://assets/houses/Textured Models/Textures/Texture_DarkPurple.png" id="88_lcgwx"]
+[ext_resource type="Texture2D" uid="uid://cbh1w0wvl8ul4" path="res://assets/houses/Textured Models/Textures/Texture_Red.png" id="89_j61w7"]
+[ext_resource type="PackedScene" uid="uid://d0cxhxsnqfx3a" path="res://furniture/outside/outside_table.tscn" id="90_nnees"]
+[ext_resource type="PackedScene" uid="uid://bvrnypbhb5xsn" path="res://world_environment.tscn" id="92_qe4hs"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_kstjd"]
 size = Vector2(6, 8)
@@ -413,9 +422,6 @@ albedo_texture = ExtResource("64_u74x4")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uvqhf"]
 albedo_texture = ExtResource("64_u74x4")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7hcu4"]
-albedo_texture = ExtResource("64_u74x4")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_05xo1"]
 albedo_texture = ExtResource("64_u74x4")
 
@@ -425,15 +431,11 @@ albedo_texture = ExtResource("64_u74x4")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ne3l"]
 albedo_texture = ExtResource("64_u74x4")
 
-[sub_resource type="Environment" id="Environment_056lr"]
-volumetric_fog_enabled = true
-volumetric_fog_density = 0.0
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pka7v"]
 albedo_texture = ExtResource("76_rsejl")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fwhub"]
-albedo_texture = ExtResource("78_2n4xo")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_av52b"]
+albedo_texture = ExtResource("78_2f3y8")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yfslg"]
 albedo_texture = ExtResource("80_lkpcg")
@@ -441,8 +443,20 @@ albedo_texture = ExtResource("80_lkpcg")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t7s7y"]
 albedo_texture = ExtResource("82_36iyd")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_nm16y"]
-size = Vector3(1, 4.995, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m26yl"]
+albedo_texture = ExtResource("78_2n4xo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6bobg"]
+albedo_texture = ExtResource("88_lcgwx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_anuy4"]
+albedo_texture = ExtResource("76_rsejl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iyhpm"]
+albedo_texture = ExtResource("89_j61w7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rmjsu"]
+albedo_texture = ExtResource("78_2n4xo")
 
 [node name="House" type="Node3D"]
 script = ExtResource("1_8j6ml")
@@ -450,7 +464,7 @@ script = ExtResource("1_8j6ml")
 [node name="ObjectivesTemplate" parent="." instance=ExtResource("1_wax6d")]
 
 [node name="Player" parent="." node_paths=PackedStringArray("objectives", "monitor") instance=ExtResource("2_agg1q")]
-transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -4, 0, 1.252)
+transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -4, 0, -5.748)
 can_fall = false
 objectives = NodePath("../ObjectivesTemplate")
 monitor = NodePath("../Bedroom/Monitor")
@@ -524,7 +538,13 @@ transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.193335, 2.06586, 1)
 transform = Transform3D(-3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 1.58222, 1.49566, 0.189766)
 
 [node name="Tree" parent="Fish" instance=ExtResource("62_l0mkk")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4.41251, 1.52728, -7.69726)
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3.8, 1.527, -7.697)
+
+[node name="RockingChair" parent="Fish" instance=ExtResource("62_l0mkk")]
+transform = Transform3D(0.636396, 0, -0.636396, 0, 0.9, 0, 0.636396, 0, 0.636396, -2.21888, 0.107245, -7.72699)
+
+[node name="OutsideTable" parent="Fish" instance=ExtResource("62_l0mkk")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4.51027, 0.466379, -1.02006)
 
 [node name="Light" type="Node3D" parent="."]
 
@@ -910,18 +930,26 @@ material_override = SubResource("StandardMaterial3D_otl2j")
 mesh = SubResource("PlaneMesh_3g3b0")
 
 [node name="Sky" type="MeshInstance3D" parent="Structure/OutsideBackgrounds"]
-transform = Transform3D(-0.99863, 0.052336, 0, -0.052336, -0.99863, 0, 0, 0, 1, -30.95, 1.28, 0)
+transform = Transform3D(-0.453991, 0.891007, 0, -0.891007, -0.453991, 0, 0, 0, 1, -36.95, 16.28, 0)
 visible = false
 mesh = SubResource("PlaneMesh_3g3b0")
 surface_material_override/0 = SubResource("StandardMaterial3D_yxc64")
 
 [node name="Sky2" type="MeshInstance3D" parent="Structure/OutsideBackgrounds"]
-transform = Transform3D(-0.99863, 0.052336, 0, -0.026168, -0.499315, 0.866025, 0.0453243, 0.864839, 0.5, -30.95, 1.28, -35)
+transform = Transform3D(-0.99863, 0.052336, 0, -0.026168, -0.499315, 0.866025, 0.0453243, 0.864839, 0.5, -30.95, 11.28, -30)
+visible = false
 mesh = SubResource("PlaneMesh_3g3b0")
 surface_material_override/0 = SubResource("StandardMaterial3D_yxc64")
 
 [node name="Sky3" type="MeshInstance3D" parent="Structure/OutsideBackgrounds"]
-transform = Transform3D(-0.99863, 0.052336, 0, -0.0370071, -0.706138, -0.707107, -0.0370071, -0.706138, 0.707107, -30.95, 1.28, 34)
+transform = Transform3D(-0.99863, 0.052336, 0, -0.0135455, -0.258464, -0.965926, -0.0505526, -0.964602, 0.258819, -30.95, 1.28, 26)
+visible = false
+mesh = SubResource("PlaneMesh_3g3b0")
+surface_material_override/0 = SubResource("StandardMaterial3D_yxc64")
+
+[node name="Sky4" type="MeshInstance3D" parent="Structure/OutsideBackgrounds"]
+transform = Transform3D(-0.99863, 0.052336, 0, -0.052336, -0.99863, 0, 0, 0, 1, -6.95, 21.28, 0)
+visible = false
 mesh = SubResource("PlaneMesh_3g3b0")
 surface_material_override/0 = SubResource("StandardMaterial3D_yxc64")
 
@@ -1038,6 +1066,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, -7.45)
 [node name="Kitchen_Cabinet_Small" parent="Kitchen" instance=ExtResource("52_c0ia7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47, 1.4, -7.45)
 
+[node name="Bathroom" type="Node3D" parent="."]
+
+[node name="Bathroom_Bathtub" parent="Bathroom" instance=ExtResource("45_ya6uc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5173, 0, 1)
+
+[node name="Bathroom_WashingMachine" parent="Bathroom" instance=ExtResource("46_liqvg")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.38619, 0, 1.63813)
+
+[node name="Bathroom_Toilet" parent="Bathroom" instance=ExtResource("47_gobok")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.5, 0, 1.95)
+
+[node name="Bathroom_Sink" parent="Bathroom" instance=ExtResource("48_sefrg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.332, 0, 0.05)
+
+[node name="Curtains_Double" parent="Bathroom" instance=ExtResource("49_iqkuy")]
+transform = Transform3D(-5.02681e-08, 0, -0.958, 0, 0.958, 0, 1.15, 0, -4.18755e-08, 3, 0.172735, 0.978756)
+
+[node name="Bathroom_Towel_Lower" parent="Bathroom" instance=ExtResource("50_o3j5p")]
+transform = Transform3D(-0.96, 0, 1.81195e-07, 0, 0.96, 0, -1.44956e-07, 0, -1.2, 2.42424, 1.023, 1.95)
+
+[node name="Bathroom_TowelUpper" parent="Bathroom" instance=ExtResource("50_o3j5p")]
+transform = Transform3D(-0.75, 0, 7.54979e-08, 0, 2, 0, -1.13247e-07, 0, -0.5, 2.38, 1.359, 1.95)
+
+[node name="Shelf_Small" parent="Bathroom" instance=ExtResource("51_6hj7i")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 0.05, 1.8, 1)
+
+[node name="Shelf_Small2" parent="Bathroom" instance=ExtResource("51_6hj7i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.59074, 1.23929, 0)
+
+[node name="Long_Shelf" parent="Bathroom" instance=ExtResource("52_052f1")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.939, 1.57, 1.95)
+
 [node name="Outside" type="Node3D" parent="."]
 
 [node name="Fence" type="Node3D" parent="Outside"]
@@ -1073,11 +1133,10 @@ mesh = SubResource("PlaneMesh_kfbgl")
 skeleton = NodePath("../..")
 
 [node name="CatTreeObj" parent="Outside" instance=ExtResource("68_la6tf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.61125, 0, -7.72105)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -7.721)
 skeleton = NodePath("../..")
 
 [node name="StreetsBuildings" type="Node3D" parent="Outside"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 
 [node name="StreetStraight" type="MeshInstance3D" parent="Outside/StreetsBuildings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -7)
@@ -1103,12 +1162,6 @@ material_override = SubResource("StandardMaterial3D_uvqhf")
 mesh = ExtResource("65_r4a2h")
 skeleton = NodePath("../../..")
 
-[node name="StreetStraight5" type="MeshInstance3D" parent="Outside/StreetsBuildings"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -26, 0, -15)
-material_override = SubResource("StandardMaterial3D_7hcu4")
-mesh = ExtResource("65_r4a2h")
-skeleton = NodePath("../../..")
-
 [node name="StreetT" type="MeshInstance3D" parent="Outside/StreetsBuildings"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10, 0, -15)
 material_override = SubResource("StandardMaterial3D_05xo1")
@@ -1122,7 +1175,7 @@ mesh = ExtResource("67_wcdo0")
 skeleton = NodePath("../../..")
 
 [node name="StreetTurn2" type="MeshInstance3D" parent="Outside/StreetsBuildings"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -15)
 material_override = SubResource("StandardMaterial3D_wys4k")
 mesh = ExtResource("67_wcdo0")
 skeleton = NodePath("../../..")
@@ -1144,7 +1197,7 @@ material_override = SubResource("StandardMaterial3D_1ne3l")
 mesh = ExtResource("65_r4a2h")
 
 [node name="Big3" type="MeshInstance3D" parent="Outside/StreetsBuildings"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0, -15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -15)
 material_override = SubResource("StandardMaterial3D_1ne3l")
 mesh = ExtResource("65_r4a2h")
 
@@ -1154,40 +1207,79 @@ material_override = SubResource("StandardMaterial3D_1ne3l")
 mesh = ExtResource("65_r4a2h")
 skeleton = NodePath("../../..")
 
-[node name="Bathroom" type="Node3D" parent="."]
+[node name="4StoryCenter" type="MeshInstance3D" parent="Outside/StreetsBuildings"]
+transform = Transform3D(-1.09278e-07, 0, 2.5, 0, 2.5, 0, -2.5, 0, -1.09278e-07, -53, -3, -7)
+material_override = SubResource("StandardMaterial3D_pka7v")
+mesh = ExtResource("77_n34hk")
+skeleton = NodePath("../../..")
 
-[node name="Bathroom_Bathtub" parent="Bathroom" instance=ExtResource("45_ya6uc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5173, 0, 1)
+[node name="6StoryStack" type="MeshInstance3D" parent="Outside/StreetsBuildings"]
+transform = Transform3D(2.5, 0, -1.30266e-13, 0, 2.5, 0, 1.30266e-13, 0, 2.5, -17.3875, 0, -22.7404)
+material_override = SubResource("StandardMaterial3D_av52b")
+mesh = ExtResource("79_7ih50")
+skeleton = NodePath("../../..")
 
-[node name="Bathroom_WashingMachine" parent="Bathroom" instance=ExtResource("46_liqvg")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.38619, 0, 1.63813)
+[node name="4StoryWide2DoorsRoof" type="MeshInstance3D" parent="Outside/StreetsBuildings"]
+transform = Transform3D(-1.09278e-07, 0, 2.5, 0, 2.5, 0, -2.5, 0, -1.09278e-07, -18, 0, -2.242)
+material_override = SubResource("StandardMaterial3D_yfslg")
+mesh = ExtResource("81_1dgmv")
+skeleton = NodePath("../../..")
 
-[node name="Bathroom_Toilet" parent="Bathroom" instance=ExtResource("47_gobok")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.5, 0, 1.95)
+[node name="4Story" type="MeshInstance3D" parent="Outside/StreetsBuildings"]
+transform = Transform3D(2.5, 0, 1.42109e-14, 0, 2.5, 0, -1.42109e-14, 0, 2.5, -23.3836, 0, -23)
+material_override = SubResource("StandardMaterial3D_t7s7y")
+mesh = ExtResource("83_4dmco")
+skeleton = NodePath("../../..")
 
-[node name="Bathroom_Sink" parent="Bathroom" instance=ExtResource("48_sefrg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.332, 0, 0.05)
+[node name="4StoryWide2Doors" type="MeshInstance3D" parent="Outside/StreetsBuildings"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -53, 0, 2)
+mesh = ExtResource("86_x0dod")
+skeleton = NodePath("../../..")
 
-[node name="Curtains_Double" parent="Bathroom" instance=ExtResource("49_iqkuy")]
-transform = Transform3D(-5.02681e-08, 0, -0.958, 0, 0.958, 0, 1.15, 0, -4.18755e-08, 3, 0.172735, 0.978756)
+[node name="2StoryWide" type="MeshInstance3D" parent="Outside/StreetsBuildings"]
+transform = Transform3D(2.5, 0, -4.76064e-13, 0, 2.5, 0, 4.76064e-13, 0, 2.5, -10, 0, -22)
+material_override = SubResource("StandardMaterial3D_m26yl")
+mesh = ExtResource("87_r4c1l")
+skeleton = NodePath("../../..")
 
-[node name="Bathroom_Towel_Lower" parent="Bathroom" instance=ExtResource("50_o3j5p")]
-transform = Transform3D(-0.96, 0, 1.81195e-07, 0, 0.96, 0, -1.44956e-07, 0, -1.2, 2.42424, 1.023, 1.95)
+[node name="4StoryCenter2" type="MeshInstance3D" parent="Outside/StreetsBuildings"]
+transform = Transform3D(-1.09278e-07, 0, 2.5, 0, 2.5, 0, -2.5, 0, -1.09278e-07, -18, 0, 9.31079)
+material_override = SubResource("StandardMaterial3D_6bobg")
+mesh = ExtResource("77_n34hk")
+skeleton = NodePath("../../..")
 
-[node name="Bathroom_TowelUpper" parent="Bathroom" instance=ExtResource("50_o3j5p")]
-transform = Transform3D(-0.75, 0, 7.54979e-08, 0, 2, 0, -1.13247e-07, 0, -0.5, 2.38, 1.359, 1.95)
+[node name="4StoryWide2DoorsRoof2" type="MeshInstance3D" parent="Outside/StreetsBuildings"]
+transform = Transform3D(-1.09278e-07, 0, 2.5, 0, 2.5, 0, -2.5, 0, -1.09278e-07, -34, 0, -12.8023)
+material_override = SubResource("StandardMaterial3D_anuy4")
+mesh = ExtResource("81_1dgmv")
+skeleton = NodePath("../../..")
 
-[node name="Shelf_Small" parent="Bathroom" instance=ExtResource("51_6hj7i")]
-transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 0.05, 1.8, 1)
+[node name="4StoryWide2Doors2" type="MeshInstance3D" parent="Outside/StreetsBuildings"]
+transform = Transform3D(-2.5, 0, -3.77489e-07, 0, 2.5, 0, 3.77489e-07, 0, -2.5, -6.73656, 0, 17)
+material_override = SubResource("StandardMaterial3D_iyhpm")
+mesh = ExtResource("86_x0dod")
+skeleton = NodePath("../../..")
 
-[node name="Shelf_Small2" parent="Bathroom" instance=ExtResource("51_6hj7i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.59074, 1.23929, 0)
+[node name="4Story2" type="MeshInstance3D" parent="Outside/StreetsBuildings"]
+transform = Transform3D(2.5, 0, 1.42109e-14, 0, 2.5, 0, -1.42109e-14, 0, 2.5, -29.5589, 0, -23)
+material_override = SubResource("StandardMaterial3D_rmjsu")
+mesh = ExtResource("83_4dmco")
+skeleton = NodePath("../../..")
 
-[node name="Long_Shelf" parent="Bathroom" instance=ExtResource("52_052f1")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.939, 1.57, 1.95)
+[node name="Street" type="Node3D" parent="Outside/StreetsBuildings"]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -28, -3, -7)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_056lr")
+[node name="4StoryCenter3" type="MeshInstance3D" parent="Outside/StreetsBuildings"]
+transform = Transform3D(-1.09279e-07, 0, -2.5, 0, 2.5, 0, 2.5, 0, -1.09279e-07, -18, 0, 15.3108)
+material_override = SubResource("StandardMaterial3D_6bobg")
+mesh = ExtResource("77_n34hk")
+skeleton = NodePath("../../..")
+
+[node name="Chair" parent="Outside" instance=ExtResource("85_x4wsq")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -2.74543, 0, -7.25352)
+
+[node name="OutsideTable" parent="Outside" instance=ExtResource("90_nnees")]
+transform = Transform3D(0.193185, 0, 0.0517638, 0, 0.2, 0, -0.0517638, 0, 0.193185, -4, 0, -2)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -1199,29 +1291,9 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
-[node name="4StoryCenter" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -19, -3, -7)
-material_override = SubResource("StandardMaterial3D_pka7v")
-mesh = ExtResource("77_n34hk")
+[node name="Credits" parent="." instance=ExtResource("84_o6mjj")]
 
-[node name="6StoryStack" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, 0, 10.2596)
-material_override = SubResource("StandardMaterial3D_fwhub")
-mesh = ExtResource("79_7ih50")
-
-[node name="4StoryWide2DoorsRoof" type="MeshInstance3D" parent="."]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -15, -3, -23.2418)
-material_override = SubResource("StandardMaterial3D_yfslg")
-mesh = ExtResource("81_1dgmv")
-
-[node name="4Story" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, 0, 19)
-material_override = SubResource("StandardMaterial3D_t7s7y")
-mesh = ExtResource("83_4dmco")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="4Story"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4389, 0)
-shape = SubResource("BoxShape3D_nm16y")
+[node name="WorldEnvironment2" parent="." instance=ExtResource("92_qe4hs")]
 
 [connection signal="can_sleep" from="ObjectivesTemplate" to="." method="_on_objectives_template_can_sleep"]
 [connection signal="objectives_finished" from="ObjectivesTemplate" to="." method="end_chapter"]

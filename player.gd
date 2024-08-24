@@ -19,6 +19,8 @@ var dir = Vector3()
 @onready var camera = $RotationHelper/Camera
 @onready var rotation_helper = $RotationHelper
 
+@export var capture_mouse = true
+
 func copy_collision(goal, to_change):
 	to_change.shape = goal.shape
 	to_change.transform = goal.transform
@@ -30,7 +32,8 @@ func _ready():
 	copy_collision($BodyCollision, $Scans/FallScan/CollisionShape3D)
 	copy_collision($RotationHelper/WaterBowlScan/CollisionShape3D, $RotationHelper/FoodScan/CollisionShape3D)
 	copy_collision($RotationHelper/WaterBowlScan/CollisionShape3D, $RotationHelper/HackScan/CollisionShape3D)
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	if capture_mouse:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _process(_delta):
 	process_interaction()
@@ -64,7 +67,8 @@ func process_interaction():
 
 func freeze_cursor():
 	# Capturing/Freeing the cursor
-	if Input.is_action_just_pressed("ui_cancel"):
+	if is_processing() and Input.is_action_just_pressed("ui_cancel"):
+		print(is_processing())
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		else:

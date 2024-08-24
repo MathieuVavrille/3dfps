@@ -103,6 +103,7 @@ stream = SubResource("AudioStreamMP3_el21f")
 
 [node name="Hack" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource("4_h63nr")
+volume_db = -5.0
 
 [node name="KeyText" parent="." instance=ExtResource("8_ryhoy")]
 anchors_preset = 7

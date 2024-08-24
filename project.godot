@@ -10,11 +10,21 @@ config_version=5
 
 [application]
 
-config/name="Life of S"
+config/name="Third Life"
 config/description="A hommage game to my late cat"
-run/main_scene="res://chapters/template/house.tscn"
+run/main_scene="res://chapters/chapter1-arrival/outside.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon/icon.png"
+
+[display]
+
+window/size/viewport_width=960
+window/size/viewport_height=540
+
+[editor]
+
+movie_writer/movie_file="C:/Users/matva/Documents/Godot/Projects/3dfps/endgame.avi"
+movie_writer/fps=30
 
 [filesystem]
 

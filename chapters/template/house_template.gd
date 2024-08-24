@@ -16,6 +16,11 @@ func _process(delta):
 	$CanvasLayer/ColorRect.color.a = move_toward($CanvasLayer/ColorRect.color.a, 1., delta / FADEOUT_TIME)
 	if $CanvasLayer/ColorRect.color.a == 1.:
 		get_tree().quit()
+		
+func _physics_process(_delta):
+	if Input.is_action_just_pressed("ui_cancel"):
+		$Credits.start()
+		get_tree().quit()
 
 func fish_collected():
 	$ObjectivesTemplate.objective_got("fish")

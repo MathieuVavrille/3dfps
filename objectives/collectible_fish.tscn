@@ -20,6 +20,7 @@ shape = SubResource("SphereShape3D_iwie5")
 
 [node name="FishSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_vk1rr")
+volume_db = -15.0
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="finished" from="FishSound" to="." method="_on_fish_sound_finished"]
