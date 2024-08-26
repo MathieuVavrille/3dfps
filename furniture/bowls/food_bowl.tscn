@@ -20,6 +20,7 @@ collision_mask = 0
 visible = false
 
 [node name="Fall" type="Area3D" parent="." index="3"]
+visible = false
 collision_layer = 4
 collision_mask = 0
 

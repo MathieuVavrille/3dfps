@@ -1293,7 +1293,7 @@ color = Color(0, 0, 0, 0)
 
 [node name="Credits" parent="." instance=ExtResource("84_o6mjj")]
 
-[node name="WorldEnvironment2" parent="." instance=ExtResource("92_qe4hs")]
+[node name="WorldEnvironment" parent="." instance=ExtResource("92_qe4hs")]
 
 [connection signal="can_sleep" from="ObjectivesTemplate" to="." method="_on_objectives_template_can_sleep"]
 [connection signal="objectives_finished" from="ObjectivesTemplate" to="." method="end_chapter"]

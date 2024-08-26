@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bc0g8cro6lxpk"]
 
-[ext_resource type="Script" path="res://objectives.gd" id="1_dyvvx"]
+[ext_resource type="Script" path="res://ui/objectives.gd" id="1_dyvvx"]
 [ext_resource type="PackedScene" uid="uid://caqby83wxla6h" path="res://objectives/single_objective.tscn" id="2_be5oy"]
 
 [node name="ObjectivesChapter1" type="Node2D"]

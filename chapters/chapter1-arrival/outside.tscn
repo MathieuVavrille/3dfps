@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://binb6v0n6anb4"]
+[gd_scene load_steps=87 format=3 uid="uid://binb6v0n6anb4"]
 
 [ext_resource type="Script" path="res://chapters/chapter1-arrival/chapter1.gd" id="1_auond"]
 [ext_resource type="Texture2D" uid="uid://bk2lliim22v8y" path="res://assets/Zombie Apocalypse Kit - March 2024/Zombie_Atlas.png" id="1_upqp5"]
@@ -41,7 +41,8 @@
 [ext_resource type="ArrayMesh" uid="uid://cl0y6bcls4ao1" path="res://assets/Zombie Apocalypse Kit - March 2024/Vehicles/OBJ/Vehicle_Pickup.obj" id="37_tmugw"]
 [ext_resource type="ArrayMesh" uid="uid://bobuxyv2kemx6" path="res://assets/houses/Textured Models/Finished Textured Buildings/OBJ/3Story_Small.obj" id="39_4g8cg"]
 [ext_resource type="PackedScene" uid="uid://bvrnypbhb5xsn" path="res://world_environment.tscn" id="40_5mil0"]
-[ext_resource type="Script" path="res://fade.gd" id="41_ewclu"]
+[ext_resource type="Script" path="res://ui/fade.gd" id="41_ewclu"]
+[ext_resource type="PackedScene" uid="uid://d6susixkawq8" path="res://ui/pause_menu.tscn" id="43_1c053"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ht04c"]
 albedo_texture = ExtResource("1_upqp5")
@@ -661,6 +662,8 @@ shadow_blur = 2.0
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("40_5mil0")]
 
+[node name="PauseMenu" parent="." instance=ExtResource("43_1c053")]
+
 [node name="TitleScreen" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -689,9 +692,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -180.5
-offset_top = -38.0
+offset_top = -70.0
 offset_right = 180.5
-offset_bottom = 238.0
+offset_bottom = 206.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 20
@@ -701,6 +704,7 @@ Move:                     ZQSD or Arrow Keys
 Move Camera:     Mouse
 Jump:                     SpaceBar
 Interact:                A
+Pause:                   Escape
 
 You can sleep on the foggy areas
  when the objectives are finished"
@@ -714,9 +718,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -64.5
-offset_top = -145.5
+offset_top = -209.5
 offset_right = 64.5
-offset_bottom = -54.5
+offset_bottom = -118.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 60
@@ -744,6 +748,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("41_ewclu")
 
+[connection signal="pause" from="Movable/pat_carrier/Player" to="." method="_on_player_pause"]
+[connection signal="unpause" from="Movable/pat_carrier/Player" to="." method="_on_player_unpause"]
 [connection signal="faded_in" from="TitleScreen/ColorRect" to="." method="_on_color_rect_faded_in"]
 [connection signal="faded_out" from="TitleScreen/PlayButton" to="." method="_on_play_button_faded_out"]
 [connection signal="pressed" from="TitleScreen/PlayButton" to="." method="_on_play_button_pressed"]

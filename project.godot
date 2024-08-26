@@ -12,9 +12,9 @@ config_version=5
 
 config/name="Third Life"
 config/description="A hommage game to my late cat"
-run/main_scene="res://chapters/chapter1-arrival/outside.tscn"
+run/main_scene="res://chapters/chapter3-the_decline/vet.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
-config/icon="res://icon/icon.png"
+config/icon="res://bars/sprites/icons/magic.png"
 
 [display]
 
@@ -77,3 +77,7 @@ fog={
 3d_physics/layer_5="WaterBowl"
 3d_physics/layer_6="Litter"
 3d_physics/layer_7="Hack"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=3

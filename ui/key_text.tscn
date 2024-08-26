@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b8rvav1hmsqfo"]
 
-[ext_resource type="Script" path="res://key_text.gd" id="1_km2fd"]
+[ext_resource type="Script" path="res://ui/key_text.gd" id="1_km2fd"]
 
 [node name="KeyText" type="Control"]
 modulate = Color(1, 1, 1, 0)

@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://cfe6ninvyi8q4" path="res://sounds/windows_bug.mp3" id="4_h63nr"]
 [ext_resource type="Texture2D" uid="uid://bxephjk87lye7" path="res://assets/fade/black_fade.png" id="5_0j8nc"]
 [ext_resource type="AudioStream" uid="uid://qxmy4q514eh0" path="res://sounds/eating.mp3" id="6_obm2q"]
-[ext_resource type="PackedScene" uid="uid://b8rvav1hmsqfo" path="res://key_text.tscn" id="8_ryhoy"]
+[ext_resource type="PackedScene" uid="uid://b8rvav1hmsqfo" path="res://ui/key_text.tscn" id="8_ryhoy"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_w4277"]
 

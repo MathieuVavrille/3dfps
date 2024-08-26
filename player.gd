@@ -1,5 +1,8 @@
 extends CharacterBody3D
 
+signal pause
+signal unpause
+
 const MAX_SPEED = 5
 const ACCEL = 4
 const DEACCEL= 10
@@ -21,6 +24,16 @@ var dir = Vector3()
 
 @export var capture_mouse = true
 
+
+# NOISE https://shaggydev.com/2022/02/23/screen-shake-godot/
+@export var NOISE_SHAKE_SPEED: float = 200.0
+@export var NOISE_SHAKE_STRENGTH: float = 0.1
+@export var SHAKE_DECAY_RATE: float = 2.5
+@onready var rand = RandomNumberGenerator.new()
+@onready var noise = FastNoiseLite.new()
+var noise_i: float = 0.0
+var shake_strength: float = 0.0
+
 func copy_collision(goal, to_change):
 	to_change.shape = goal.shape
 	to_change.transform = goal.transform
@@ -34,10 +47,27 @@ func _ready():
 	copy_collision($RotationHelper/WaterBowlScan/CollisionShape3D, $RotationHelper/HackScan/CollisionShape3D)
 	if capture_mouse:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	rand.randomize()
+	noise.seed = rand.randi()
+	# noise.period = 2
 
-func _process(_delta):
+func apply_noise_shake() -> void:
+	shake_strength = NOISE_SHAKE_STRENGTH
+	
+var is_airborn = -100.
+func _process(delta):
+	shake_strength = lerp(shake_strength, 0., SHAKE_DECAY_RATE * delta)
+	var offset = get_noise_offset(delta)
+	camera.h_offset = offset.x
+	camera.v_offset = offset.y
+	if is_on_floor():
+		if is_airborn > -10:
+			is_airborn = -100
+			apply_noise_shake()
+	else:
+		is_airborn = position.y
 	process_interaction()
-	freeze_cursor()
+	# freeze_cursor()
 	
 var has_eaten = false
 func process_interaction():
@@ -64,15 +94,6 @@ func process_interaction():
 		monitor.bug()
 	if can_sleep and Input.is_action_just_pressed("interact"):
 		objectives.objective_got("sleep")
-
-func freeze_cursor():
-	# Capturing/Freeing the cursor
-	if is_processing() and Input.is_action_just_pressed("ui_cancel"):
-		print(is_processing())
-		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
 func _physics_process(delta):
@@ -221,3 +242,10 @@ func _on_fall_scan_area_exited(_area):
 		$FallFade.visible = true
 		velocity = Vector3.ZERO
 
+
+func get_noise_offset(delta: float) -> Vector2:
+	noise_i += delta * NOISE_SHAKE_SPEED
+	return Vector2(
+		noise.get_noise_2d(1, noise_i) * shake_strength,
+		noise.get_noise_2d(100, noise_i) * shake_strength,
+	)

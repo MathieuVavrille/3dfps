@@ -5,7 +5,7 @@ signal faded_out
 
 var fade_in = false
 var fade_out = false
-var fade_time = 1.
+var fade_time = 0.1#1.
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

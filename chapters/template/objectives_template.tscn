@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cx3nimhwlfqua"]
 
-[ext_resource type="Script" path="res://objectives.gd" id="1_fj3yn"]
+[ext_resource type="Script" path="res://ui/objectives.gd" id="1_fj3yn"]
 [ext_resource type="PackedScene" uid="uid://caqby83wxla6h" path="res://objectives/single_objective.tscn" id="2_snh5a"]
 [ext_resource type="PackedScene" uid="uid://cye4idx4wghvo" path="res://objectives/single_objective_numbered.tscn" id="3_sie8x"]
 

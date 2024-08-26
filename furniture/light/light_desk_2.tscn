@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://5go8n866jiym"]
+
+[ext_resource type="PackedScene" uid="uid://qr82inv61lhj" path="res://assets/furnitures/light/Light_Desk.blend" id="1_2kyyx"]
+
+[node name="Light_Desk2" instance=ExtResource("1_2kyyx")]
+
+[node name="Light_Desk" parent="." index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="1"]
+transform = Transform3D(-1, 0, -8.74228e-08, -6.18172e-08, 0.707107, 0.707107, 6.18172e-08, 0.707107, -0.707107, 0, 0.236171, 0.0974094)
+shadow_enabled = true
+spot_range = 4.139
+spot_angle = 36.82

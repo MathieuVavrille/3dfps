@@ -7,6 +7,7 @@ func _ready():
 	$Movable/pat_carrier/Player.set_process(false)
 	$Cars/VehicleSports.set_process(false)
 	$Cars/VehicleTruck.set_process(false)
+	$PauseMenu.set_process(false)
 	
 
 func _on_play_button_pressed():
@@ -31,8 +32,9 @@ func start_chapter():
 	$Movable/pat_carrier/Player.set_process(true)
 	$Cars/VehicleSports.set_process(true)
 	$Cars/VehicleTruck.set_process(true)
-	var timer = get_tree().create_timer(17)
+	var timer = get_tree().create_timer(37)
 	timer.timeout.connect(end_sub_chapter)
+	$PauseMenu.set_process(true)
 
 func end_sub_chapter():
 	$TitleScreen.modulate.a = 1.
@@ -41,3 +43,11 @@ func end_sub_chapter():
 func _on_color_rect_faded_in():
 	var timer = get_tree().create_timer(1)
 	timer.timeout.connect(get_tree().quit)
+
+
+"""func _on_player_pause():
+	set_process(false)
+
+func _on_player_unpause():
+	set_process(true)
+"""
