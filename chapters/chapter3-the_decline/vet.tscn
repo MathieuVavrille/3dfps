@@ -1,6 +1,7 @@
-[gd_scene load_steps=74 format=3 uid="uid://bnd764ikksjd1"]
+[gd_scene load_steps=87 format=3 uid="uid://bnd764ikksjd1"]
 
 [ext_resource type="PackedScene" uid="uid://d6susixkawq8" path="res://ui/pause_menu.tscn" id="1_06pqf"]
+[ext_resource type="Script" path="res://chapters/chapter3-the_decline/vet.gd" id="1_bmh61"]
 [ext_resource type="PackedScene" uid="uid://dbkgi1f66s332" path="res://player.tscn" id="2_5mcd6"]
 [ext_resource type="Material" uid="uid://bo468il8fg6ka" path="res://assets/textures/wood_floor/wood_floor.tres" id="3_hrv4f"]
 [ext_resource type="PackedScene" uid="uid://bag375i4ndrle" path="res://furniture/litter_tray.tscn" id="4_8y1lp"]
@@ -15,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dp5fwabdhepsj" path="res://assets/furnitures/medical/trolley/trolley.tscn" id="13_s0osf"]
 [ext_resource type="PackedScene" uid="uid://l4mek2jivfk2" path="res://assets/furnitures/medical/Stethoscope.blend" id="14_es0qo"]
 [ext_resource type="PackedScene" uid="uid://cm2kce2wsuh4r" path="res://furniture/bowls/water_bowl.tscn" id="15_avsoe"]
+[ext_resource type="PackedScene" uid="uid://bsrtuk08q0hwe" path="res://fog/sleep_fog.tscn" id="16_3tcbf"]
 [ext_resource type="PackedScene" uid="uid://or140pqhfhqx" path="res://furniture/bowls/food_bowl.tscn" id="16_akogv"]
 [ext_resource type="PackedScene" uid="uid://bsplgcpx82dc1" path="res://furniture/livingroom/white_doors.tscn" id="17_uiqc5"]
 [ext_resource type="PackedScene" uid="uid://lm2nja3tw8m2" path="res://furniture/light/light_ceiling_2.tscn" id="18_bwjmv"]
@@ -22,6 +24,13 @@
 [ext_resource type="Script" path="res://furniture/light/light_ceiling_2.gd" id="20_tyo0h"]
 [ext_resource type="PackedScene" uid="uid://5go8n866jiym" path="res://furniture/light/light_desk_2.tscn" id="20_xomul"]
 [ext_resource type="Script" path="res://chapters/chapter3-the_decline/OmniLight3D.gd" id="22_moerg"]
+[ext_resource type="PackedScene" uid="uid://bvylsknh5xvl4" path="res://chapters/credits.tscn" id="23_5xlwm"]
+[ext_resource type="PackedScene" uid="uid://dchj3p015aosu" path="res://chapters/chapter3-the_decline/objectives3.tscn" id="24_03k2t"]
+[ext_resource type="ArrayMesh" uid="uid://binahetgypl3m" path="res://assets/furnitures/medical/pill_bottle.obj" id="26_btp3r"]
+[ext_resource type="PackedScene" uid="uid://bb1r8oikagn0h" path="res://assets/furnitures/medical/srynge.tscn" id="27_2efyf"]
+
+[sub_resource type="Environment" id="Environment_y6ecq"]
+volumetric_fog_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ostt8"]
 albedo_texture = ExtResource("4_lnnpm")
@@ -201,10 +210,36 @@ size = Vector2(2, 4)
 [sub_resource type="PlaneMesh" id="PlaneMesh_jecej"]
 size = Vector2(3, 5)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_hjsmg"]
+size = Vector3(2.47046, 0.118042, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2usk6"]
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 10.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_mlmdp"]
+radius = 0.1
+height = 0.2
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_20qhm"]
 albedo_texture = ExtResource("9_5l3k1")
 normal_enabled = true
 normal_texture = ExtResource("10_jegc2")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_b8vxe"]
+radius = 59.5965
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nsibv"]
+albedo_color = Color(0, 0.45098, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qgmbs"]
+albedo_color = Color(1, 0.313726, 0.52549, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cd8vq"]
+albedo_color = Color(0.321569, 0.396078, 0.392157, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hy6qa"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1i5ag"]
 albedo_color = Color(0.0352941, 0.54902, 1, 1)
@@ -232,22 +267,22 @@ albedo_color = Color(0.972549, 0.713726, 0.0588235, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vabsx"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2usk6"]
-emission_enabled = true
-emission = Color(1, 0, 0, 1)
-emission_energy_multiplier = 10.0
-
-[sub_resource type="SphereMesh" id="SphereMesh_mlmdp"]
-radius = 0.1
-height = 0.2
-
 [node name="Vet" type="Node3D"]
+script = ExtResource("1_bmh61")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_y6ecq")
 
 [node name="PauseMenu" parent="." instance=ExtResource("1_06pqf")]
 
-[node name="Player" parent="." instance=ExtResource("2_5mcd6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.387628, 1, -0.404887)
+[node name="Player" parent="." node_paths=PackedStringArray("objectives") instance=ExtResource("2_5mcd6")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -0.173, 1.525, -0.834)
 visible = false
+objectives = NodePath("../Objectives3")
+can_jump = false
+INITIAL_FALL_TIME = 1.0
+FADE_TIME = 2.0
+UP_TIME = 2.0
 
 [node name="Structure" type="Node3D" parent="."]
 
@@ -350,7 +385,7 @@ visible = false
 shape = SubResource("ConcavePolygonShape3D_aexed")
 
 [node name="Ground" type="MeshInstance3D" parent="Structure/LitterWall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -1.004)
 material_override = SubResource("StandardMaterial3D_vheff")
 mesh = SubResource("PlaneMesh_fv1j2")
 
@@ -446,15 +481,57 @@ script = ExtResource("20_tyo0h")
 [node name="LitterTray" parent="." instance=ExtResource("4_8y1lp")]
 transform = Transform3D(-1.5299e-08, 0, -0.35, 0, 0.35, 0, 0.35, 0, -1.5299e-08, 0.288539, 0.843953, -0.508515)
 
+[node name="StaticBody3D" type="StaticBody3D" parent="LitterTray"]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LitterTray/StaticBody3D"]
+transform = Transform3D(1, -1.68812e-08, -3.39128e-09, 1.68812e-08, 0.922417, 0.386196, -3.39127e-09, -0.386196, 0.922417, 0.112671, 0.217027, 0.311159)
+shape = SubResource("BoxShape3D_hjsmg")
+
+[node name="LitterRamp" type="MeshInstance3D" parent="LitterTray"]
+transform = Transform3D(-1.2489e-07, 0, 2.85714, 0, 2.85714, 0, -2.85714, 0, -1.2489e-07, -1.26139, 3.16013, 3.53868)
+material_override = SubResource("StandardMaterial3D_2usk6")
+mesh = SubResource("SphereMesh_mlmdp")
+skeleton = NodePath("../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="LitterTray/LitterRamp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0221658, -0.0321267, 0.0200208)
+light_color = Color(1, 0, 0, 1)
+light_energy = 0.1
+shadow_enabled = true
+script = ExtResource("22_moerg")
+
+[node name="PetBedUp" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0106066, 0, -0.0106066, 0, 0.015, 0, 0.0106066, 0, 0.0106066, -0.228733, 1.50349, -0.786273)
+material_override = SubResource("StandardMaterial3D_20qhm")
+mesh = ExtResource("11_kx0r1")
+
 [node name="PetBed" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0106066, 0, -0.0106066, 0, 0.015, 0, 0.0106066, 0, 0.0106066, -0.228733, 0.98289, -0.786273)
 material_override = SubResource("StandardMaterial3D_20qhm")
 mesh = ExtResource("11_kx0r1")
 
-[node name="PetBed2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0106066, 0, -0.0106066, 0, 0.015, 0, 0.0106066, 0, 0.0106066, -0.228733, 1.50349, -0.786273)
-material_override = SubResource("StandardMaterial3D_20qhm")
-mesh = ExtResource("11_kx0r1")
+[node name="SleepFog" parent="PetBed" instance=ExtResource("16_3tcbf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.561, 0)
+size = Vector3(27.3414, 13.2261, 27.4804)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PetBed"]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PetBed/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.196037, -53.717, -9.96229)
+shape = SubResource("SphereShape3D_b8vxe")
+
+[node name="PillBottle" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0.230276, 0.41789, 0.733517)
+mesh = ExtResource("26_btp3r")
+surface_material_override/0 = SubResource("StandardMaterial3D_nsibv")
+surface_material_override/1 = SubResource("StandardMaterial3D_qgmbs")
+surface_material_override/2 = SubResource("StandardMaterial3D_cd8vq")
+surface_material_override/3 = SubResource("StandardMaterial3D_hy6qa")
+
+[node name="srynge" parent="." instance=ExtResource("27_2efyf")]
+transform = Transform3D(-0.0263634, 0, -0.042485, 0, 0.05, 0, 0.042485, 0, -0.0263634, 0.203955, 0.838509, 0.642005)
 
 [node name="Trolley" parent="." instance=ExtResource("13_s0osf")]
 transform = Transform3D(-6.55671e-09, 0, 0.15, 0, 0.15, 0, -0.15, 0, -6.55671e-09, 0.0911797, 0, 0.78789)
@@ -486,14 +563,8 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.875, 1, -0.375)
 [node name="FoodBowl" parent="." instance=ExtResource("16_akogv")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.875, 1, -0.125)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 1.95, -0.95)
-material_override = SubResource("StandardMaterial3D_2usk6")
-mesh = SubResource("SphereMesh_mlmdp")
+[node name="Objectives3" parent="." instance=ExtResource("24_03k2t")]
 
-[node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0221658, -0.0321267, 0.0200208)
-light_color = Color(1, 0, 0, 1)
-light_energy = 0.1
-shadow_enabled = true
-script = ExtResource("22_moerg")
+[node name="Credits" parent="." instance=ExtResource("23_5xlwm")]
+
+[connection signal="objectives_finished" from="Objectives3" to="." method="_on_objectives_finished"]

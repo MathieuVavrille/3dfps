@@ -14,6 +14,7 @@ var dir = Vector3()
 @export var objectives: Node2D
 @export var monitor: Node3D
 
+@export var can_jump = true
 @export var jump_height = 0.6
 @export var jump_time_to_peak = 0.6
 @onready var JUMP_VELOCITY : float = ((2.0 * jump_height) / jump_time_to_peak)
@@ -26,6 +27,7 @@ var dir = Vector3()
 
 
 # NOISE https://shaggydev.com/2022/02/23/screen-shake-godot/
+@export var hurt_on_fall = false
 @export var NOISE_SHAKE_SPEED: float = 200.0
 @export var NOISE_SHAKE_STRENGTH: float = 0.1
 @export var SHAKE_DECAY_RATE: float = 2.5
@@ -61,13 +63,14 @@ func _process(delta):
 	camera.h_offset = offset.x
 	camera.v_offset = offset.y
 	if is_on_floor():
-		if is_airborn > -10:
-			is_airborn = -100
+		if is_airborn - position.y > 0.4 :
 			apply_noise_shake()
-	else:
+			if hurt_on_fall:
+				start_hurt(INITIAL_FALL_TIME)
+		is_airborn = -100
+	elif is_airborn < -10:
 		is_airborn = position.y
 	process_interaction()
-	# freeze_cursor()
 	
 var has_eaten = false
 func process_interaction():
@@ -94,6 +97,9 @@ func process_interaction():
 		monitor.bug()
 	if can_sleep and Input.is_action_just_pressed("interact"):
 		objectives.objective_got("sleep")
+		start_hurt(6.)
+		is_the_end = true
+
 
 
 func _physics_process(delta):
@@ -108,21 +114,20 @@ var is_falling = false
 var is_recovering = false
 var is_waiting_for_input = false
 var is_getting_up = false
-var FALL_TIME = 2
-var FADE_TIME = 4
-var UP_TIME = 4
+var is_the_end = false
+@export var INITIAL_FALL_TIME = 2.
+var FALL_TIME = 2.
+@export var FADE_TIME = 4.
+@export var UP_TIME = 4.
 func fall(delta):
 	if is_falling:
 		rotation_helper.position.y = move_toward(rotation_helper.position.y, 0.05, 0.15 / FALL_TIME * delta)
 		rotation_helper.rotation.x = move_toward(rotation_helper.rotation.x, 35. * PI / 180., 35. * PI / 180 / FALL_TIME * delta)
 		$RotationHelper/Camera.rotation.z = move_toward($RotationHelper/Camera.rotation.z, 35. * PI / 180., 35. * PI / 180 / FALL_TIME * delta)
-		print(rotation_helper.position.y, " ", rotation_helper.rotation.x, " ", $RotationHelper/Camera.rotation.z)
 		if rotation_helper.position.y <= 0.05001 and rotation_helper.rotation.x <= 35. * PI / 180. + 0.0001 and $RotationHelper/Camera.rotation.z <=  35. * PI / 180. + 0.0001:
 			is_falling = false
 			is_recovering = true
-	print(is_recovering)
-	if is_recovering:
-		print($FallFade.modulate.a)
+	if not is_the_end and is_recovering:
 		$FallFade.modulate.a = move_toward($FallFade.modulate.a, 0., delta / FADE_TIME)
 		if $FallFade.modulate.a == 0.:
 			$FallFade.visible = false
@@ -157,7 +162,7 @@ func process_input(_delta):
 	dir += -cam_xform.basis.z * input_movement_vector.y
 	dir += cam_xform.basis.x * input_movement_vector.x
 	# Jumping
-	if is_on_floor() and Input.is_action_just_pressed("jump"):
+	if can_jump and is_on_floor() and Input.is_action_just_pressed("jump"):
 		velocity.y = JUMP_VELOCITY
 	if Input.is_action_just_released("jump") and velocity.y > 0:
 		velocity.y /= 2
@@ -238,9 +243,13 @@ func _on_sleep_scan_area_exited(_area):
 func _on_fall_scan_area_exited(_area):
 	if can_fall and has_eaten:
 		has_eaten = false
-		is_falling = true
-		$FallFade.visible = true
-		velocity = Vector3.ZERO
+		start_hurt(INITIAL_FALL_TIME)
+		
+func start_hurt(time):
+	is_falling = true
+	$FallFade.visible = true
+	velocity = Vector3.ZERO
+	FALL_TIME = time
 
 
 func get_noise_offset(delta: float) -> Vector2:
