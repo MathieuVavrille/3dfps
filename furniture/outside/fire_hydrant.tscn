@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://bagw0v3imrwn7"]
+
+[ext_resource type="Texture2D" uid="uid://bk2lliim22v8y" path="res://assets/Zombie Apocalypse Kit - March 2024/Zombie_Atlas.png" id="1_lqdyq"]
+[ext_resource type="ArrayMesh" uid="uid://bwcp2wmmfeeip" path="res://assets/Zombie Apocalypse Kit - March 2024/Environment/OBJ/FireHydrant.obj" id="1_m0fa3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wbn8f"]
+albedo_texture = ExtResource("1_lqdyq")
+
+[node name="FireHydrant" type="MeshInstance3D"]
+material_override = SubResource("StandardMaterial3D_wbn8f")
+mesh = ExtResource("1_m0fa3")

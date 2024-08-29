@@ -1,5 +1,6 @@
 extends Node3D
 
+@export var speedup = 1.
 @export var positions = [Vector2(3.64, 3.5), Vector2(3.64, -20.75), Vector2(-35.693, -20.75), Vector2(-35.693, -13.75), Vector2(-28.5, -13.75), Vector2(-28.5, 3.5), Vector2(3.64, 3.5)]
 @export var pos_time = [0.,                  10.,                   35.,                      40.,                      45.,                    53.,                 72.]
 @export var rotations = [-181.,            -180.,-90.,             -91.,0.,                    1.,90.,                  91.,0.,                  1.,90.,            91., 180.]
@@ -15,7 +16,7 @@ func apply_t(t, id, vals):
 var current_id = 0
 var rot_id = 0
 func _process(delta):
-	current_time += delta
+	current_time += delta * speedup
 	if pos_time[current_id + 1] < current_time:
 		current_id += 1
 	if rot_time[rot_id + 1] < current_time:

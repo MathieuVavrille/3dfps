@@ -31,3 +31,35 @@ func objective_got(obj_name):
 		sleep_objective.achieved()
 		objectives_finished.emit()
 	unlock_last_objective()
+	
+	
+var fade_in = false
+var fade_out = false
+var FADE_TIME = 1.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if fade_in:
+		modulate.a = move_toward(modulate.a, 1., delta / FADE_TIME)
+		$CanvasLayer/ColorRect.modulate.a = modulate.a
+		$CanvasLayer/Title.modulate.a = modulate.a
+		$CanvasLayer/Objectives.modulate.a = modulate.a
+		if modulate.a  == 1.:
+			fade_in = false
+	if fade_out:
+		modulate.a = move_toward(modulate.a, 0., delta / FADE_TIME)
+		$CanvasLayer/ColorRect.modulate.a = modulate.a
+		$CanvasLayer/Title.modulate.a = modulate.a
+		$CanvasLayer/Objectives.modulate.a = modulate.a
+		if modulate.a == 0.:
+			fade_out = false
+
+func start_fade_in(fade_time):
+	modulate.a = 0
+	fade_in = true
+	FADE_TIME = fade_time
+func start_fade_out(fade_time):
+	modulate.a = 1.0
+	fade_out = true
+	FADE_TIME = fade_time

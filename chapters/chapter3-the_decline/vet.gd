@@ -1,9 +1,17 @@
 extends Node3D
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$Fade.start_fade_out(4)
+	$Player.set_process(false)
+	$Player.set_physics_process(false)
+	#$Objectives3.start_fade_in(2)
+	var timer = get_tree().create_timer(2)
+	timer.timeout.connect(fade_in_objectives)
+	
+func fade_in_objectives():
+	$Objectives3.start_fade_in(2)
+	$Player.set_process(true)
+	$Player.set_physics_process(true)
 
 
 var is_the_end = false

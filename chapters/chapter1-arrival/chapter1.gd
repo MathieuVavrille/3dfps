@@ -1,8 +1,13 @@
 extends Node3D
 
 var fade_times = 2.
+var arrow = load("res://ui/cat_paw2.png")
+var beam = load("res://ui/cat_paw1.png")
+
 
 func _ready():
+	Input.set_custom_mouse_cursor(arrow)
+	Input.set_custom_mouse_cursor(beam, Input.CURSOR_IBEAM)
 	$Movable.set_process(false)
 	$Movable/pat_carrier/Player.set_process(false)
 	$Cars/VehicleSports.set_process(false)
@@ -41,13 +46,5 @@ func end_sub_chapter():
 	$TitleScreen/ColorRect.start_fade_in(2)
 
 func _on_color_rect_faded_in():
-	var timer = get_tree().create_timer(1)
+	var timer = get_tree().create_timer(0.5)
 	timer.timeout.connect(get_tree().quit)
-
-
-"""func _on_player_pause():
-	set_process(false)
-
-func _on_player_unpause():
-	set_process(true)
-"""

@@ -20,6 +20,7 @@ config/icon="res://bars/sprites/icons/magic.png"
 
 window/size/viewport_width=960
 window/size/viewport_height=540
+mouse_cursor/custom_image="res://ui/cat_paw2.png"
 
 [editor]
 

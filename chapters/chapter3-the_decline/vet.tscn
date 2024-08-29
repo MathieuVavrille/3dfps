@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://bnd764ikksjd1"]
+[gd_scene load_steps=88 format=3 uid="uid://bnd764ikksjd1"]
 
 [ext_resource type="PackedScene" uid="uid://d6susixkawq8" path="res://ui/pause_menu.tscn" id="1_06pqf"]
 [ext_resource type="Script" path="res://chapters/chapter3-the_decline/vet.gd" id="1_bmh61"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://dchj3p015aosu" path="res://chapters/chapter3-the_decline/objectives3.tscn" id="24_03k2t"]
 [ext_resource type="ArrayMesh" uid="uid://binahetgypl3m" path="res://assets/furnitures/medical/pill_bottle.obj" id="26_btp3r"]
 [ext_resource type="PackedScene" uid="uid://bb1r8oikagn0h" path="res://assets/furnitures/medical/srynge.tscn" id="27_2efyf"]
+[ext_resource type="Script" path="res://ui/fade.gd" id="29_kkja2"]
 
 [sub_resource type="Environment" id="Environment_y6ecq"]
 volumetric_fog_enabled = true
@@ -566,5 +567,14 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.875, 1, -0.125)
 [node name="Objectives3" parent="." instance=ExtResource("24_03k2t")]
 
 [node name="Credits" parent="." instance=ExtResource("23_5xlwm")]
+
+[node name="Fade" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("29_kkja2")
 
 [connection signal="objectives_finished" from="Objectives3" to="." method="_on_objectives_finished"]
