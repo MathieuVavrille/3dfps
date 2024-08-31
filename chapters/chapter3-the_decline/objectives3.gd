@@ -1,14 +1,12 @@
-extends Node2D
+extends Control
 
 signal can_sleep
 signal objectives_finished
 
-@onready var drink_objective = $CanvasLayer/Objectives/DrinkObjective
-@onready var eat_objective = $CanvasLayer/Objectives/EatObjective
-@onready var fish_objective = $CanvasLayer/Objectives/FishObjective
-@onready var litter_objective = $CanvasLayer/Objectives/LitterObjective
-@onready var hack_objective = $CanvasLayer/Objectives/HackObjective
-@onready var sleep_objective = $CanvasLayer/Objectives/SleepObjective
+@onready var drink_objective = $Objectives/DrinkObjective
+@onready var eat_objective = $Objectives/EatObjective
+@onready var litter_objective = $Objectives/LitterObjective
+@onready var sleep_objective = $Objectives/SleepObjective
 
 func _ready():
 	sleep_objective.visible = false
@@ -42,16 +40,16 @@ var FADE_TIME = 1.
 func _process(delta):
 	if fade_in:
 		modulate.a = move_toward(modulate.a, 1., delta / FADE_TIME)
-		$CanvasLayer/ColorRect.modulate.a = modulate.a
-		$CanvasLayer/Title.modulate.a = modulate.a
-		$CanvasLayer/Objectives.modulate.a = modulate.a
+		$ColorRect.modulate.a = modulate.a
+		$Title.modulate.a = modulate.a
+		$Objectives.modulate.a = modulate.a
 		if modulate.a  == 1.:
 			fade_in = false
 	if fade_out:
 		modulate.a = move_toward(modulate.a, 0., delta / FADE_TIME)
-		$CanvasLayer/ColorRect.modulate.a = modulate.a
-		$CanvasLayer/Title.modulate.a = modulate.a
-		$CanvasLayer/Objectives.modulate.a = modulate.a
+		$ColorRect.modulate.a = modulate.a
+		$Title.modulate.a = modulate.a
+		$Objectives.modulate.a = modulate.a
 		if modulate.a == 0.:
 			fade_out = false
 

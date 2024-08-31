@@ -1,17 +1,35 @@
-[gd_scene load_steps=3 format=3 uid="uid://cm2kce2wsuh4r"]
+[gd_scene load_steps=7 format=3 uid="uid://cm2kce2wsuh4r"]
 
 [ext_resource type="PackedScene" uid="uid://dqjum2rqdd6i2" path="res://furniture/bowls/bowl.tscn" id="1_lq314"]
-[ext_resource type="Texture2D" uid="uid://bc620mx2d0vfw" path="res://furniture/bowls/water.png" id="2_s2glu"]
+[ext_resource type="Shader" path="res://furniture/bathroom/water_shader.gdshader" id="2_fyud4"]
+[ext_resource type="Texture2D" uid="uid://ctxjy0m2pvwln" path="res://assets/textures/water.jpg" id="3_22g62"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_iisxc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ayhej"]
+render_priority = 0
+shader = ExtResource("2_fyud4")
+shader_parameter/speed = 0.5
+shader_parameter/wave_scale = 0.025
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/radius = 1.0
+shader_parameter/bound = 100.0
+shader_parameter/texture_albedo = ExtResource("3_22g62")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_iisxc")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3ner7"]
+size = Vector2(0.35, 0.35)
 
 [node name="WaterBowl" instance=ExtResource("1_lq314")]
 
-[node name="Water" type="Sprite3D" parent="." index="1"]
-transform = Transform3D(0.035, 0, 0, 0, -1.5299e-09, -0.035, 0, 0.035, -1.5299e-09, 0, 0.0447411, 0)
-texture = ExtResource("2_s2glu")
-
-[node name="Area3D" parent="." index="2"]
+[node name="Area3D" parent="." index="1"]
 collision_layer = 16
 collision_mask = 0
 
 [node name="CollisionShape3D" parent="Area3D" index="0"]
 visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.057024, 0)
+material_override = SubResource("ShaderMaterial_ayhej")
+mesh = SubResource("PlaneMesh_3ner7")

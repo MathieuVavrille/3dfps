@@ -279,11 +279,13 @@ environment = SubResource("Environment_y6ecq")
 [node name="Player" parent="." node_paths=PackedStringArray("objectives") instance=ExtResource("2_5mcd6")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -0.173, 1.525, -0.834)
 visible = false
+MAX_SPEED = 1.0
 objectives = NodePath("../Objectives3")
 can_jump = false
 INITIAL_FALL_TIME = 1.0
 FADE_TIME = 2.0
 UP_TIME = 2.0
+MOUSE_SENSITIVITY = 20
 
 [node name="Structure" type="Node3D" parent="."]
 
@@ -559,7 +561,7 @@ surface_material_override/52 = SubResource("StandardMaterial3D_j3fgd")
 surface_material_override/53 = SubResource("StandardMaterial3D_vabsx")
 
 [node name="WaterBowl" parent="." instance=ExtResource("15_avsoe")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.875, 1, -0.375)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.875, 1, -0.664607)
 
 [node name="FoodBowl" parent="." instance=ExtResource("16_akogv")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.875, 1, -0.125)

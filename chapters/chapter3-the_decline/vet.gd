@@ -1,10 +1,10 @@
 extends Node3D
 
 func _ready():
+	$Objectives3.modulate.a = 0
 	$Fade.start_fade_out(4)
 	$Player.set_process(false)
 	$Player.set_physics_process(false)
-	#$Objectives3.start_fade_in(2)
 	var timer = get_tree().create_timer(2)
 	timer.timeout.connect(fade_in_objectives)
 	

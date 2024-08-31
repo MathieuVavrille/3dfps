@@ -3,15 +3,15 @@ extends CharacterBody3D
 signal pause
 signal unpause
 
-const MAX_SPEED = 5
-const ACCEL = 4
-const DEACCEL= 10
+@export var MAX_SPEED = 5.
+const ACCEL = 4.
+const DEACCEL= 10.
 
 var dir = Vector3()
 
 @export var can_fall = true
 
-@export var objectives: Node2D
+@export var objectives: Control
 @export var monitor: Node3D
 
 @export var can_jump = true
@@ -169,6 +169,7 @@ func process_input(_delta):
 
 
 func process_movement(delta):
+	print(position)
 	dir.y = 0
 	dir = dir.normalized()
 	velocity.y += gravity * delta
@@ -183,15 +184,15 @@ func process_movement(delta):
 	move_and_slide()
 
 
-var MOUSE_SENSITIVITY = 0.05
+@export var MOUSE_SENSITIVITY = 50
 func _input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if is_waiting_for_input:
 			is_waiting_for_input = false
 			is_getting_up = true
 		if not is_falling and not is_recovering and not is_waiting_for_input and not is_getting_up:
-			rotation_helper.rotate_x(deg_to_rad(event.relative.y * MOUSE_SENSITIVITY))
-			self.rotate_y(-deg_to_rad(event.relative.x * MOUSE_SENSITIVITY))
+			rotation_helper.rotate_x(deg_to_rad(event.relative.y * MOUSE_SENSITIVITY / 1000.))
+			self.rotate_y(-deg_to_rad(event.relative.x * MOUSE_SENSITIVITY / 1000.))
 			var camera_rot = rotation_helper.rotation_degrees
 			camera_rot.x = clamp(camera_rot.x, -70, 70)
 			rotation_helper.rotation_degrees = camera_rot
