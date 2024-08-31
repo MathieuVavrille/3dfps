@@ -15,7 +15,7 @@ func fade_in_objectives():
 
 
 var is_the_end = false
-func _process(delta):
+func _process(_delta):
 	if is_the_end and Input.is_action_just_pressed("ui_cancel"):
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

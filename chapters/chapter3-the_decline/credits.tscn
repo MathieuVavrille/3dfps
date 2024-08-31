@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bvylsknh5xvl4"]
 
-[ext_resource type="Script" path="res://chapters/credits.gd" id="1_6addd"]
+[ext_resource type="Script" path="res://chapters/chapter3-the_decline/credits.gd" id="1_6addd"]
 [ext_resource type="Texture2D" uid="uid://bxephjk87lye7" path="res://assets/fade/black_fade.png" id="1_564ns"]
 [ext_resource type="AudioStream" uid="uid://bn6ioh4wsi4hn" path="res://sounds/credits.mp3" id="3_c4dd2"]
 

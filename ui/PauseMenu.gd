@@ -2,9 +2,12 @@ extends Control
 
 var is_on_screen = false
 var fade_time = 0.5
+@export var capture_from_start = true
 
 func _ready():
 	modulate.a = 0.
+	if capture_from_start:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):

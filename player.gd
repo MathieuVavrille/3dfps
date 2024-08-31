@@ -169,7 +169,6 @@ func process_input(_delta):
 
 
 func process_movement(delta):
-	print(position)
 	dir.y = 0
 	dir = dir.normalized()
 	velocity.y += gravity * delta

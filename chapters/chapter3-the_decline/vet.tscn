@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://bnd764ikksjd1"]
+[gd_scene load_steps=89 format=3 uid="uid://bnd764ikksjd1"]
 
 [ext_resource type="PackedScene" uid="uid://d6susixkawq8" path="res://ui/pause_menu.tscn" id="1_06pqf"]
 [ext_resource type="Script" path="res://chapters/chapter3-the_decline/vet.gd" id="1_bmh61"]
@@ -24,11 +24,12 @@
 [ext_resource type="Script" path="res://furniture/light/light_ceiling_2.gd" id="20_tyo0h"]
 [ext_resource type="PackedScene" uid="uid://5go8n866jiym" path="res://furniture/light/light_desk_2.tscn" id="20_xomul"]
 [ext_resource type="Script" path="res://chapters/chapter3-the_decline/OmniLight3D.gd" id="22_moerg"]
-[ext_resource type="PackedScene" uid="uid://bvylsknh5xvl4" path="res://chapters/credits.tscn" id="23_5xlwm"]
-[ext_resource type="PackedScene" uid="uid://dchj3p015aosu" path="res://chapters/chapter3-the_decline/objectives3.tscn" id="24_03k2t"]
+[ext_resource type="PackedScene" uid="uid://bvylsknh5xvl4" path="res://chapters/chapter3-the_decline/credits.tscn" id="23_5xlwm"]
+[ext_resource type="PackedScene" uid="uid://dchj3p015aosu" path="res://chapters/chapter3-the_decline/vet_objectives.tscn" id="24_03k2t"]
 [ext_resource type="ArrayMesh" uid="uid://binahetgypl3m" path="res://assets/furnitures/medical/pill_bottle.obj" id="26_btp3r"]
 [ext_resource type="PackedScene" uid="uid://bb1r8oikagn0h" path="res://assets/furnitures/medical/srynge.tscn" id="27_2efyf"]
 [ext_resource type="Script" path="res://ui/fade.gd" id="29_kkja2"]
+[ext_resource type="PackedScene" uid="uid://by8r6b46g84d6" path="res://assets/furnitures/medical/blood_donor.blend" id="30_xac7l"]
 
 [sub_resource type="Environment" id="Environment_y6ecq"]
 volumetric_fog_enabled = true
@@ -231,17 +232,6 @@ normal_texture = ExtResource("10_jegc2")
 [sub_resource type="SphereShape3D" id="SphereShape3D_b8vxe"]
 radius = 59.5965
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nsibv"]
-albedo_color = Color(0, 0.45098, 1, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qgmbs"]
-albedo_color = Color(1, 0.313726, 0.52549, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cd8vq"]
-albedo_color = Color(0.321569, 0.396078, 0.392157, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hy6qa"]
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1i5ag"]
 albedo_color = Color(0.0352941, 0.54902, 1, 1)
 
@@ -268,6 +258,17 @@ albedo_color = Color(0.972549, 0.713726, 0.0588235, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vabsx"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nsibv"]
+albedo_color = Color(0, 0.45098, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qgmbs"]
+albedo_color = Color(1, 0.313726, 0.52549, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cd8vq"]
+albedo_color = Color(0.321569, 0.396078, 0.392157, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hy6qa"]
+
 [node name="Vet" type="Node3D"]
 script = ExtResource("1_bmh61")
 
@@ -279,13 +280,14 @@ environment = SubResource("Environment_y6ecq")
 [node name="Player" parent="." node_paths=PackedStringArray("objectives") instance=ExtResource("2_5mcd6")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -0.173, 1.525, -0.834)
 visible = false
-MAX_SPEED = 1.0
+MAX_SPEED = 0.25
 objectives = NodePath("../Objectives3")
 can_jump = false
+hurt_on_fall = true
 INITIAL_FALL_TIME = 1.0
 FADE_TIME = 2.0
 UP_TIME = 2.0
-MOUSE_SENSITIVITY = 20
+MOUSE_SENSITIVITY = 15
 
 [node name="Structure" type="Node3D" parent="."]
 
@@ -525,22 +527,11 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.196037, -53.717, -9.96229)
 shape = SubResource("SphereShape3D_b8vxe")
 
-[node name="PillBottle" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0.230276, 0.41789, 0.733517)
-mesh = ExtResource("26_btp3r")
-surface_material_override/0 = SubResource("StandardMaterial3D_nsibv")
-surface_material_override/1 = SubResource("StandardMaterial3D_qgmbs")
-surface_material_override/2 = SubResource("StandardMaterial3D_cd8vq")
-surface_material_override/3 = SubResource("StandardMaterial3D_hy6qa")
-
-[node name="srynge" parent="." instance=ExtResource("27_2efyf")]
-transform = Transform3D(-0.0263634, 0, -0.042485, 0, 0.05, 0, 0.042485, 0, -0.0263634, 0.203955, 0.838509, 0.642005)
-
 [node name="Trolley" parent="." instance=ExtResource("13_s0osf")]
-transform = Transform3D(-6.55671e-09, 0, 0.15, 0, 0.15, 0, -0.15, 0, -6.55671e-09, 0.0911797, 0, 0.78789)
+transform = Transform3D(-6.55671e-09, 0, 0.15, 0, 0.15, 0, -0.15, 0, -6.55671e-09, 0.310889, 0, 0.78789)
 
 [node name="Stethoscope" parent="Trolley" instance=ExtResource("14_es0qo")]
-transform = Transform3D(0.440053, 0, -0.23739, 0, 0.5, 0, 0.23739, 0, 0.440053, 0.322771, 5.66204, -1.47266)
+transform = Transform3D(0.440053, 0, -0.23739, 0, 0.5, 0, 0.23739, 0, 0.440053, 0.322771, 5.66204, -1.11972)
 
 [node name="Light_Desk3" parent="Trolley" instance=ExtResource("20_xomul")]
 transform = Transform3D(-5.7735, 0, 3.33333, 0, 6.66667, 0, -3.33333, 0, -5.7735, -0.530479, 5.58742, 1.54384)
@@ -560,6 +551,18 @@ surface_material_override/51 = SubResource("StandardMaterial3D_fmcoa")
 surface_material_override/52 = SubResource("StandardMaterial3D_j3fgd")
 surface_material_override/53 = SubResource("StandardMaterial3D_vabsx")
 
+[node name="srynge" parent="Trolley" instance=ExtResource("27_2efyf")]
+transform = Transform3D(-0.283233, 0, 0.175756, 0, 0.333333, 0, -0.175756, 0, -0.283233, 0.972567, 5.59006, 0.565118)
+
+[node name="PillBottle" type="MeshInstance3D" parent="Trolley"]
+transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, 0.362487, 2.78593, -0.0306523)
+mesh = ExtResource("26_btp3r")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_nsibv")
+surface_material_override/1 = SubResource("StandardMaterial3D_qgmbs")
+surface_material_override/2 = SubResource("StandardMaterial3D_cd8vq")
+surface_material_override/3 = SubResource("StandardMaterial3D_hy6qa")
+
 [node name="WaterBowl" parent="." instance=ExtResource("15_avsoe")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.875, 1, -0.664607)
 
@@ -578,5 +581,8 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("29_kkja2")
+
+[node name="blood_donor" parent="." instance=ExtResource("30_xac7l")]
+transform = Transform3D(-0.173205, 0, 0.1, 0, 0.2, 0, -0.1, 0, -0.173205, -2.06439, 0, -0.592138)
 
 [connection signal="objectives_finished" from="Objectives3" to="." method="_on_objectives_finished"]

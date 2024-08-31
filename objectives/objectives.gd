@@ -3,32 +3,27 @@ extends Control
 signal can_sleep
 signal objectives_finished
 
-@onready var drink_objective = $Objectives/DrinkObjective
-@onready var eat_objective = $Objectives/EatObjective
-@onready var litter_objective = $Objectives/LitterObjective
-@onready var sleep_objective = $Objectives/SleepObjective
+@onready var objectives = $Objectives
+@onready var sleep_objective = $SleepObjective
 
 func _ready():
 	sleep_objective.visible = false
 
-func unlock_last_objective():
-	if (drink_objective.is_achieved and
-		eat_objective.is_achieved and
-		litter_objective.is_achieved):
-		can_sleep.emit()
-		sleep_objective.visible = true
+func unlock_sleep_objective():
+	for objective in objectives.get_children():
+		if objective.visible and not objective.is_achieved:
+			return
+	can_sleep.emit()
+	sleep_objective.visible = true
 
 func objective_got(obj_name):
-	if obj_name == "drink":
-		drink_objective.achieved()
-	elif obj_name == "eat":
-		eat_objective.achieved()
-	elif obj_name == "litter":
-		litter_objective.achieved()
-	elif obj_name == "sleep":
-		sleep_objective.achieved()
+	if obj_name == "sleep":
+		sleep_objective.achieved("sleep")
 		objectives_finished.emit()
-	unlock_last_objective()
+	else:
+		for objective in objectives.get_children():
+			objective.achieved(obj_name)
+	unlock_sleep_objective()
 	
 	
 var fade_in = false
@@ -36,7 +31,6 @@ var fade_out = false
 var FADE_TIME = 1.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if fade_in:
 		modulate.a = move_toward(modulate.a, 1., delta / FADE_TIME)
