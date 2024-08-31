@@ -281,7 +281,7 @@ environment = SubResource("Environment_y6ecq")
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -0.173, 1.525, -0.834)
 visible = false
 MAX_SPEED = 0.25
-objectives = NodePath("../Objectives3")
+objectives = NodePath("../ObjectivesVet")
 can_jump = false
 hurt_on_fall = true
 INITIAL_FALL_TIME = 1.0
@@ -569,7 +569,7 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.875, 1, -0.664607)
 [node name="FoodBowl" parent="." instance=ExtResource("16_akogv")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.875, 1, -0.125)
 
-[node name="Objectives3" parent="." instance=ExtResource("24_03k2t")]
+[node name="ObjectivesVet" parent="." instance=ExtResource("24_03k2t")]
 
 [node name="Credits" parent="." instance=ExtResource("23_5xlwm")]
 
@@ -585,4 +585,5 @@ script = ExtResource("29_kkja2")
 [node name="blood_donor" parent="." instance=ExtResource("30_xac7l")]
 transform = Transform3D(-0.173205, 0, 0.1, 0, 0.2, 0, -0.1, 0, -0.173205, -2.06439, 0, -0.592138)
 
-[connection signal="objectives_finished" from="Objectives3" to="." method="_on_objectives_finished"]
+[connection signal="can_sleep" from="ObjectivesVet" to="." method="_on_objectives_3_can_sleep"]
+[connection signal="objectives_finished" from="ObjectivesVet" to="." method="_on_objectives_finished"]

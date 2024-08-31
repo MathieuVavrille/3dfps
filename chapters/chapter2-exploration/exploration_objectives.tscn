@@ -55,18 +55,19 @@ anchor_left = 1.0
 anchor_right = 1.0
 grow_horizontal = 0
 
-[node name="DrinkObjective" parent="Objectives" instance=ExtResource("2_snh5a")]
+[node name="DrinkObjective" parent="Objectives" instance=ExtResource("3_sie8x")]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -163.0
 offset_top = 67.0
-offset_right = 28.0
+offset_right = 439.0
 offset_bottom = 150.0
 grow_horizontal = 0
 scale = Vector2(0.25, 0.25)
 text = " Drink"
+total = 4
 obj_name = "drink"
 
 [node name="EatObjective" parent="Objectives" instance=ExtResource("2_snh5a")]

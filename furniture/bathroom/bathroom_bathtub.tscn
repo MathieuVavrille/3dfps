@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0ng7elbtvvvc"]
+[gd_scene load_steps=7 format=3 uid="uid://c0ng7elbtvvvc"]
 
 [ext_resource type="PackedScene" uid="uid://cpahxlxyo6txy" path="res://assets/furnitures/bathroom/Bathroom_Bathtub.blend" id="1_ughws"]
 [ext_resource type="Material" uid="uid://4kkmav6gg0tv" path="res://assets/textures/ceramic.tres" id="2_7nwkf"]
@@ -9,6 +9,9 @@ data = PackedVector3Array(0.589, 0.1367, 1.7757, -0.589, 1.0647, 1.7757, 0.589, 
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_8tfcn"]
 size = Vector2(0.7, 1.9)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s1uy5"]
+size = Vector3(0.63858, 0.0777588, 1.84668)
 
 [node name="Bathroom_Bathtub" instance=ExtResource("1_ughws")]
 
@@ -26,3 +29,11 @@ shape = SubResource("ConcavePolygonShape3D_fyjfi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.169142, 0)
 material_override = ExtResource("3_1oqal")
 mesh = SubResource("PlaneMesh_8tfcn")
+
+[node name="Area3D" type="Area3D" parent="." index="2"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0182343, 0.140132, 0.0183564)
+shape = SubResource("BoxShape3D_s1uy5")

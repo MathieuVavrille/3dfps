@@ -1,7 +1,9 @@
 extends Node3D
 
 func _ready():
-	$Objectives3.modulate.a = 0
+	$PetBed/SleepFog.visible=false
+	$PetBed/SleepFog.disable(true)
+	$ObjectivesVet.modulate.a = 0
 	$Fade.start_fade_out(4)
 	$Player.set_process(false)
 	$Player.set_physics_process(false)
@@ -9,7 +11,7 @@ func _ready():
 	timer.timeout.connect(fade_in_objectives)
 	
 func fade_in_objectives():
-	$Objectives3.start_fade_in(2)
+	$ObjectivesVet.start_fade_in(2)
 	$Player.set_process(true)
 	$Player.set_physics_process(true)
 
@@ -27,4 +29,8 @@ func _on_objectives_finished():
 	$PauseMenu.set_process(false)
 	$Credits.start()
 	is_the_end = true
-	$PetBed/SleepFog.visible = false
+
+
+func _on_objectives_3_can_sleep():
+	$PetBed/SleepFog.visible = true
+	$PetBed/SleepFog.disable(false)

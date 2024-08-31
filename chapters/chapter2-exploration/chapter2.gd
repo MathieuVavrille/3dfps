@@ -23,7 +23,7 @@ func _physics_process(_delta):
 		get_tree().quit()
 
 func fish_collected():
-	$ObjectivesTemplate.objective_got("fish")
+	$Objectives2.objective_got("fish")
 
 
 func _on_objectives_template_can_sleep():

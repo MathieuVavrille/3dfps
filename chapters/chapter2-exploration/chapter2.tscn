@@ -565,12 +565,12 @@ albedo_texture = ExtResource("89_867j0")
 [node name="House" type="Node3D"]
 script = ExtResource("1_yp7iq")
 
-[node name="ObjectivesTemplate" parent="." instance=ExtResource("2_nr2m4")]
+[node name="Objectives2" parent="." instance=ExtResource("2_nr2m4")]
 
 [node name="Player" parent="." node_paths=PackedStringArray("objectives", "monitor") instance=ExtResource("3_k863i")]
 transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, -3.92849, 1.62784, -2.03288)
 can_fall = false
-objectives = NodePath("../ObjectivesTemplate")
+objectives = NodePath("../Objectives2")
 monitor = NodePath("../Bedroom/Monitor")
 
 [node name="Fogs" type="Node3D" parent="."]
@@ -1589,5 +1589,5 @@ rotations = [-91.0, -90.0, 1.0, 0.0, 91.0, 90.0, 181.0, 180.0, 270.0]
 rot_time = [0.0, 8.5, 9.5, 18.5, 19.5, 27.5, 28.5, 28.0, 39.0]
 current_time = 5.0
 
-[connection signal="can_sleep" from="ObjectivesTemplate" to="." method="_on_objectives_template_can_sleep"]
-[connection signal="objectives_finished" from="ObjectivesTemplate" to="." method="end_chapter"]
+[connection signal="can_sleep" from="Objectives2" to="." method="_on_objectives_template_can_sleep"]
+[connection signal="objectives_finished" from="Objectives2" to="." method="end_chapter"]

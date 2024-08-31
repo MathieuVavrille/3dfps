@@ -3,7 +3,7 @@ extends CharacterBody3D
 signal pause
 signal unpause
 
-@export var MAX_SPEED = 5.
+@export var MAX_SPEED = 2.5
 const ACCEL = 4.
 const DEACCEL= 10.
 
@@ -51,7 +51,6 @@ func _ready():
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	rand.randomize()
 	noise.seed = rand.randi()
-	# noise.period = 2
 
 func apply_noise_shake() -> void:
 	shake_strength = NOISE_SHAKE_STRENGTH
@@ -73,6 +72,10 @@ func _process(delta):
 	process_interaction()
 	
 var has_eaten = false
+var has_drunk_kitchen_sink = false
+var has_drunk_bowl = false
+var has_drunk_bathroom_sink = false
+var has_drunk_shower = false
 func process_interaction():
 	if can_eat and Input.is_action_pressed("interact"):
 		if Input.is_action_just_pressed("interact"):
@@ -84,7 +87,23 @@ func process_interaction():
 		$Sound/Eating.stop()
 	if can_drink and Input.is_action_pressed("interact"):
 		if Input.is_action_just_pressed("interact"):
-			objectives.objective_got("drink")
+			if position.z < -6:
+				if not has_drunk_kitchen_sink:
+					objectives.objective_got("drink")
+					has_drunk_kitchen_sink = true
+			elif position.z < -1:
+				if position.x < -3:
+					if not has_drunk_shower:
+						objectives.objective_got("drink")
+						has_drunk_shower = true
+				else:
+					if not has_drunk_bathroom_sink:
+						objectives.objective_got("drink")
+						has_drunk_bathroom_sink = true
+			else:
+				if not has_drunk_bowl:
+					objectives.objective_got("drink")
+					has_drunk_bowl = true
 		if not $Sound/Drinking.playing:
 			$Sound/Drinking.play()
 	else:
