@@ -26,6 +26,7 @@ visible = false
 shape = SubResource("ConcavePolygonShape3D_i1pqi")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Table"]
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Table/StaticBody3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.3309, 18.1216, 0.066199)

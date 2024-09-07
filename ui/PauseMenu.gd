@@ -23,3 +23,4 @@ func _process(delta):
 	else:
 		modulate.a = move_toward(modulate.a, 0., delta / fade_time)
 
+

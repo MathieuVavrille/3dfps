@@ -4,7 +4,7 @@ var fade_times = 2.
 var next_scene = preload("res://chapters/chapter3-the_decline/vet.tscn")
 
 func _ready():
-	$Fade.start_fade_out(fade_times)
+	$Fade.start_fade_out(4)
 	var timer = get_tree().create_timer(5)#24)
 	timer.timeout.connect(end_sub_chapter)
 

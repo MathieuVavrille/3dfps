@@ -723,6 +723,7 @@ is_moving = true
 [node name="Player" parent="Movable/pat_carrier" instance=ExtResource("35_kf8hb")]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -0.0168018, -0.274616, 0)
 MAX_SPEED = 0.25
+start_asleep = false
 can_jump = false
 capture_mouse = false
 

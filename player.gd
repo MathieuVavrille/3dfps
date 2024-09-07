@@ -9,7 +9,8 @@ const DEACCEL= 10.
 
 var dir = Vector3()
 
-@export var can_fall = true
+@export var start_asleep = true
+@export var hurt_after_eating = true
 
 @export var objectives: Control
 @export var monitor: Node3D
@@ -51,6 +52,11 @@ func _ready():
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	rand.randomize()
 	noise.seed = rand.randi()
+	if start_asleep:
+		rotation_helper.position.y = SLEEP_POSITION
+		rotation_helper.rotation.x = SLEEP_ROTATION * PI / 180.
+		$RotationHelper/Camera.rotation.z = SLEEP_ROTATION * PI / 180.
+		is_getting_up = true
 
 func apply_noise_shake() -> void:
 	shake_strength = NOISE_SHAKE_STRENGTH
@@ -65,12 +71,15 @@ func _process(delta):
 		if is_airborn - position.y > 0.4 :
 			apply_noise_shake()
 			if hurt_on_fall:
-				start_hurt(INITIAL_FALL_TIME)
+				print("hurt")
+				$FallFade.modulate.a = 1.
+				start_hurt(INITIAL_FALL_TIME, true)
 		is_airborn = -100
 	elif is_airborn < -10:
 		is_airborn = position.y
 	process_interaction()
-	
+
+@export var sleep_fade_time = 6.
 var has_eaten = false
 var has_drunk_kitchen_sink = false
 var has_drunk_bowl = false
@@ -91,8 +100,8 @@ func process_interaction():
 				if not has_drunk_kitchen_sink:
 					objectives.objective_got("drink")
 					has_drunk_kitchen_sink = true
-			elif position.z < -1:
-				if position.x < -3:
+			elif position.z > -1:
+				if position.x < 3:
 					if not has_drunk_shower:
 						objectives.objective_got("drink")
 						has_drunk_shower = true
@@ -116,7 +125,8 @@ func process_interaction():
 		monitor.bug()
 	if can_sleep and Input.is_action_just_pressed("interact"):
 		objectives.objective_got("sleep")
-		start_hurt(6.)
+		start_hurt(sleep_fade_time)
+		$KeyText.visible = false
 		is_the_end = true
 
 
@@ -138,19 +148,19 @@ var is_the_end = false
 var FALL_TIME = 2.
 @export var FADE_TIME = 4.
 @export var UP_TIME = 4.
+var SLEEP_ROTATION = 35.
+var SLEEP_POSITION = 0.05
 func fall(delta):
 	if is_falling:
-		rotation_helper.position.y = move_toward(rotation_helper.position.y, 0.05, 0.15 / FALL_TIME * delta)
-		rotation_helper.rotation.x = move_toward(rotation_helper.rotation.x, 35. * PI / 180., 35. * PI / 180 / FALL_TIME * delta)
-		$RotationHelper/Camera.rotation.z = move_toward($RotationHelper/Camera.rotation.z, 35. * PI / 180., 35. * PI / 180 / FALL_TIME * delta)
-		if rotation_helper.position.y <= 0.05001 and rotation_helper.rotation.x <= 35. * PI / 180. + 0.0001 and $RotationHelper/Camera.rotation.z <=  35. * PI / 180. + 0.0001:
+		rotation_helper.position.y = move_toward(rotation_helper.position.y, SLEEP_POSITION, (0.2-SLEEP_POSITION) / FALL_TIME * delta)
+		rotation_helper.rotation.x = move_toward(rotation_helper.rotation.x, SLEEP_ROTATION * PI / 180., SLEEP_ROTATION * PI / 180 / FALL_TIME * delta)
+		$RotationHelper/Camera.rotation.z = move_toward($RotationHelper/Camera.rotation.z, SLEEP_ROTATION * PI / 180., SLEEP_ROTATION * PI / 180 / FALL_TIME * delta)
+		if rotation_helper.position.y <= SLEEP_POSITION+0.001 and rotation_helper.rotation.x <= SLEEP_ROTATION * PI / 180. + 0.0001 and $RotationHelper/Camera.rotation.z <=  SLEEP_ROTATION * PI / 180. + 0.0001:
 			is_falling = false
 			is_recovering = true
+			$FallFade.start_fade_out(FADE_TIME)
 	if not is_the_end and is_recovering:
-		$FallFade.modulate.a = move_toward($FallFade.modulate.a, 0., delta / FADE_TIME)
 		if $FallFade.modulate.a == 0.:
-			$FallFade.visible = false
-			$FallFade.modulate.a = 1.
 			is_recovering = false
 			is_waiting_for_input = true
 	if is_waiting_for_input and (Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_backward") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right") or Input.is_action_pressed("interact")):
@@ -227,6 +237,7 @@ func _on_food_scan_area_exited(_area):
 var can_drink = false
 func _on_water_bowl_scan_area_entered(_area):
 	can_drink = true
+	print("can_drink")
 	$KeyText.show_text("Drink")
 func _on_water_bowl_scan_area_exited(_area):
 	can_drink = false
@@ -260,16 +271,17 @@ func _on_sleep_scan_area_exited(_area):
 		$KeyText.fade_out()
 
 func _on_fall_scan_area_exited(_area):
-	if can_fall and has_eaten:
+	if hurt_after_eating and has_eaten:
 		has_eaten = false
-		start_hurt(INITIAL_FALL_TIME)
+		start_hurt(INITIAL_FALL_TIME, true)
 		
-func start_hurt(time):
+func start_hurt(time, instant=false):
 	is_falling = true
-	$FallFade.visible = true
 	velocity = Vector3.ZERO
 	FALL_TIME = time
-
+	$FallFade.start_fade_in(time)
+	if instant:
+		$FallFade.modulate.a = 1.
 
 func get_noise_offset(delta: float) -> Vector2:
 	noise_i += delta * NOISE_SHAKE_SPEED

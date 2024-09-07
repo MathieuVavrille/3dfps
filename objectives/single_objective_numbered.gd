@@ -12,7 +12,7 @@ func _ready():
 	set_numbered_text()
 
 func set_numbered_text():
-	text = original_text + " (" + str(nb_collected) + "/" + str(total) + ")"
+	text = original_text + " (" + str(min(nb_collected, total)) + "/" + str(total) + ")"
 
 func achieved(got_name):
 	if got_name == obj_name:

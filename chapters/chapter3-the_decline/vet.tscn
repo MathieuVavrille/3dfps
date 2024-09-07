@@ -278,7 +278,7 @@ environment = SubResource("Environment_y6ecq")
 [node name="PauseMenu" parent="." instance=ExtResource("1_06pqf")]
 
 [node name="Player" parent="." node_paths=PackedStringArray("objectives") instance=ExtResource("2_5mcd6")]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -0.173, 1.525, -0.834)
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -0.19864, 1.525, -0.788364)
 visible = false
 MAX_SPEED = 0.25
 objectives = NodePath("../ObjectivesVet")
@@ -507,7 +507,7 @@ shadow_enabled = true
 script = ExtResource("22_moerg")
 
 [node name="PetBedUp" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0106066, 0, -0.0106066, 0, 0.015, 0, 0.0106066, 0, 0.0106066, -0.228733, 1.50349, -0.786273)
+transform = Transform3D(0.0106066, 0, -0.0106066, 0, 0.015, 0, 0.0106066, 0, 0.0106066, -0.228733, 1.47918, -0.786273)
 material_override = SubResource("StandardMaterial3D_20qhm")
 mesh = ExtResource("11_kx0r1")
 
@@ -518,7 +518,7 @@ mesh = ExtResource("11_kx0r1")
 
 [node name="SleepFog" parent="PetBed" instance=ExtResource("16_3tcbf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.561, 0)
-size = Vector3(27.3414, 13.2261, 27.4804)
+size = Vector3(18.7655, 7.3441, 18.2885)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="PetBed"]
 visible = false
@@ -563,6 +563,9 @@ surface_material_override/1 = SubResource("StandardMaterial3D_qgmbs")
 surface_material_override/2 = SubResource("StandardMaterial3D_cd8vq")
 surface_material_override/3 = SubResource("StandardMaterial3D_hy6qa")
 
+[node name="blood_donor" parent="Trolley" instance=ExtResource("30_xac7l")]
+transform = Transform3D(0.666667, 0, 1.1547, 0, 1.33333, 0, -1.1547, 0, 0.666667, 9.20019, 0, -15.8352)
+
 [node name="WaterBowl" parent="." instance=ExtResource("15_avsoe")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.875, 1, -0.664607)
 
@@ -581,9 +584,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("29_kkja2")
-
-[node name="blood_donor" parent="." instance=ExtResource("30_xac7l")]
-transform = Transform3D(-0.173205, 0, 0.1, 0, 0.2, 0, -0.1, 0, -0.173205, -2.06439, 0, -0.592138)
 
 [connection signal="can_sleep" from="ObjectivesVet" to="." method="_on_objectives_3_can_sleep"]
 [connection signal="objectives_finished" from="ObjectivesVet" to="." method="_on_objectives_finished"]

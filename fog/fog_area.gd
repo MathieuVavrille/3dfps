@@ -5,4 +5,4 @@ func _ready():
 	$Area3D/CollisionShape3D.shape.size = size
 
 func disable(value):
-	$Area3D/CollisionShape3D.disabled = value
+	$Area3D/CollisionShape3D.set_deferred("disabled", value)

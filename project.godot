@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Third Life"
 config/description="A hommage game to my late cat"
-run/main_scene="res://chapters/chapter3-the_decline/vet.tscn"
+run/main_scene="res://chapters/chapter3-the_decline/chapter3_house.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://bars/sprites/icons/magic.png"
 

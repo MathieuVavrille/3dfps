@@ -34,18 +34,16 @@ var FADE_TIME = 1.
 func _process(delta):
 	if fade_in:
 		modulate.a = move_toward(modulate.a, 1., delta / FADE_TIME)
-		$ColorRect.modulate.a = modulate.a
-		$Title.modulate.a = modulate.a
-		$Objectives.modulate.a = modulate.a
 		if modulate.a  == 1.:
 			fade_in = false
 	if fade_out:
 		modulate.a = move_toward(modulate.a, 0., delta / FADE_TIME)
-		$ColorRect.modulate.a = modulate.a
-		$Title.modulate.a = modulate.a
-		$Objectives.modulate.a = modulate.a
 		if modulate.a == 0.:
 			fade_out = false
+	$ColorRect.modulate.a = modulate.a
+	$Title.modulate.a = modulate.a
+	$Objectives.modulate.a = modulate.a
+	$SleepObjective.modulate.a = modulate.a
 
 func start_fade_in(fade_time):
 	modulate.a = 0
