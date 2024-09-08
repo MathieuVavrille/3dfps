@@ -73,7 +73,7 @@ func _process(delta):
 			if hurt_on_fall:
 				print("hurt")
 				$FallFade.modulate.a = 1.
-				start_hurt(INITIAL_FALL_TIME, true)
+				start_hurt(0.75, true)
 		is_airborn = -100
 	elif is_airborn < -10:
 		is_airborn = position.y
@@ -144,7 +144,6 @@ var is_recovering = false
 var is_waiting_for_input = false
 var is_getting_up = false
 var is_the_end = false
-@export var INITIAL_FALL_TIME = 2.
 var FALL_TIME = 2.
 @export var FADE_TIME = 4.
 @export var UP_TIME = 4.
@@ -273,7 +272,7 @@ func _on_sleep_scan_area_exited(_area):
 func _on_fall_scan_area_exited(_area):
 	if hurt_after_eating and has_eaten:
 		has_eaten = false
-		start_hurt(INITIAL_FALL_TIME, true)
+		start_hurt(0.75, true)
 		
 func start_hurt(time, instant=false):
 	is_falling = true

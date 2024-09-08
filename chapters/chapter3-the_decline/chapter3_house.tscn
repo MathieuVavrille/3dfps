@@ -1,4 +1,4 @@
-[gd_scene load_steps=233 format=3 uid="uid://lmp5vnee8jd"]
+[gd_scene load_steps=232 format=3 uid="uid://lmp5vnee8jd"]
 
 [ext_resource type="Script" path="res://chapters/chapter3-the_decline/chapter3_house.gd" id="1_6bq8q"]
 [ext_resource type="PackedScene" uid="uid://c0e5f5fnth2ws" path="res://chapters/chapter3-the_decline/house3_objectives.tscn" id="2_ca68j"]
@@ -12,7 +12,6 @@
 [ext_resource type="Material" uid="uid://bo468il8fg6ka" path="res://assets/textures/wood_floor/wood_floor.tres" id="10_itrdm"]
 [ext_resource type="PackedScene" uid="uid://bi4psk7p5k2dj" path="res://furniture/livingroom/slidable_door_closed.tscn" id="11_033ps"]
 [ext_resource type="Material" uid="uid://c678tsbu4s4ql" path="res://assets/textures/beige_wall/beige_wall.tres" id="11_qxsua"]
-[ext_resource type="PackedScene" uid="uid://dguakr8ewu1hv" path="res://furniture/livingroom/slidable_door_open.tscn" id="12_cnhbw"]
 [ext_resource type="Texture2D" uid="uid://c8uo0o3buv2id" path="res://assets/textures/brick_texture/plaster_brick_pattern_diff_4k.png" id="13_scvku"]
 [ext_resource type="Texture2D" uid="uid://scjolnckkgi4" path="res://assets/textures/brick_texture/plaster_brick_pattern_ao_4k.png" id="14_ai2ge"]
 [ext_resource type="Texture2D" uid="uid://ckwqb8ldod2lj" path="res://assets/textures/brick_texture/plaster_brick_pattern_nor_gl_4k.png" id="15_e50mb"]
@@ -584,7 +583,7 @@ monitor = NodePath("../Bedroom/Monitor")
 jump_height = 0.36
 jump_time_to_peak = 0.36
 capture_mouse = false
-INITIAL_FALL_TIME = 1.0
+sleep_fade_time = 2.0
 
 [node name="Fogs" type="Node3D" parent="."]
 
@@ -651,9 +650,11 @@ shadow_enabled = true
 
 [node name="Light_Icosahedrons" parent="Light" instance=ExtResource("9_rifhd")]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0.5, 2.5, -3)
+reduce_light = true
 
 [node name="LightKitchen" parent="Light" instance=ExtResource("7_t0yd0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.608464, 2.5, -6.53005)
+reduce_light = true
 
 [node name="Structure" type="Node3D" parent="."]
 
@@ -777,10 +778,6 @@ shape = SubResource("ConcavePolygonShape3D_awl2w")
 
 [node name="SlidableDoorClosed" parent="Structure/SlidingWindow" instance=ExtResource("11_033ps")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -2, 0, -4.675)
-
-[node name="SlidableDoorOpen" parent="Structure/SlidingWindow" instance=ExtResource("12_cnhbw")]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -2, 0, -4.67506)
-visible = false
 
 [node name="RightOutside" type="MeshInstance3D" parent="Structure/SlidingWindow"]
 transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, 1, -1, 4.37114e-08, -4.37114e-08, -2.035, 1.25, -7.05)
@@ -996,7 +993,6 @@ shape = SubResource("ConcavePolygonShape3D_2ffvd")
 
 [node name="Ceiling" type="MeshInstance3D" parent="Structure"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2.55, -2.5)
-visible = false
 material_override = ExtResource("11_qxsua")
 mesh = SubResource("BoxMesh_0tsh6")
 

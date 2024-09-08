@@ -11,16 +11,12 @@ var FADE_TIME = 1.
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if fade_in:
-		print("fade_in")
 		modulate.a = move_toward(modulate.a, 1., delta / FADE_TIME)
 		if modulate.a  == 1.:
 			fade_in = false
 			faded_in.emit()
 	if fade_out:
-		print("fade_out ", FADE_TIME)
-		print(modulate.a)
 		modulate.a = move_toward(modulate.a, 0., delta / FADE_TIME)
-		print(modulate.a)
 		if modulate.a == 0.:
 			fade_out = false
 			faded_out.emit()

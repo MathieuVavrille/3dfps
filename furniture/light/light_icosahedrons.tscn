@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvh7bxghas122"]
+[gd_scene load_steps=3 format=3 uid="uid://cvh7bxghas122"]
 
 [ext_resource type="PackedScene" uid="uid://cjelyjgljkces" path="res://assets/furnitures/light/Light_Icosahedron2.blend" id="1_20wv7"]
+[ext_resource type="Script" path="res://furniture/light/light_icosahedrons.gd" id="2_d58h4"]
 
 [node name="Light_Icosahedrons" instance=ExtResource("1_20wv7")]
+script = ExtResource("2_d58h4")
 
 [node name="Light_Icosahedron2" parent="." index="0"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

@@ -21,6 +21,7 @@ func start_chapter():
 	$ChapterScreen/Chapter.start_fade_out(fade_times/2)
 	$Player.set_process(true)
 	$Player.set_physics_process(true)
+	$Objectives3House.start_fade_in(2)
 
 func fish_collected():
 	$Objectives3House.objective_got("fish")
