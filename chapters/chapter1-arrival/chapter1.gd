@@ -8,8 +8,8 @@ var beam = load("res://ui/cat_paw1.png")
 func _ready():
 	Input.set_custom_mouse_cursor(arrow)
 	Input.set_custom_mouse_cursor(beam, Input.CURSOR_IBEAM)
-	$Movable.set_process(false)
-	$Movable/pat_carrier/Player.set_process(false)
+	$pat_carrier.set_process(false)
+	$pat_carrier/Player.set_process(false)
 	$Cars/VehicleSports.set_process(false)
 	$Cars/VehicleTruck.set_process(false)
 	$PauseMenu.set_process(false)
@@ -33,8 +33,8 @@ func start_chapter():
 	$TitleScreen.start_fade_out(fade_times)
 	$Steps.play()
 	$Street.play()
-	$Movable.set_process(true)
-	$Movable/pat_carrier/Player.set_process(true)
+	$pat_carrier.set_process(true)
+	$pat_carrier/Player.set_process(true)
 	$Cars/VehicleSports.set_process(true)
 	$Cars/VehicleTruck.set_process(true)
 	var timer = get_tree().create_timer(37)
@@ -46,5 +46,9 @@ func end_sub_chapter():
 	$TitleScreen/ColorRect.start_fade_in(2)
 
 func _on_color_rect_faded_in():
-	var timer = get_tree().create_timer(0.5)
-	timer.timeout.connect(get_tree().quit)
+	var timer = get_tree().create_timer(2)
+	timer.timeout.connect(change_chapter)
+var next_scene = preload("res://chapters/chapter1-arrival/chapter1_house.tscn")
+func change_chapter():
+	get_tree().root.add_child(next_scene.instantiate())
+	get_node("/root/Chapter1Outside").queue_free()

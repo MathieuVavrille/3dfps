@@ -243,7 +243,7 @@ albedo_texture = ExtResource("1_upqp5")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gvebd"]
 albedo_texture = ExtResource("1_upqp5")
 
-[node name="Chapter1" type="Node3D"]
+[node name="Chapter1Outside" type="Node3D"]
 script = ExtResource("1_auond")
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("40_5mil0")]
@@ -672,14 +672,10 @@ material_override = SubResource("StandardMaterial3D_4hgss")
 mesh = ExtResource("7_l3c7d")
 skeleton = NodePath("../..")
 
-[node name="Movable" type="Node3D" parent="."]
+[node name="pat_carrier" parent="." instance=ExtResource("29_5bef6")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -28.5, 1, 3.5)
-script = ExtResource("29_jgr65")
 
-[node name="pat_carrier" parent="Movable" instance=ExtResource("29_5bef6")]
-is_moving = true
-
-[node name="Player" parent="Movable/pat_carrier" instance=ExtResource("30_626l2")]
+[node name="Player" parent="pat_carrier" instance=ExtResource("30_626l2")]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -0.0168018, -0.274616, 0)
 capture_mouse = false
 
@@ -728,12 +724,12 @@ skeleton = NodePath("../..")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.0147545, 0.97283, -0.231048, 0.19506, 0.229434, 0.953578, 0.98068, -0.0309987, -0.193145, 0, 10, 7)
-visible = false
 shadow_enabled = true
 shadow_opacity = 0.9
 shadow_blur = 2.0
 
 [node name="PauseMenu" parent="." instance=ExtResource("43_1c053")]
+capture_from_start = false
 
 [node name="TitleScreen" type="Control" parent="."]
 layout_mode = 3
@@ -1012,8 +1008,8 @@ skeleton = NodePath("../..")
 [node name="Cursor" type="Node" parent="."]
 script = ExtResource("53_qt06f")
 
-[connection signal="pause" from="Movable/pat_carrier/Player" to="." method="_on_player_pause"]
-[connection signal="unpause" from="Movable/pat_carrier/Player" to="." method="_on_player_unpause"]
+[connection signal="pause" from="pat_carrier/Player" to="." method="_on_player_pause"]
+[connection signal="unpause" from="pat_carrier/Player" to="." method="_on_player_unpause"]
 [connection signal="faded_in" from="TitleScreen/ColorRect" to="." method="_on_color_rect_faded_in"]
 [connection signal="faded_out" from="TitleScreen/PlayButton" to="." method="_on_play_button_faded_out"]
 [connection signal="pressed" from="TitleScreen/PlayButton" to="." method="_on_play_button_pressed"]

@@ -42,6 +42,8 @@ func copy_collision(goal, to_change):
 	to_change.transform = goal.transform
 
 func _ready():
+	print($RotationHelper.position)
+	print($RotationHelper/Camera.position)
 	$MeshInstance3D.visible=false
 	copy_collision($BodyCollision, $Scans/SleepScan/CollisionShape3D)
 	copy_collision($BodyCollision, $Scans/LitterScan/CollisionShape3D)
@@ -60,7 +62,8 @@ func _ready():
 
 func apply_noise_shake() -> void:
 	shake_strength = NOISE_SHAKE_STRENGTH
-	
+
+@export var FALL_HEIGHT = 1000.
 var is_airborn = -100.
 func _process(delta):
 	shake_strength = lerp(shake_strength, 0., SHAKE_DECAY_RATE * delta)
@@ -68,15 +71,16 @@ func _process(delta):
 	camera.h_offset = offset.x
 	camera.v_offset = offset.y
 	if is_on_floor():
-		if is_airborn - position.y > 0.4 :
+		if is_airborn > -10:
+			print(position.y, " ", is_airborn)
+		if is_airborn - position.y > FALL_HEIGHT :
 			apply_noise_shake()
 			if hurt_on_fall:
-				print("hurt")
 				$FallFade.modulate.a = 1.
 				start_hurt(0.75, true)
 		is_airborn = -100
-	elif is_airborn < -10:
-		is_airborn = position.y
+	else:
+		is_airborn = max(is_airborn, position.y)
 	process_interaction()
 
 @export var sleep_fade_time = 6.
@@ -123,7 +127,8 @@ func process_interaction():
 		objectives.objective_got("hack")
 		$Sound/Hack.play()
 		monitor.bug()
-	if can_sleep and Input.is_action_just_pressed("interact"):
+	if can_sleep > 0 and Input.is_action_just_pressed("interact"):
+		print("here")
 		objectives.objective_got("sleep")
 		start_hurt(sleep_fade_time)
 		$KeyText.visible = false
@@ -259,14 +264,15 @@ func _on_hack_scan_area_exited(_area):
 	$KeyText.fade_out()
 
 var is_sleep_allowed = true
-var can_sleep = false
+var can_sleep = 0
 func _on_sleep_scan_area_entered(_area):
 	if is_sleep_allowed:
-		can_sleep = true
+		can_sleep += 1
 		$KeyText.show_text("Sleep")
 func _on_sleep_scan_area_exited(_area):
 	if is_sleep_allowed:
-		can_sleep = false
+		can_sleep -= 1
+	if can_sleep == 0:
 		$KeyText.fade_out()
 
 func _on_fall_scan_area_exited(_area):
