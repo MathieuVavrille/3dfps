@@ -1,4 +1,4 @@
-[gd_scene load_steps=231 format=3 uid="uid://c35dpjo14xvyk"]
+[gd_scene load_steps=236 format=3 uid="uid://c35dpjo14xvyk"]
 
 [ext_resource type="Script" path="res://chapters/chapter1-arrival/chapter1_house.gd" id="1_tq2ho"]
 [ext_resource type="PackedScene" uid="uid://d0yn87cipejej" path="res://chapters/chapter1-arrival/objectives1.tscn" id="2_0vry1"]
@@ -6,8 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://bsrtuk08q0hwe" path="res://fog/sleep_fog.tscn" id="4_8yqf0"]
 [ext_resource type="PackedScene" uid="uid://cr8b11mde2o2t" path="res://objectives/collectible_fish.tscn" id="5_srb8o"]
 [ext_resource type="PackedScene" uid="uid://chluf6qlrle6s" path="res://furniture/light/light_ceiling_bathroom.tscn" id="6_v5dh8"]
+[ext_resource type="Texture2D" uid="uid://bh5cwbhpwp0ij" path="res://assets/furnitures/cat_bed/pet_bed_Mat_Diffuse.png" id="7_avpss"]
 [ext_resource type="PackedScene" uid="uid://c6th8b18tbwof" path="res://furniture/light/light_ceiling_1.tscn" id="7_lmlf0"]
 [ext_resource type="PackedScene" uid="uid://cvh7bxghas122" path="res://furniture/light/light_icosahedrons.tscn" id="8_b2b6b"]
+[ext_resource type="Texture2D" uid="uid://dfe3lquuwuf1r" path="res://assets/furnitures/cat_bed/pet_bed_Mat_Normal.png" id="8_naew4"]
+[ext_resource type="ArrayMesh" uid="uid://mscmkl2vn4kf" path="res://assets/furnitures/cat_bed/pet_bed.obj" id="9_4t7fn"]
 [ext_resource type="Material" uid="uid://bo468il8fg6ka" path="res://assets/textures/wood_floor/wood_floor.tres" id="9_md5ss"]
 [ext_resource type="Material" uid="uid://c678tsbu4s4ql" path="res://assets/textures/beige_wall/beige_wall.tres" id="10_ehafn"]
 [ext_resource type="Texture2D" uid="uid://c8uo0o3buv2id" path="res://assets/textures/brick_texture/plaster_brick_pattern_diff_4k.png" id="11_7aiq0"]
@@ -478,6 +481,14 @@ albedo_color = Color(0, 0, 0, 1)
 height = 0.297632
 radius = 0.127682
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ib30"]
+albedo_texture = ExtResource("7_avpss")
+normal_enabled = true
+normal_texture = ExtResource("8_naew4")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_esjkd"]
+radius = 59.5965
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aukj1"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_njle0"]
@@ -572,7 +583,6 @@ script = ExtResource("1_tq2ho")
 
 [node name="pat_carrier" parent="." instance=ExtResource("116_21scn")]
 transform = Transform3D(-5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 3.65637, 0.794996, -1)
-speedup = 5.0
 positions = [Vector2(3.6, -1), Vector2(1, -1), Vector2(0.57, -1.42), Vector2(0.57, -3.15), Vector2(1.57, -3.15)]
 pos_time = [0.0, 6.0, 9.0, 12.0, 15.0]
 rotations = [270.0, 270.0, 180.0, 135.0, 30.0]
@@ -583,10 +593,13 @@ loop = false
 
 [node name="Player" parent="pat_carrier" node_paths=PackedStringArray("objectives", "monitor") instance=ExtResource("3_qnk46")]
 transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -0.00542092, -0.261351, -0.0232666)
+MAX_SPEED = 1.0
 start_asleep = false
 hurt_after_eating = false
 objectives = NodePath("../../ObjectivesChapter1")
 monitor = NodePath("../../Bedroom/Monitor")
+jump_height = 0.5
+jump_time_to_peak = 0.5
 FALL_HEIGHT = 100.0
 sleep_fade_time = 4.0
 
@@ -600,6 +613,38 @@ size = Vector3(0.951468, 0.216976, 2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.92921, 0.500327, -2.39847)
 size = Vector3(1.62697, 0.245934, 0.636779)
 
+[node name="TV" parent="Fogs" instance=ExtResource("4_8yqf0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.79478, 0.168204, -5.763)
+size = Vector3(2, 0.322293, 0.908922)
+
+[node name="Bed" parent="Fogs" instance=ExtResource("4_8yqf0")]
+transform = Transform3D(-0.00954594, 0, 0.00954594, 0, 0.0135, 0, -0.00954594, 0, -0.00954594, -1.73826, 0.0781147, -0.267353)
+size = Vector3(26.7277, 10.082, 29.6946)
+
+[node name="Chair" parent="Fogs" instance=ExtResource("4_8yqf0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.344939, 0.437174, -2.79532)
+size = Vector3(0.368196, 0.17544, 0.345274)
+
+[node name="Chair2" parent="Fogs" instance=ExtResource("4_8yqf0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.709723, 0.437174, -1.58986)
+size = Vector3(0.35, 0.18, 0.35)
+
+[node name="Chair3" parent="Fogs" instance=ExtResource("4_8yqf0")]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -1.13876, 0.437174, -2.07602)
+size = Vector3(0.35, 0.18, 0.35)
+
+[node name="Chair4" parent="Fogs" instance=ExtResource("4_8yqf0")]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -1.47721, 0.437174, -2.70421)
+size = Vector3(0.35, 0.18, 0.35)
+
+[node name="Chair5" parent="Fogs" instance=ExtResource("4_8yqf0")]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -0.805071, 0.437174, -3.47765)
+size = Vector3(0.35, 0.18, 0.35)
+
+[node name="Chair6" parent="Fogs" instance=ExtResource("4_8yqf0")]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -0.108918, 0.437174, -2.13415)
+size = Vector3(0.35, 0.18, 0.35)
+
 [node name="Fish" type="Node3D" parent="."]
 
 [node name="Kitchen" parent="Fish" instance=ExtResource("5_srb8o")]
@@ -608,32 +653,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.459841, 2, -7.18571)
 [node name="TV" parent="Fish" instance=ExtResource("5_srb8o")]
 transform = Transform3D(0.95, 0, -1.13249e-07, 0, 0.95, 0, 1.13249e-07, 0, 0.95, 2.79157, 0.768033, -5.79778)
 
-[node name="Chair" parent="Fish" instance=ExtResource("5_srb8o")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1.116, 0.487516, -2.06974)
-
 [node name="Table" parent="Fish" instance=ExtResource("5_srb8o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49843, 0.13625, -6.43757)
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -0.718433, 0.816001, -2.47527)
 
-[node name="NightStand" parent="Fish" instance=ExtResource("5_srb8o")]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3, 0.0934756, 2.70465)
+[node name="Fridge" parent="Fish" instance=ExtResource("5_srb8o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65809, 0.13625, -6.55986)
 
 [node name="Entrance" parent="Fish" instance=ExtResource("5_srb8o")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.56973, 0.110601, -0.950539)
 
-[node name="Monitor" parent="Fish" instance=ExtResource("5_srb8o")]
-transform = Transform3D(0.207055, 0, -0.772741, 0, 0.8, 0, 0.772741, 0, 0.207055, -5.80843, 0.784163, 0.216339)
-
-[node name="Desk" parent="Fish" instance=ExtResource("5_srb8o")]
-transform = Transform3D(-0.636396, 0, -0.636396, 0, 0.9, 0, 0.636396, 0, -0.636396, -4.88222, 0.106427, 0.250711)
-
-[node name="Bath" parent="Fish" instance=ExtResource("5_srb8o")]
-transform = Transform3D(-0.565685, 0, -0.565685, 0, 0.8, 0, 0.565685, 0, -0.565685, 3.84195, 0.606091, 0.154031)
-
-[node name="Shelf" parent="Fish" instance=ExtResource("5_srb8o")]
-transform = Transform3D(-3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 1.58222, 1.49566, 0.189766)
-
 [node name="Box" parent="Fish" instance=ExtResource("5_srb8o")]
-transform = Transform3D(-3.49691e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.49691e-08, 1.5, 0.928933, -3.15)
+transform = Transform3D(-3.49691e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.49691e-08, 1.5489, 0.883605, -3.15898)
 
 [node name="Light" type="Node3D" parent="."]
 
@@ -1227,6 +1257,20 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.145509, 0)
 shape = SubResource("CylinderShape3D_yyi5f")
 
+[node name="PetBed" type="MeshInstance3D" parent="LivingRoom"]
+transform = Transform3D(-0.00954594, 0, 0.00954594, 0, 0.0135, 0, -0.00954594, 0, -0.00954594, -1.73826, -0.0190196, -0.267353)
+material_override = SubResource("StandardMaterial3D_1ib30")
+mesh = ExtResource("9_4t7fn")
+skeleton = NodePath("../../Fish/Fridge")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="LivingRoom/PetBed"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LivingRoom/PetBed/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.196037, -53.717, -9.96229)
+shape = SubResource("SphereShape3D_esjkd")
+
 [node name="Bedroom" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 0, 1)
 
@@ -1278,7 +1322,7 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_u2wyu")
 
 [node name="ShirtOnHanger" type="MeshInstance3D" parent="Bedroom"]
-transform = Transform3D(0.015, 0, 0.0259808, 0, 0.03, 0, -0.0259808, 0, 0.015, 0.43654, 1.25, -2.6268)
+transform = Transform3D(0.0212132, 0, -0.0212132, 0, 0.03, 0, 0.0212132, 0, 0.0212132, 0.445203, 1.24014, -2.6199)
 material_override = SubResource("StandardMaterial3D_qlmto")
 mesh = ExtResource("67_x8kp5")
 skeleton = NodePath("../..")
@@ -1299,9 +1343,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.143, 0, -7.45)
 
 [node name="Fridge" parent="Kitchen" instance=ExtResource("72_vagfc")]
 transform = Transform3D(1, 0, 0, 0, 0.8, 0, 0, 0, 1, -1.587, 0, -7.45)
-
-[node name="Trashcan_Large2" parent="Kitchen" instance=ExtResource("73_6jb5s")]
-transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0.714348, 0, -6.28916)
 
 [node name="Kitchen_Cabinet_Big" parent="Kitchen" instance=ExtResource("74_c5v4n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.4, -7.45)
@@ -1593,6 +1634,9 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("114_tiqdv")
 
 [node name="PauseMenu" parent="." instance=ExtResource("115_mbtxr")]
+
+[node name="Trashcan_Large2" parent="." instance=ExtResource("73_6jb5s")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.76064, -1.19209e-07, -6.2351)
 
 [connection signal="can_sleep" from="ObjectivesChapter1" to="." method="_on_objectives_can_sleep"]
 [connection signal="objectives_finished" from="ObjectivesChapter1" to="." method="end_chapter"]

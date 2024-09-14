@@ -29,6 +29,7 @@ func _on_objectives_finished():
 	$PetBed/SleepFog.visible = false
 	$PetBed/SleepFog.disable(true)
 	$Credits.start()
+	$Credits.visible = true
 	$ObjectivesVet.start_fade_out(2.)
 	is_the_end = true
 

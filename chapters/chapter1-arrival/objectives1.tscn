@@ -95,7 +95,7 @@ offset_bottom = 230.0
 grow_horizontal = 0
 scale = Vector2(0.25, 0.25)
 text = " Collect Fish"
-total = 1
+total = 5
 obj_name = "fish"
 
 [node name="LitterObjective" parent="Objectives" instance=ExtResource("2_t1vyj")]

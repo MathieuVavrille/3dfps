@@ -767,13 +767,13 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 20
 text = "Controls:
 
-Move:                     ZQSD or Arrow Keys
+Move:                     ZQSD / Arrow Keys
 Move Camera:     Mouse
-Jump:                     SpaceBar
-Interact:                A
+Jump:                     SpaceBar / Shift / 0
+Interact:                A / Ctrl
 Pause:                   Escape
 
-You can sleep on the foggy areas
+You can sleep on the comfy (foggy) areas
  when the objectives are finished"
 script = ExtResource("41_ewclu")
 

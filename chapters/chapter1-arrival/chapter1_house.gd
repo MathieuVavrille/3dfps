@@ -10,7 +10,6 @@ func _ready():
 		fish.collected.connect(fish_collected)
 	$Fade.start_fade_out(fade_times)
 
-
 func fish_collected():
 	$ObjectivesChapter1.objective_got("fish")
 

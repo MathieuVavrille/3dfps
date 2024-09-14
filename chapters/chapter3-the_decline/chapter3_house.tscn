@@ -577,6 +577,8 @@ script = ExtResource("1_6bq8q")
 
 [node name="Player" parent="." node_paths=PackedStringArray("objectives", "monitor") instance=ExtResource("3_37g51")]
 transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 1.47833, 0.487711, -2.28242)
+MAX_SPEED = 0.75
+ACCEL = 2.0
 start_asleep = false
 objectives = NodePath("../Objectives3House")
 monitor = NodePath("../Bedroom/Monitor")
@@ -586,6 +588,7 @@ capture_mouse = false
 SHAKE_DECAY_RATE = 5.0
 FALL_HEIGHT = 0.67
 sleep_fade_time = 2.0
+MOUSE_SENSITIVITY = 25
 
 [node name="Fogs" type="Node3D" parent="."]
 
@@ -1639,3 +1642,4 @@ stream = ExtResource("116_541cc")
 [connection signal="can_sleep" from="Objectives3House" to="." method="_on_objectives_can_sleep"]
 [connection signal="objectives_finished" from="Objectives3House" to="." method="end_chapter"]
 [connection signal="faded_in" from="ChapterScreen/ColorRect" to="." method="_on_color_rect_faded_in"]
+[connection signal="faded_in" from="ChapterScreen/Chapter" to="." method="_on_chapter_faded_in"]

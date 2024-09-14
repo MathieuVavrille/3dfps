@@ -4,7 +4,7 @@ signal pause
 signal unpause
 
 @export var MAX_SPEED = 2.5
-const ACCEL = 4.
+@export var ACCEL = 4.
 const DEACCEL= 10.
 
 var dir = Vector3()
@@ -42,8 +42,6 @@ func copy_collision(goal, to_change):
 	to_change.transform = goal.transform
 
 func _ready():
-	print($RotationHelper.position)
-	print($RotationHelper/Camera.position)
 	$MeshInstance3D.visible=false
 	copy_collision($BodyCollision, $Scans/SleepScan/CollisionShape3D)
 	copy_collision($BodyCollision, $Scans/LitterScan/CollisionShape3D)
@@ -71,8 +69,6 @@ func _process(delta):
 	camera.h_offset = offset.x
 	camera.v_offset = offset.y
 	if is_on_floor():
-		if is_airborn > -10:
-			print(position.y, " ", is_airborn)
 		if is_airborn - position.y > FALL_HEIGHT :
 			apply_noise_shake()
 			if hurt_on_fall:
@@ -128,7 +124,6 @@ func process_interaction():
 		$Sound/Hack.play()
 		monitor.bug()
 	if can_sleep > 0 and Input.is_action_just_pressed("interact"):
-		print("here")
 		objectives.objective_got("sleep")
 		start_hurt(sleep_fade_time)
 		$KeyText.visible = false
@@ -241,7 +236,6 @@ func _on_food_scan_area_exited(_area):
 var can_drink = false
 func _on_water_bowl_scan_area_entered(_area):
 	can_drink = true
-	print("can_drink")
 	$KeyText.show_text("Drink")
 func _on_water_bowl_scan_area_exited(_area):
 	can_drink = false

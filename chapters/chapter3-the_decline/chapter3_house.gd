@@ -4,6 +4,7 @@ var fade_times = 2.
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Player/RotationHelper/Camera.make_current()
 	$Player.set_process(false)
 	$Player.set_physics_process(false)
 	$Fogs.visible=false
@@ -11,10 +12,12 @@ func _ready():
 		fog.disable(true)
 	for child in $Fish.get_children():
 		child.collected.connect(fish_collected)
-	var timer = get_tree().create_timer(fade_times)
-	timer.timeout.connect(start_chapter)
-	var sound_timer = get_tree().create_timer(1.)
+	var sound_timer = get_tree().create_timer(2.)
 	sound_timer.timeout.connect($DoorCloses.play)
+	$ChapterScreen/Chapter.start_fade_in(1.)
+
+func _on_chapter_faded_in():
+	get_tree().create_timer(fade_times).timeout.connect(start_chapter)
 
 func start_chapter():
 	$ChapterScreen.start_fade_out(fade_times)
@@ -42,4 +45,5 @@ var next_scene = preload("res://chapters/chapter3-the_decline/outside_night.tscn
 func change_chapter():
 	get_tree().root.add_child(next_scene.instantiate())
 	get_node("/root/Chapter3House").queue_free()
+
 
